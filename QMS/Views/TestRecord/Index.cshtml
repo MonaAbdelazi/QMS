@@ -1,0 +1,87 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.TEST_SUMMARY
+
+@{
+    ViewBag.Title = GeneralRes.Create;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@GeneralRes.Index</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Tests</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Batch)
+
+                                @Html.DropDownListFor(model => model.BATCH_ID,
+                                                        ViewBag.ActiveBatches as SelectList,
+                                                        CommonRes.SelectDropDown,
+                                                        new { @class = "form-control", @onChange = "batchSelected();" })
+                                @Html.ValidationMessageFor(model => model.BATCH_ID)
+
+                            </div>
+
+                        </div>
+                        <div id="batchForm">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function batchSelected() {
+
+            var target = $('#batchForm');
+            var input = { batchId: $('#BATCH_ID').val()};
+            $.ajax({
+                url: '/TestRecord/FillBatchDetails',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+        }
+        
+    </script>
+}

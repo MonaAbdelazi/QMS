@@ -1,0 +1,781 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.Batchs
+
+@{
+    ViewBag.Title = GeneralRes.Create;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var message = TempData["AlertMessage"] ?? string.Empty;
+
+}
+
+<h2>@MenusRes.BatchRegisteration</h2>
+
+
+@using (Html.BeginForm("Create", "BatchRegisteration", FormMethod.Post, new { enctype = "multipart/form-data"  ,@id="formid"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+        <div class="row">
+            @Html.TextBox("lblErr", string.Empty, new { @class = "label-danger", @hidden= "hidden" })
+
+
+            <div class="col-lg-12">
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+
+                        <h4 class="panel-title">@QMSRes.RegisterationForm</h4>
+                    </div>
+                    @{Html.RenderPartial("Partial/_RegionsPartial", new QMS.Data.REGION ());}
+
+                    <div id="outputTableM">
+                        @{Html.RenderPartial("Partial/_MarketsPartial", new QMS.Data.MARKET());}
+
+
+                    </div>
+
+
+
+
+                    <!--Pop Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+
+
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add New Exporter</h4>
+                                </div>
+                                <div class="modal-body">
+
+
+
+                                    <div class="form-horizontal">
+
+                                        <hr />
+                                        <div class="col-lg-3">
+                                            @Html.Label(QMSRes.Name)
+
+                                            @Html.TextBoxFor(model => model.EXPORTER.EXPORTER_NAME, new { @class = "form-control", @id = "EXPORTER_NAME" })
+                                            @Html.ValidationMessageFor(model => model.EXPORTER.EXPORTER_NAME)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.Label(QMSRes.TYPE_NAME)
+
+                                            @Html.DropDownListFor(model => model.EXPORTER.EXPORTER_TYPE_ID, ViewBag.EXPORTER_TYPE_ID as SelectList, CommonRes.SelectDropDown, new { @id = "EXPORTER_TYPE_ID", @class = "form -control" })
+                                            @Html.ValidationMessageFor(model => model.EXPORTER.EXPORTER_TYPE_ID)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.Label(QMSRes.BankName)
+
+                                            @Html.DropDownList("Banks", ViewBag.Banks as SelectList, CommonRes.SelectDropDown, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.Label(QMSRes.BranchName)
+
+                                            @Html.DropDownListFor(model => model.EXPORTER.BANK_BRANCH_ID, ViewBag.BANK_BRANCH_ID as SelectList, CommonRes.SelectDropDown, new { @id = "BANK_BRANCH_ID", @class = "form -control" })
+                                            @Html.ValidationMessageFor(model => model.EXPORTER.BANK_BRANCH_ID)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.Label(QMSRes.IdType)
+
+                                            @Html.DropDownListFor(model => model.EXPORTER.ID_TYPE_ID, ViewBag.ID_TYPE_ID as SelectList, CommonRes.SelectDropDown, new { @id = "ID_TYPE_ID", @class = "form -control" })
+                                            @Html.ValidationMessageFor(model => model.EXPORTER.ID_TYPE_ID)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.Label(QMSRes.ID_REFERENCE)
+
+                                            @Html.TextBoxFor(model => model.EXPORTER.ID_REFERENCE, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.EXPORTER.ID_REFERENCE)
+                                        </div>
+                                        <div class="col-lg-3">
+                                            @Html.Label(QMSRes.BIRTH_ESTABLISHMENT_DATE)
+
+                                            @Html.TextBoxFor(model => model.EXPORTER.BIRTH_ESTABLISHMENT_DATE, new { @class = "form-control", @type = "Date" })
+                                            @Html.ValidationMessageFor(model => model.EXPORTER.BIRTH_ESTABLISHMENT_DATE)
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" type="button" onclick="SaveExporter();">Save Data</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="panel-body">
+                        <hr />
+
+                        <div class="form-group row">
+                            <div class="col-lg-3">
+                                @Html.Label(MenusRes.Exporters)
+
+                                @Html.DropDownListFor(model => model.ExporterID, ViewBag.ExporterID as SelectList, CommonRes.SelectDropDown, new { @class = "form-control" ,@onChange="expSelected();"})
+
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.PermitReference)
+
+                                @Html.TextBoxFor(model => model.PermitReference , null, new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.ScanOfPermit)
+                                <input type="file" name="file" id="file" class="btn btn-warning" style="width: 100%;"  />
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.RecieptReference)
+
+                                @Html.TextBoxFor(model => model.RecieptReference, null, new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.NoOfPermittedAnimals)
+
+                                @Html.TextBoxFor(model => model.NoOfPermittedAnimals, null, new { @class = "form-control",type="number" })
+                            </div>
+                          
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.DestenationID)
+
+                                @Html.DropDownListFor(model => model.DestenationID, ViewBag.DestenationID as SelectList, CommonRes.SelectDropDown, new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(MenusRes.AnimalType)
+
+                                @Html.DropDownListFor(model => model.typeID, ViewBag.typeID as SelectList, CommonRes.SelectDropDown, new { @class = "form-control", @onchange = "typeSelected();" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.DEFAULT_AVERAGE_WEIGHT)
+
+                                @Html.TextBoxFor(model => model.AverageWeight, new { @class = "form-control", @type = "number" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(MenusRes.RegionsAndMarket)
+
+                                @Html.DropDownList("Regions", ViewBag.Regions as SelectList, CommonRes.SelectDropDown, new { @class = "form-control", @onchange = "regionSelected();" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.MarketName)
+                                @Html.DropDownList("marketID", null, CommonRes.SelectDropDown, new { @class = "form-control", @onchange = "marketSelected();" })
+                            </div>
+
+                        </div>
+                     
+
+
+
+                        <div id="outputTable">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="panel panel-light-blue" data-toggle="collapse">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.BatchRegisteration</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+
+                        <hr />
+
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.AcceptedAnimals)
+
+                                @Html.TextBoxFor(model => model.AcceptedAnimals, new { @class = "form-control", @type = "number" ,@onchange="checknumbers();" })
+                                @Html.ValidationMessageFor(model => model.AcceptedAnimals)
+                                @Html.Label("Accepted anumals should be less than the permitted", new { @id = "lblEroroNum", @hidden = "hidden" ,@class= "label-danger" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.RegisterationDate)
+
+                                @Html.TextBoxFor(model => model.RegisterationDate, new { @class = "form-control", @type = "Date" })
+                                @Html.ValidationMessageFor(model => model.RegisterationDate)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.FeedMethod)
+
+                                @Html.DropDownListFor(model => model.FeedMethod, ViewBag.FeedMethod as SelectList, CommonRes.SelectDropDown, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.FeedMethod)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Note)
+
+                                @Html.TextAreaFor(model => model.NOTES, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NOTES)
+                            </div>
+                            <div class="panel-heading">
+                                <h2 class="panel-title">@MenusRes.Pens</h2>
+                            </div>
+
+                            <div class="panel-body">
+
+                                @Html.TextBox("lblPenErr", string.Empty, new { @class = "label-danger", @hidden = "hidden" })
+
+
+                                <hr />
+
+                                <div class="form-group row">
+                                    <div class="col-lg-3">
+                                        @Html.Label(MenusRes.Pens)
+
+                                        @Html.DropDownListFor(model => model.PenId, ViewBag.PenId as SelectList, CommonRes.SelectDropDown, new { @class = "form-control", @onchange = "checkPen();" })
+                                        @Html.ValidationMessageFor(model => model.PenId)
+                                        @Html.Label("Pen Is Used", new { @id = "Error", @hidden = "hidden" })
+
+                                    </div>
+                                    <div class="col-lg-3">
+
+                                        @Html.Label(QMSRes.color)
+                                        @Html.TextBox("color", string.Empty, new { @class = "form-control" })
+                                    </div>
+                                    
+                                    <div class="col-lg-9">
+                                        @Html.Label(QMSRes.AnimalsLabels)
+                                        @Html.TextBox("label", string.Empty, new { @type = "Char", @onchange = "checkChar();" })
+                                        @Html.Label("Alphabet Only", new { @id = "Errorfrom", @hidden = "hidden" })
+
+
+                                        @Html.TextBox("AnimalsLabels", string.Empty, new { @type = "number" })
+                                        ----
+                                        @Html.TextBox("ToAnimalsLabels", string.Empty, new { @type = "number" })
+
+
+
+                                    </div>
+                                   
+                                </div>
+
+                                <div>
+
+                                    <center>
+                                        <p>
+                                            <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="addPens(this.id);" />
+                                        </p>
+                                    </center>
+
+
+
+                                </div>
+
+
+
+                                <div id="outputTablePens">
+
+                                </div>
+                                </div>
+
+                                </div>
+                                <div class="panel panel-light-blue">
+
+
+                                    <div class="panel-heading">
+
+                                        <h4 class="panel-title">@QMSRes.rejectedAnimals</h4>
+                                    </div>
+
+
+                                    <div class="panel-body">
+                                        <hr />
+
+                                        <div class="form-group row">
+
+                                            <div class="col-lg-3">
+                                                @Html.Label(QMSRes.rejectedAnimals)
+
+                                                @Html.TextBox("rejectedAnimals", null, new { @class = "form-control", @type = "number" })
+                                            </div>
+                                            <div class="col-lg-3">
+
+                                                @Html.Label(QMSRes.Reasons)
+
+
+                                                @Html.TextBox("rejectedReasons", null, new { @class = "form-control" })
+
+                                            </div>
+
+                                        </div>
+                                        <div>
+
+                                            <center>
+                                                <p>
+                                                    <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="add(this.id);" />
+                                                </p>
+                                            </center>
+
+
+
+                                        </div>
+
+
+
+                                        <div id="outputTableReject">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-light-blue">
+
+
+                                    <div class="panel-heading">
+
+                                        <h2 class="panel-title">@QMSRes.Spray</h2>
+                                    </div>
+
+
+                                    <div class="panel-body">
+                                        <hr />
+
+                                        <div class="form-group row">
+
+                                            <div class="col-lg-3">
+                                                @Html.Label(QMSRes.ChemicalType)
+
+                                                @Html.DropDownListFor(model => model.ChemicalType, ViewBag.ChemicalType as SelectList, CommonRes.SelectDropDown, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.ChemicalType)
+                                            </div>
+                                            <div class="col-lg-3">
+                                                @Html.Label(QMSRes.ChemicalTypeAmount)
+                                                @Html.TextBoxFor(model => model.ChemicalAMT, new { @class = "form-control", @type = "number" })
+                                                @Html.ValidationMessageFor(model => model.ChemicalAMT)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+
+                                        <center>
+                                            <p>
+                                                <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="addChemical(this.id);" />
+                                            </p>
+                                        </center>
+
+
+
+                                    </div>
+
+
+
+                                    <div id="outputTable2">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <center class="mgtp">
+
+                                        <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" onclick="checknumbersBefore();"  />
+                                        &nbsp;
+                                        @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                                    </center>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                        </div>
+                    </div>
+
+}
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function checkChar() {
+            
+
+            var string = $('#label').val();
+            var sTotring = $('#Tolabel').val();
+
+            var alphabet = /([a-zA-Z])/;
+            if (!alphabet.test(string)) {
+                $('#label').val(" ");
+                $('#Errorfrom').show();
+            }
+            else {
+                $('#Errorfrom').hide();
+
+            }
+            if (!alphabet.test(sTotring)) {
+                $('#Tolabel').val(" ");
+                $('#ErrorTo').show();
+            }
+            else {
+                $('#ErrorTo').hide();
+
+            }
+        }
+        
+        function   checknumbersBefore() {
+            var form = $('#formid');
+            var input = { AcceptedAnimals: $('#AcceptedAnimals').val(), NoOfPermittedAnimals: $('#NoOfPermittedAnimals').val() };
+            $.ajax({
+                url: '/BatchRegisteration/checknumbersBefore',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data == "OK") {
+                        $('#lblErr').hide();
+                        form.submit();
+                        return true;
+                    } else {
+                        $('#lblErr').val("check No of animals ,accepted/rejected/premitted");
+                        $('#lblErr').show();
+                        return false;
+
+                    }
+
+
+
+                },
+                error: function () {
+                }
+            });
+
+        }
+        function checkPen() {
+
+            var input = { PenId: $('#PenId').val() };
+            $.ajax({
+                url: '/BatchRegisteration/checkPen',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data = "OK") {
+                        $('#Error').hide();
+                    } else if (data = "Full") {
+                        $('#Error').show();
+                        $('#PenId').val(" ");
+                        $('#Error').val("Pen is Full");
+                    } else if (data = "larger") {
+                $('#Error').show();
+                $('#PenId').val(" ");
+                $('#Error').val("Pen is Full");
+                    } else if (data = "larger") {
+                        $('#Error').show();
+                        $('#PenId').val(" ");
+                        $('#Error').val("Pen is Full");
+                    }
+                    else if (data = "Used") {
+                        $('#Error').show();
+                        $('#PenId').val(" ");
+                        $('#label').val(" ");
+                        $('#AnimalsLabels').val(" ");
+                        $('#ToAnimalsLabels').val(" ");
+                        $('#Error').val("Labale is Used");
+                    }
+
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#MARKET_NAME').val("");
+        }
+        function addMarkets(_ddlDesc) {
+
+            var target = $('#outputTableMarket');
+            var input = { marketName: $('#MARKET_NAME').val(), REGION_NAME: $('#Regions').val() };
+            $.ajax({
+                url: '/Regions_Markets/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#MARKET_NAME').val("");
+        }
+        function addMarket(_ddlDesc) {
+
+            var target = $('#outputTableRegionsMarkets');
+            var input = { marketName: $('#marketName').val(), REGION_NAME: $('#REGION_NAME').val() };
+            $.ajax({
+                url: '/Regions_Markets/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#marketName').val("");
+        }
+        function expSelected() {
+            var  batch = $('#ExporterID').val();
+            if(batch=="99")
+             $("#myModal").modal();
+        }
+        $(document).ready(function () {
+        //if(!=null)
+        //{
+        //    $('#lblErr').val(sessionStorage["Er"].ToString());
+        //     $('#lblErr').show();
+        //} else {
+        //    $('#lblErr').hide();
+        //}
+        //Exporter Add New
+        var obj = document.createElement("option");
+            obj.value = 99;
+            obj.innerText = "create new";
+            obj.style.fontStyle.fontcolor = 'Blue';// .marker = true;
+            obj.style.fontWeight = 'bold';
+            obj.style.color = 'blue';
+            obj.style.textUnderlinePosition = true;
+            document.getElementById("ExporterID").appendChild(obj);
+            obj = null;
+            //Regions Add New Regions
+            var obj = document.createElement("option");
+            obj.value = 99;
+            obj.innerText = "create new";
+            obj.style.fontStyle.fontcolor = 'Blue';// .marker = true;
+            obj.style.fontWeight = 'bold';
+            obj.style.color = 'blue';
+            obj.style.textUnderlinePosition = true;
+            document.getElementById("Regions").appendChild(obj);
+            obj = null;
+
+
+        });
+        function SaveExporter() {
+
+            var EXPORTER_TYPE_ID = $('#EXPORTER_TYPE_ID');
+            var BANK_BRANCH_ID = $('#BANK_BRANCH_ID');
+            var EXPORTER_NAME = $('#EXPORTER_NAME').val();
+            var ID_TYPE_ID = $('#ID_TYPE_ID');
+            var ID_REFERENCE = $('#ID_REFERENCE');
+            var BIRTH_ESTABLISHMENT_DATE = $('#BIRTH_ESTABLISHMENT_DATE');
+
+            var input = { EXPORTER_NAME: $('#EXPORTER_NAME').val(), EXPORTER_TYPE_ID: $('#EXPORTER_TYPE_ID').val(), BANK_BRANCH_ID: $('#BANK_BRANCH_ID').val(), ID_TYPE_ID: $('#ID_TYPE_ID').val(), ID_REFERENCE: $('#ID_REFERENCE').val(), BIRTH_ESTABLISHMENT_DATE: $('#BIRTH_ESTABLISHMENT_DATE').val() };
+            $.ajax({
+                url: '/BatchRegisteration/AddData',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#myModal').modal('hide');
+
+                    $('#ExporterID').append("<option selected value=" + data + ">" + EXPORTER_NAME + "</option>");
+                    $('#ExporterID').val(data);
+
+                },
+                error: function () {
+                }
+            });
+
+
+        } 
+        function typeSelected() {
+
+
+            GetDropDownData({ typeID: $('#typeID').val() }, "/BatchRegisteration/getpens", "PenId", " ", true);
+                 
+
+        }
+        function SaveMarkets() {
+
+            var input = { idRegion: $('#Regions').val() };
+            $.ajax({
+                url: '/BatchRegisteration/SaveMarkets',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#myModalMarket').modal('hide');
+
+                    GetDropDownData({ regionId: $('#Regions').val() }, "/BatchRegisteration/regionSelected", "marketID", " ", true);
+                    $('#MARKET_NAME').val(' ');
+
+                },
+                error: function () {
+                }
+            });
+
+
+        }
+
+        function SaveRegionsMarkets() {
+
+            $.ajax({
+                url: '/BatchRegisteration/SaveRegionsMarkets',
+                type: "POST",
+                data: JSON.stringify(),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $('#myModalRegion').modal('hide');
+
+                    $('#Regions').append("<option selected value=" + data + ">" + $('#REGION_NAME').val() + "</option>");
+                    $('#Regions').val(data);
+                    GetDropDownData({ regionId: $('#Regions').val() }, "/BatchRegisteration/regionSelected", "marketID", " ", true);
+                    $('#REGION_NAME').val(' ');
+                    $('#marketName').val(' ');
+
+                },
+                error: function () {
+                }
+            });
+
+
+        }
+
+        function regionSelected() {
+            var batch = $('#Regions').val();
+            if (batch == "99")
+                $("#myModalRegion").modal();
+            GetDropDownData({ regionId: $('#Regions').val() }, "/BatchRegisteration/regionSelected", "marketID", " ", true);
+            var obj = document.createElement("option");
+            obj.value = 99;
+            obj.innerText = "create new";
+            obj.style.fontStyle.fontcolor = 'Blue';// .marker = true;
+            obj.style.fontWeight = 'bold';
+            obj.style.color = 'blue';
+            obj.style.textUnderlinePosition = true;
+            document.getElementById("marketID").appendChild(obj);
+            obj = null;
+        }
+
+
+        function marketSelected() {
+            var batch = $('#marketID').val();
+            if (batch == "99") {
+                $("#myModalMarket").modal();
+
+            }
+
+        }
+
+
+        function addChemical(_ddlDesc) {
+
+            var target = $('#outputTable2');
+            var input = { ChemicalAMT: $('#ChemicalAMT').val(), ChemicalType: $('#ChemicalType').val() };
+            $.ajax({
+                url: '/BatchRegisteration/addChemical',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#ChemicalAMT').val("");
+            $('#ChemicalType').val("");
+        }
+        function add(_ddlDesc) {
+
+            var target = $('#outputTableReject');
+            var input = { rejectedAnimals: $('#rejectedAnimals').val(), rejectedReasons: $('#rejectedReasons').val() };
+            $.ajax({
+                url: '/BatchRegisteration/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#rejectedAnimals').val("");
+            $('#rejectedReasons').val("");
+        }
+        
+        function checknumbers() {
+            var acceptedAnimals = new Number($('#AcceptedAnimals').val());
+            var NoOfPermittedAnimals = new Number($('#NoOfPermittedAnimals').val());
+            if (acceptedAnimals > NoOfPermittedAnimals) {
+                $('#AcceptedAnimals').val("");
+                $('#lblEroroNum').show();
+            } else {
+                $('#lblEroroNum').hide();
+
+            }
+        }
+        function addPens(_ddlDesc) {
+
+            var target = $('#outputTablePens');
+            var input = { color: $('#color').val(), AnimalsLabels: $('#AnimalsLabels').val(), PenId: $('#PenId').val(), typeID: $('#typeID').val(), label: $('#label').val(), ToAnimalsLabels: $('#ToAnimalsLabels').val(), acceptedAnimals: $('#AcceptedAnimals').val() };
+            $.ajax({
+                url: '/BatchRegisteration/AddPens',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data == "Error") {
+                        $('#lblPenErr').show();
+                        $('#lblPenErr').val("check Pens");
+                    }
+                    else {
+                        $('#lblPenErr').hide();
+
+                            target.html(data);
+                        }
+                },
+                error: function () {
+                }
+            });
+
+            $('#AnimalsLabels').val("");
+        }
+        var message = '@message';
+        if (message)
+            alert(message);
+    </script>
+}

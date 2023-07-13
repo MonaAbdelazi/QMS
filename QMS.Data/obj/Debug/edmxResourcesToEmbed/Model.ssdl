@@ -1,0 +1,1810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADDRESS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="LINE1" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="LINE2" Type="nvarchar" MaxLength="200" />
+    <Property Name="LINE3" Type="nvarchar" MaxLength="200" />
+    <Property Name="LINE4" Type="nvarchar" MaxLength="200" />
+    <Property Name="REFERENCE_ID" Type="bigint" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ANIMAL_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="TYPE_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DEFAULT_AVERAGE_WEIGHT" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="FEED_WEIGHT_PERCENTAGE" Type="decimal" Precision="7" Scale="4" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANK">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="BANK_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="varchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="varchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="varchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BatchChemicals">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="CREATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATED_BY" Type="nchar" MaxLength="10" />
+    <Property Name="AUTHORIZED_BY" Type="nchar" MaxLength="10" />
+    <Property Name="CREATED_BY" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="STATUS" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="ChemcialTypeId" Type="bigint" Nullable="false" />
+    <Property Name="Amount" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="batchId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BatchLabel">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="CREATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="STATUS" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="BatchId" Type="bigint" Nullable="false" />
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="batchLabel" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Batchs">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nchar" MaxLength="10" />
+    <Property Name="LAST_UPDATED_BY" Type="nchar" MaxLength="10" />
+    <Property Name="CREATION_DATE" Type="date" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="ExporterID" Type="bigint" Nullable="false" />
+    <Property Name="DestenationID" Type="bigint" Nullable="false" />
+    <Property Name="typeID" Type="bigint" Nullable="false" />
+    <Property Name="AcceptedAnimals" Type="bigint" />
+    <Property Name="marketID" Type="bigint" />
+    <Property Name="PenId" Type="bigint" />
+    <Property Name="spray" Type="nchar" MaxLength="1" />
+    <Property Name="ChemicalType" Type="nchar" MaxLength="10" />
+    <Property Name="ChemicalAMT" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FeedMethod" Type="nchar" MaxLength="20" />
+    <Property Name="AverageWeight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="RegisterationDate" Type="date" />
+    <Property Name="PermitReference" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ScanOfPermit" Type="varbinary(max)" Nullable="false" />
+    <Property Name="RecieptReference" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NoOfPermittedAnimals" Type="int" Nullable="false" />
+    <Property Name="VerfiyStatus" Type="nchar" MaxLength="10" />
+    <Property Name="NoOFDisposed" Type="int" />
+  </EntityType>
+  <EntityType Name="BRANCH">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="BRANCH_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BANK_ID" Type="bigint" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="varchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="varchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="varchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CASE_DIAGNOSIS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="CASE_ID" Type="bigint" Nullable="false" />
+    <Property Name="DIAGNOSIS_ID" Type="bigint" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="CASE_SYMPTOMS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="CASE_ID" Type="bigint" Nullable="false" />
+    <Property Name="SYMPTOM_ID" Type="bigint" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="CASE_TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="CASE_ID" Type="bigint" Nullable="false" />
+    <Property Name="TEST_ID" Type="bigint" Nullable="false" />
+    <Property Name="ANIMAL_LABEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TEST_RESULT" Type="nvarchar" MaxLength="20" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="CHEMICAL">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="CHEMICAL_TYPE" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CHEMICAL_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="INVENTORY_REFERENCE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MEASURE_UNIT" Type="nvarchar" MaxLength="20" />
+    <Property Name="PREQUARENTINE_PROCESS" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHEMICAL_DOSE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="CHEMICAL_ID" Type="bigint" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="bigint" Nullable="false" />
+    <Property Name="WEIGHT_HEAD" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="DOSE" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLINIC_CASES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="BATCH_ID" Type="bigint" Nullable="false" />
+    <Property Name="CASE_TYPE" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ANIMAL_LABEL" Type="nvarchar" MaxLength="20" />
+    <Property Name="Diagnosis" Type="bigint" />
+    <Property Name="DISPOSED" Type="nvarchar" MaxLength="10" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="CONTACT">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="COONTACT_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="200" />
+    <Property Name="SECOND_EMAIL" Type="nvarchar" MaxLength="200" />
+    <Property Name="PHONE_NUMBER" Type="nvarchar" MaxLength="200" />
+    <Property Name="SECOND_PHONE_NUMBER" Type="nvarchar" MaxLength="200" />
+    <Property Name="REFERENCE_ID" Type="bigint" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONTROLRECORD">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="PEN_OCCUPIED" Type="int" Nullable="false" />
+    <Property Name="PEN_CAPACITY" Type="int" Nullable="false" />
+    <Property Name="BATCH_FULL_DATA" Type="int" Nullable="false" />
+    <Property Name="ANIMAL_TAG_MAX" Type="int" Nullable="false" />
+    <Property Name="QUARENTINE_PERIOD_WEEKEND" Type="int" Nullable="false" />
+    <Property Name="BATCH_APPROVAL" Type="int" Nullable="false" />
+    <Property Name="MASTER_APPROVAL" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DESTINATION">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="DESTINATION_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DESTINATION_TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="DESTINATION_ID" Type="bigint" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="bigint" Nullable="false" />
+    <Property Name="TEST_ID" Type="bigint" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="DIAGNOSES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="SHORT_DESCRIPTION" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LONG_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="RECOMMEND_DISPOSAL" Type="nvarchar" MaxLength="10" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="DiposedBatchs">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="BatchId" Type="bigint" Nullable="false" />
+    <Property Name="MethodID" Type="bigint" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DisposeDetails">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="DiposeId" Type="bigint" Nullable="false" />
+    <Property Name="BatchId" Type="bigint" Nullable="false" />
+    <Property Name="AnimalTag" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MethodID" Type="bigint" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DisposeMethod">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="DisposeMethod" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DRIVERS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="DRIVER_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PHONE_NO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="250" />
+    <Property Name="DRIVER_LICENSE" Type="nvarchar" MaxLength="50" />
+    <Property Name="EXPIRY_DATE" Type="date" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="varchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="varchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="varchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXPORTER">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="EXPORTER_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="EXPORTER_TYPE_ID" Type="bigint" Nullable="false" />
+    <Property Name="BANK_BRANCH_ID" Type="bigint" />
+    <Property Name="ID_TYPE_ID" Type="bigint" />
+    <Property Name="ID_REFERENCE" Type="nvarchar" MaxLength="30" />
+    <Property Name="BIRTH_ESTABLISHMENT_DATE" Type="date" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXPORTER_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="TYP_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="INDIVIDUAL_CORPORATE" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FEED_RECORD">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="FEED_TYPE" Type="bigint" Nullable="false" />
+    <Property Name="BATCH_ID" Type="bigint" Nullable="false" />
+    <Property Name="AMOUNT" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="FEED_METHOD" Type="int" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FEED_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="FEED_NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ID_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="TYPE_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="INDIVIDUAL_CORPORATE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="MARKET">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="MARKET_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="REGION_ID" Type="bigint" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEN">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="PEN_ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CAPACITY" Type="int" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TypeID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PensLables">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+    <Property Name="PenId" Type="bigint" Nullable="false" />
+    <Property Name="batchId" Type="bigint" Nullable="false" />
+    <Property Name="lableRanges" Type="varchar(max)" Nullable="false" />
+    <Property Name="color" Type="nchar" MaxLength="10" />
+    <Property Name="Range" Type="int" />
+  </EntityType>
+  <EntityType Name="QUARENTINE_PERIOD">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="DESTINATION_ID" Type="bigint" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="bigint" Nullable="false" />
+    <Property Name="QUARENTINE_DAYS" Type="int" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REGION">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="REGION_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rejected_Animals">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="CREATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATED_BY" Type="nchar" MaxLength="10" />
+    <Property Name="AUTHORIZED_BY" Type="nchar" MaxLength="10" />
+    <Property Name="CREATED_BY" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="STATUS" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar(max)" />
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="RejectedAnimals" Type="int" Nullable="false" />
+    <Property Name="Reasons" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BatchId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReleaseDetails">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="ReleaseRecordId" Type="bigint" Nullable="false" />
+    <Property Name="AnimalTag1" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AnimalTag2" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnimalTag3" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnimalTag4" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReleaseRecord">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="BatchId" Type="bigint" Nullable="false" />
+    <Property Name="ExporterId" Type="bigint" Nullable="false" />
+    <Property Name="DestinationId" Type="bigint" Nullable="false" />
+    <Property Name="AnimalTypeId" Type="bigint" Nullable="false" />
+    <Property Name="QuarantineFacility" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReportTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AnimalCount" Type="int" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="SYMPTOMS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="SHORT_DESCRIPTION" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LONG_DESCRIPTION" Type="nvarchar" MaxLength="1000" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="TESTED_ANIMALS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="BATCH_ID" Type="bigint" Nullable="false" />
+    <Property Name="TEST_ID" Type="bigint" Nullable="false" />
+    <Property Name="ANIMAL_LABEL" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TEST_RESULT" Type="int" Nullable="false" />
+    <Property Name="TestRange" Type="bigint" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="TESTED_RANGES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="BATCH_ID" Type="bigint" Nullable="false" />
+    <Property Name="TEST_ID" Type="bigint" Nullable="false" />
+    <Property Name="RANGE_FROM" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RANGE_TO" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TESTED_ANIMALS" Type="int" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="TestKits">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="date" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="TestID" Type="bigint" Nullable="false" />
+    <Property Name="kit" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="TEST_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+    <Property Name="Sample" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TestAction" Type="nchar" MaxLength="10" />
+    <Property Name="RoundRequired" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Kits" Type="nvarchar" MaxLength="50" />
+    <Property Name="Percentage" Type="nchar" MaxLength="10" />
+    <Property Name="Number" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="USR_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MIDDLE_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="LAST_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="bigint" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="bigint" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="datetime" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VEHICLES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="MODEL_ID" Type="bigint" Nullable="false" />
+    <Property Name="YEAR" Type="int" Nullable="false" />
+    <Property Name="LICENSE_PLATE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="varchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="varchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="varchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VEHICLES_MAKE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="MAKE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="varchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="varchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="varchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VEHICLES_MODEL">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="bigint" Nullable="false" />
+    <Property Name="MAKE_ID" Type="bigint" Nullable="false" />
+    <Property Name="MODEL" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="varchar(max)" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="varchar(max)" />
+    <Property Name="LAST_UPDATED_BY" Type="varchar(max)" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QMSM.dbo.TEST_SUMMARY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TEST_SUMMARY">
+    <Key>
+      <PropertyRef Name="BATCH_ID" />
+      <PropertyRef Name="TEST_ID" />
+      <PropertyRef Name="TEST_NAME" />
+      <PropertyRef Name="SAMPLING_METHOD" />
+      <PropertyRef Name="CURRENT_STATUS" />
+    </Key>
+    <Property Name="BATCH_ID" Type="bigint" Nullable="false" />
+    <Property Name="TEST_ID" Type="bigint" Nullable="false" />
+    <Property Name="TEST_NAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ACCEPTED_ANIMALS" Type="bigint" />
+    <Property Name="SAMPLING_METHOD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RECOMMENDED_SAMPLE_SIZE" Type="bigint" />
+    <Property Name="TESTED_ANIMALS" Type="int" />
+    <Property Name="POSITIVE_CASES" Type="int" />
+    <Property Name="CURRENT_STATUS" Type="varchar" MaxLength="17" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ADDRESS_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRESS_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRESS_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batch_Rejected_Animals">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="Rejected_Animals" Type="Self.Rejected_Animals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Rejected_Animals">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BatchChemicals_Batch">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="BatchChemicals" Type="Self.BatchChemicals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BatchChemicals">
+        <PropertyRef Name="batchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BatchChemicals_BatchChemicals">
+    <End Role="BatchChemicals" Type="Self.BatchChemicals" Multiplicity="1" />
+    <End Role="BatchChemicals1" Type="Self.BatchChemicals" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BatchChemicals">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BatchChemicals1">
+        <PropertyRef Name="SYSTEMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_BATCHES">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="TESTED_ANIMALS" Type="Self.TESTED_ANIMALS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_ANIMALS">
+        <PropertyRef Name="BATCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_R_BATCHES">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="TESTED_RANGES" Type="Self.TESTED_RANGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_RANGES">
+        <PropertyRef Name="BATCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_R_TESTS">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="TESTED_RANGES" Type="Self.TESTED_RANGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_RANGES">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_TESTS">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="TESTED_ANIMALS" Type="Self.TESTED_ANIMALS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_ANIMALS">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BatchLabel">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="BatchLabel" Type="Self.BatchLabel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BatchLabel">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_Desten">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="1" />
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="DestenationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_Exports">
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="1" />
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXPORTER">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="ExporterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_Pen">
+    <End Role="PEN" Type="Self.PEN" Multiplicity="0..1" />
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEN">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="PenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_type">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="typeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BRANCH_BANK">
+    <End Role="BANK" Type="Self.BANK" Multiplicity="1" />
+    <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANK">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BRANCH">
+        <PropertyRef Name="BANK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_DIAGNOSIS">
+    <End Role="DIAGNOSES" Type="Self.DIAGNOSES" Multiplicity="1" />
+    <End Role="CASE_DIAGNOSIS" Type="Self.CASE_DIAGNOSIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIAGNOSES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_DIAGNOSIS">
+        <PropertyRef Name="DIAGNOSIS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_SYMPTOMS">
+    <End Role="SYMPTOMS" Type="Self.SYMPTOMS" Multiplicity="1" />
+    <End Role="CASE_SYMPTOMS" Type="Self.CASE_SYMPTOMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SYMPTOMS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_SYMPTOMS">
+        <PropertyRef Name="SYMPTOM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_TEST">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="CASE_TESTS" Type="Self.CASE_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_TESTS">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_TEST_CASE">
+    <End Role="CLINIC_CASES" Type="Self.CLINIC_CASES" Multiplicity="1" />
+    <End Role="CASE_TESTS" Type="Self.CASE_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLINIC_CASES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_TESTS">
+        <PropertyRef Name="CASE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_ANIMAL_TYPE">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_CHEMICAL">
+    <End Role="CHEMICAL" Type="Self.CHEMICAL" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHEMICAL">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="CHEMICAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLINIC_BATCHES">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="CLINIC_CASES" Type="Self.CLINIC_CASES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CLINIC_CASES">
+        <PropertyRef Name="BATCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLINIC_CASES_DIAGNOSIS">
+    <End Role="CASE_DIAGNOSIS" Type="Self.CASE_DIAGNOSIS" Multiplicity="0..1" />
+    <End Role="CLINIC_CASES" Type="Self.CLINIC_CASES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CASE_DIAGNOSIS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CLINIC_CASES">
+        <PropertyRef Name="Diagnosis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_TESTS_ANIMAL_TYPE">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_TESTS_DESTNATION">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_TESTS_TEST">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIAGNOSIS_CASE">
+    <End Role="CLINIC_CASES" Type="Self.CLINIC_CASES" Multiplicity="1" />
+    <End Role="CASE_DIAGNOSIS" Type="Self.CASE_DIAGNOSIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLINIC_CASES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_DIAGNOSIS">
+        <PropertyRef Name="CASE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DiposedBatchs_Batchs">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="DiposedBatchs" Type="Self.DiposedBatchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DiposedBatchs">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DiposedBatchs_Method">
+    <End Role="DisposeMethod" Type="Self.DisposeMethod" Multiplicity="1" />
+    <End Role="DiposedBatchs" Type="Self.DiposedBatchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DisposeMethod">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DiposedBatchs">
+        <PropertyRef Name="MethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisposeDetails_Batch">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="DisposeDetails" Type="Self.DisposeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DisposeDetails">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisposeDetails_DisposeB">
+    <End Role="DiposedBatchs" Type="Self.DiposedBatchs" Multiplicity="1" />
+    <End Role="DisposeDetails" Type="Self.DisposeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiposedBatchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DisposeDetails">
+        <PropertyRef Name="DiposeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisposeDetails_Method">
+    <End Role="DisposeMethod" Type="Self.DisposeMethod" Multiplicity="1" />
+    <End Role="DisposeDetails" Type="Self.DisposeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DisposeMethod">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DisposeDetails">
+        <PropertyRef Name="MethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_BRANCH">
+    <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRANCH">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="BANK_BRANCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_ID_TYPE">
+    <End Role="ID_TYPE" Type="Self.ID_TYPE" Multiplicity="0..1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ID_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="ID_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_TYPE">
+    <End Role="EXPORTER_TYPE" Type="Self.EXPORTER_TYPE" Multiplicity="1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXPORTER_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="EXPORTER_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FEED_RECORD_TYPE">
+    <End Role="FEED_TYPE" Type="Self.FEED_TYPE" Multiplicity="1" />
+    <End Role="FEED_RECORD" Type="Self.FEED_RECORD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEED_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="FEED_RECORD">
+        <PropertyRef Name="FEED_TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARKET_REGION">
+    <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+    <End Role="MARKET" Type="Self.MARKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="MARKET">
+        <PropertyRef Name="REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PEN_Type">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="PEN" Type="Self.PEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PEN">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PensLables_Batch">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="PensLables" Type="Self.PensLables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PensLables">
+        <PropertyRef Name="batchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PensLables_Pens">
+    <End Role="PEN" Type="Self.PEN" Multiplicity="1" />
+    <End Role="PensLables" Type="Self.PensLables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEN">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PensLables">
+        <PropertyRef Name="PenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUARENTINE_PERIOD_ANIMAL_TYPE">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="QUARENTINE_PERIOD" Type="Self.QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUARENTINE_PERIOD_DESTNATION">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="1" />
+    <End Role="QUARENTINE_PERIOD" Type="Self.QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseDetails_ReleaseRecord">
+    <End Role="ReleaseRecord" Type="Self.ReleaseRecord" Multiplicity="1" />
+    <End Role="ReleaseDetails" Type="Self.ReleaseDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReleaseRecord">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseDetails">
+        <PropertyRef Name="ReleaseRecordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_AnimalType">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="ReleaseRecord" Type="Self.ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="AnimalTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_Batch">
+    <End Role="Batchs" Type="Self.Batchs" Multiplicity="1" />
+    <End Role="ReleaseRecord" Type="Self.ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_Destination">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="1" />
+    <End Role="ReleaseRecord" Type="Self.ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="DestinationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_Exporters">
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="1" />
+    <End Role="ReleaseRecord" Type="Self.ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXPORTER">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="ExporterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SYMPTOMS_CASES">
+    <End Role="CLINIC_CASES" Type="Self.CLINIC_CASES" Multiplicity="1" />
+    <End Role="CASE_SYMPTOMS" Type="Self.CASE_SYMPTOMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLINIC_CASES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_SYMPTOMS">
+        <PropertyRef Name="CASE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TESTED_ANIMALS_RANGE">
+    <End Role="TESTED_RANGES" Type="Self.TESTED_RANGES" Multiplicity="0..1" />
+    <End Role="TESTED_ANIMALS" Type="Self.TESTED_ANIMALS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTED_RANGES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_ANIMALS">
+        <PropertyRef Name="TestRange" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TestKits">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="TestKits" Type="Self.TestKits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TestKits">
+        <PropertyRef Name="TestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS1" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS1" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS1" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICLES_MODEL">
+    <End Role="VEHICLES_MODEL" Type="Self.VEHICLES_MODEL" Multiplicity="1" />
+    <End Role="VEHICLES" Type="Self.VEHICLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLES_MODEL">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="VEHICLES">
+        <PropertyRef Name="MODEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICLES_MODEL_MAKE">
+    <End Role="VEHICLES_MAKE" Type="Self.VEHICLES_MAKE" Multiplicity="1" />
+    <End Role="VEHICLES_MODEL" Type="Self.VEHICLES_MODEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLES_MAKE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="VEHICLES_MODEL">
+        <PropertyRef Name="MAKE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QMSModelStoreContainer">
+    <EntitySet Name="ADDRESS" EntityType="Self.ADDRESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ANIMAL_TYPE" EntityType="Self.ANIMAL_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANK" EntityType="Self.BANK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BatchChemicals" EntityType="Self.BatchChemicals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BatchLabel" EntityType="Self.BatchLabel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Batchs" EntityType="Self.Batchs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BRANCH" EntityType="Self.BRANCH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CASE_DIAGNOSIS" EntityType="Self.CASE_DIAGNOSIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CASE_SYMPTOMS" EntityType="Self.CASE_SYMPTOMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CASE_TESTS" EntityType="Self.CASE_TESTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHEMICAL" EntityType="Self.CHEMICAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHEMICAL_DOSE" EntityType="Self.CHEMICAL_DOSE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLINIC_CASES" EntityType="Self.CLINIC_CASES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONTACT" EntityType="Self.CONTACT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONTROLRECORD" EntityType="Self.CONTROLRECORD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DESTINATION" EntityType="Self.DESTINATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DESTINATION_TESTS" EntityType="Self.DESTINATION_TESTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIAGNOSES" EntityType="Self.DIAGNOSES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiposedBatchs" EntityType="Self.DiposedBatchs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DisposeDetails" EntityType="Self.DisposeDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DisposeMethod" EntityType="Self.DisposeMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DRIVERS" EntityType="Self.DRIVERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXPORTER" EntityType="Self.EXPORTER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXPORTER_TYPE" EntityType="Self.EXPORTER_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FEED_RECORD" EntityType="Self.FEED_RECORD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FEED_TYPE" EntityType="Self.FEED_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ID_TYPE" EntityType="Self.ID_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MARKET" EntityType="Self.MARKET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEN" EntityType="Self.PEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PensLables" EntityType="Self.PensLables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QUARENTINE_PERIOD" EntityType="Self.QUARENTINE_PERIOD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGION" EntityType="Self.REGION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rejected_Animals" EntityType="Self.Rejected_Animals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReleaseDetails" EntityType="Self.ReleaseDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReleaseRecord" EntityType="Self.ReleaseRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SYMPTOMS" EntityType="Self.SYMPTOMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TESTED_ANIMALS" EntityType="Self.TESTED_ANIMALS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TESTED_RANGES" EntityType="Self.TESTED_RANGES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TestKits" EntityType="Self.TestKits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TESTS" EntityType="Self.TESTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VEHICLES" EntityType="Self.VEHICLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VEHICLES_MAKE" EntityType="Self.VEHICLES_MAKE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VEHICLES_MODEL" EntityType="Self.VEHICLES_MODEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEST_SUMMARY" EntityType="Self.TEST_SUMMARY" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TEST_SUMMARY].[BATCH_ID] AS [BATCH_ID], 
+    [TEST_SUMMARY].[TEST_ID] AS [TEST_ID], 
+    [TEST_SUMMARY].[TEST_NAME] AS [TEST_NAME], 
+    [TEST_SUMMARY].[ACCEPTED_ANIMALS] AS [ACCEPTED_ANIMALS], 
+    [TEST_SUMMARY].[SAMPLING_METHOD] AS [SAMPLING_METHOD], 
+    [TEST_SUMMARY].[RECOMMENDED_SAMPLE_SIZE] AS [RECOMMENDED_SAMPLE_SIZE], 
+    [TEST_SUMMARY].[TESTED_ANIMALS] AS [TESTED_ANIMALS], 
+    [TEST_SUMMARY].[POSITIVE_CASES] AS [POSITIVE_CASES], 
+    [TEST_SUMMARY].[CURRENT_STATUS] AS [CURRENT_STATUS]
+    FROM [dbo].[TEST_SUMMARY] AS [TEST_SUMMARY]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ADDRESS_AUTHORIZING_USER" Association="Self.FK_ADDRESS_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRESS_CREATING_USER" Association="Self.FK_ADDRESS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRESS_UPDATING_USER" Association="Self.FK_ADDRESS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batch_Rejected_Animals" Association="Self.FK_Batch_Rejected_Animals">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="Rejected_Animals" EntitySet="Rejected_Animals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BatchChemicals_Batch" Association="Self.FK_BatchChemicals_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="BatchChemicals" EntitySet="BatchChemicals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BatchChemicals_BatchChemicals" Association="Self.FK_BatchChemicals_BatchChemicals">
+      <End Role="BatchChemicals" EntitySet="BatchChemicals" />
+      <End Role="BatchChemicals1" EntitySet="BatchChemicals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_BATCHES" Association="Self.FK_BATCHES_TESTS_BATCHES">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="TESTED_ANIMALS" EntitySet="TESTED_ANIMALS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_R_BATCHES" Association="Self.FK_BATCHES_TESTS_R_BATCHES">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="TESTED_RANGES" EntitySet="TESTED_RANGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_R_TESTS" Association="Self.FK_BATCHES_TESTS_R_TESTS">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="TESTED_RANGES" EntitySet="TESTED_RANGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_TESTS" Association="Self.FK_BATCHES_TESTS_TESTS">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="TESTED_ANIMALS" EntitySet="TESTED_ANIMALS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BatchLabel" Association="Self.FK_BatchLabel">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="BatchLabel" EntitySet="BatchLabel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_Desten" Association="Self.FK_Batchs_Desten">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_Exports" Association="Self.FK_Batchs_Exports">
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_Pen" Association="Self.FK_Batchs_Pen">
+      <End Role="PEN" EntitySet="PEN" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_type" Association="Self.FK_Batchs_type">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BRANCH_BANK" Association="Self.FK_BRANCH_BANK">
+      <End Role="BANK" EntitySet="BANK" />
+      <End Role="BRANCH" EntitySet="BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_DIAGNOSIS" Association="Self.FK_CASE_DIAGNOSIS">
+      <End Role="DIAGNOSES" EntitySet="DIAGNOSES" />
+      <End Role="CASE_DIAGNOSIS" EntitySet="CASE_DIAGNOSIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_SYMPTOMS" Association="Self.FK_CASE_SYMPTOMS">
+      <End Role="SYMPTOMS" EntitySet="SYMPTOMS" />
+      <End Role="CASE_SYMPTOMS" EntitySet="CASE_SYMPTOMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_TEST" Association="Self.FK_CASE_TEST">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="CASE_TESTS" EntitySet="CASE_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_TEST_CASE" Association="Self.FK_CASE_TEST_CASE">
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+      <End Role="CASE_TESTS" EntitySet="CASE_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_ANIMAL_TYPE" Association="Self.FK_CHEMICAL_DOSE_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_AUTHORIZING_USER" Association="Self.FK_CHEMICAL_DOSE_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_CHEMICAL" Association="Self.FK_CHEMICAL_DOSE_CHEMICAL">
+      <End Role="CHEMICAL" EntitySet="CHEMICAL" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_CREATING_USER" Association="Self.FK_CHEMICAL_DOSE_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_UPDATING_USER" Association="Self.FK_CHEMICAL_DOSE_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLINIC_BATCHES" Association="Self.FK_CLINIC_BATCHES">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLINIC_CASES_DIAGNOSIS" Association="Self.FK_CLINIC_CASES_DIAGNOSIS">
+      <End Role="CASE_DIAGNOSIS" EntitySet="CASE_DIAGNOSIS" />
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_AUTHORIZING_USER" Association="Self.FK_CONTACT_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_CREATING_USER" Association="Self.FK_CONTACT_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_UPDATING_USER" Association="Self.FK_CONTACT_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_TESTS_ANIMAL_TYPE" Association="Self.FK_DESTINATION_TESTS_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_TESTS_DESTNATION" Association="Self.FK_DESTINATION_TESTS_DESTNATION">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_TESTS_TEST" Association="Self.FK_DESTINATION_TESTS_TEST">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIAGNOSIS_CASE" Association="Self.FK_DIAGNOSIS_CASE">
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+      <End Role="CASE_DIAGNOSIS" EntitySet="CASE_DIAGNOSIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DiposedBatchs_Batchs" Association="Self.FK_DiposedBatchs_Batchs">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="DiposedBatchs" EntitySet="DiposedBatchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DiposedBatchs_Method" Association="Self.FK_DiposedBatchs_Method">
+      <End Role="DisposeMethod" EntitySet="DisposeMethod" />
+      <End Role="DiposedBatchs" EntitySet="DiposedBatchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisposeDetails_Batch" Association="Self.FK_DisposeDetails_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="DisposeDetails" EntitySet="DisposeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisposeDetails_DisposeB" Association="Self.FK_DisposeDetails_DisposeB">
+      <End Role="DiposedBatchs" EntitySet="DiposedBatchs" />
+      <End Role="DisposeDetails" EntitySet="DisposeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisposeDetails_Method" Association="Self.FK_DisposeDetails_Method">
+      <End Role="DisposeMethod" EntitySet="DisposeMethod" />
+      <End Role="DisposeDetails" EntitySet="DisposeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_BRANCH" Association="Self.FK_EXPORTER_BRANCH">
+      <End Role="BRANCH" EntitySet="BRANCH" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_ID_TYPE" Association="Self.FK_EXPORTER_ID_TYPE">
+      <End Role="ID_TYPE" EntitySet="ID_TYPE" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_TYPE" Association="Self.FK_EXPORTER_TYPE">
+      <End Role="EXPORTER_TYPE" EntitySet="EXPORTER_TYPE" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FEED_RECORD_TYPE" Association="Self.FK_FEED_RECORD_TYPE">
+      <End Role="FEED_TYPE" EntitySet="FEED_TYPE" />
+      <End Role="FEED_RECORD" EntitySet="FEED_RECORD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARKET_REGION" Association="Self.FK_MARKET_REGION">
+      <End Role="REGION" EntitySet="REGION" />
+      <End Role="MARKET" EntitySet="MARKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PEN_Type" Association="Self.FK_PEN_Type">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="PEN" EntitySet="PEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PensLables_Batch" Association="Self.FK_PensLables_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="PensLables" EntitySet="PensLables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PensLables_Pens" Association="Self.FK_PensLables_Pens">
+      <End Role="PEN" EntitySet="PEN" />
+      <End Role="PensLables" EntitySet="PensLables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUARENTINE_PERIOD_ANIMAL_TYPE" Association="Self.FK_QUARENTINE_PERIOD_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUARENTINE_PERIOD_DESTNATION" Association="Self.FK_QUARENTINE_PERIOD_DESTNATION">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseDetails_ReleaseRecord" Association="Self.FK_ReleaseDetails_ReleaseRecord">
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+      <End Role="ReleaseDetails" EntitySet="ReleaseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_AnimalType" Association="Self.FK_ReleaseRecord_AnimalType">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_Batch" Association="Self.FK_ReleaseRecord_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_Destination" Association="Self.FK_ReleaseRecord_Destination">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_Exporters" Association="Self.FK_ReleaseRecord_Exporters">
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SYMPTOMS_CASES" Association="Self.FK_SYMPTOMS_CASES">
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+      <End Role="CASE_SYMPTOMS" EntitySet="CASE_SYMPTOMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TESTED_ANIMALS_RANGE" Association="Self.FK_TESTED_ANIMALS_RANGE">
+      <End Role="TESTED_RANGES" EntitySet="TESTED_RANGES" />
+      <End Role="TESTED_ANIMALS" EntitySet="TESTED_ANIMALS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TestKits" Association="Self.FK_TestKits">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="TestKits" EntitySet="TestKits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_AUTHORIZING_USER" Association="Self.FK_USERS_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_CREATING_USER" Association="Self.FK_USERS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_UPDATING_USER" Association="Self.FK_USERS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICLES_MODEL" Association="Self.FK_VEHICLES_MODEL">
+      <End Role="VEHICLES_MODEL" EntitySet="VEHICLES_MODEL" />
+      <End Role="VEHICLES" EntitySet="VEHICLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICLES_MODEL_MAKE" Association="Self.FK_VEHICLES_MODEL_MAKE">
+      <End Role="VEHICLES_MAKE" EntitySet="VEHICLES_MAKE" />
+      <End Role="VEHICLES_MODEL" EntitySet="VEHICLES_MODEL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

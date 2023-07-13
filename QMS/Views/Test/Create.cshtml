@@ -1,0 +1,188 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.TESTS
+
+@{
+    ViewBag.Title = MenusRes.Title_Testing;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@GeneralRes.Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Title_Testing</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.TestName)
+
+                                @Html.TextBoxFor(model => model.TEST_NAME, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TEST_NAME)
+                            </div>
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.Kit)
+
+                                @Html.TextBoxFor(model => model.Kits, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Kits)
+                            </div>
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.Sample)
+
+                                @Html.DropDownListFor(model => model.Sample, ViewBag.Sample as SelectList, CommonRes.SelectDropDown, new { @class = "form-control" ,@onchange= "sampleSelected()" })
+                                @Html.ValidationMessageFor(model => model.Sample)
+                            </div>
+
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.Percentage)
+
+                                @Html.TextBoxFor(model => model.Percentage,  new { @class = "form-control" ,@disabled="disabled" })
+                                @Html.ValidationMessageFor(model => model.Percentage)
+                            </div>
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.Number)
+
+                                @Html.TextBoxFor(model => model.Number,  new { @class = "form-control", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(model => model.Number)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                           <div class="panel panel-light-blue">
+
+                            <div class="panel-heading">
+                                <h2 class="panel-title">@QMSRes.TestAction</h2>
+                            </div>
+                               <hr />
+                               <div class="panel-body">
+
+                                   <div class="panel-light-blue">
+
+                                           <div class="col-lg-6">
+                                               @Html.CheckBox("Dispose", new { @id = "Dispose"})
+                                               @Html.Label("Dispose All Batch if positive samples exceed % ")
+                                               @Html.TextBoxFor(model => model.TestAction, string.Empty, new { @class = "form-control",@disabled= "disabled" })
+                                           </div>
+                                           <div class="col-lg-6">
+                                               @Html.CheckBox("RoundRequired", new { @id = "RoundRequired", @disabled="disabled"})
+                                               @Html.Label("Test All Batch if a positive case is detected ")
+
+
+                                           </div>
+                                   </div>
+                                   </div>
+                               </div>
+
+                          
+
+                            <div class="form-group">
+
+                                <center class="mgtp">
+
+                                    <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" />
+                                    &nbsp;
+                                    @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                                </center>
+
+                            </div>
+
+
+
+                      
+                
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $('#Dispose').change(function () {
+            if (this.checked == true)
+                $("#TestAction").removeAttr("disabled");            
+            if (this.checked == false) {
+                $("#TestAction").attr('disabled', 'disabled');
+                $("#TestAction").val("");
+            }
+        });
+        
+        function sampleSelected() {
+
+            var Sample = $('#Sample').val();
+            if (Sample == "Full") {
+                $("#Number").attr('disabled', 'disabled');
+                $("#Percentage").attr('disabled', 'disabled');
+                $("#RoundRequired").attr('disabled', 'disabled');
+                $("#RoundRequired").checked = false;
+                $("#RoundRequired").removeAttr("checked");
+
+            }
+            if (Sample == "Percentage") {
+                $("#Number").attr('disabled', 'disabled');
+                $("#Percentage").removeAttr("disabled");
+                $("#RoundRequired").removeAttr("disabled");
+
+                
+            }
+            if (Sample == "Number") {
+                $("#Percentage").attr('disabled', 'disabled');
+                $("#Number").removeAttr("disabled");
+                $("#RoundRequired").removeAttr("disabled");
+
+            }
+          
+
+
+        }
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = { TYPE_NAME: $('#TYPE_NAME').val(), DEFAULT_AVERAGE_WEIGHT: $('#DEFAULT_AVERAGE_WEIGHT').val(), FEED_WEIGHT_PERCENTAGE: $('#FEED_WEIGHT_PERCENTAGE').val(), NOTES: $('#NOTES').val() };
+            $.ajax({
+                url: '/Animal_type/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#TYPE_NAME').val("");
+            $('#DEFAULT_AVERAGE_WEIGHT').val("");
+            $('#FEED_WEIGHT_PERCENTAGE').val("");
+            $('#NOTES').val("");
+        }
+    </script>
+}

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<QMS.Data.MARKET>
+@using QMS.Core
+
+@{    
+    var markets = Model.ToArray();
+}
+
+<div id="markets" class="controls">
+   @if (markets.ToList().Count == 1)
+   {
+
+        <div class="list-item form-inline">
+            @*/*******/*@
+            <input id="markets[0].SYSTEMID" name="markets[0].SYSTEMID" class="form-control" type="hidden" value="@markets[0].SYSTEMID">
+            <input id="markets[0].MARKET_NAME" name="markets[0].MARKET_NAME" class="form-control" type="hidden" value="@markets[0].MARKET_NAME">
+
+
+            <hr />
+
+        </div>
+       for (int i = 2; i <= markets.ToArray().Length; i++)
+       {
+            <div class="list-item form-inline">
+                <input id="markets[@i].MARKET_NAME" name="markets[@i].MARKET_NAME" class="form-control" type="text" value="@markets[i].MARKET_NAME">
+                <input id="markets[@i].SYSTEMID" name="markets[@i].SYSTEMID" class="form-control" type="text" readonly="readonly" value="@markets[i].SYSTEMID">
+
+                <hr />
+            </div>
+
+       }
+   }
+   else
+   {
+ 
+       for (int i = 0; i < Model.ToArray().Length; i++)
+       {
+        <div class="list-item form-inline">
+            <input id="markets[@i].MARKET_NAME" name="markets[@i].MARKET_NAME" class="form-control" type="text" value="@markets[i].MARKET_NAME">
+            <input id="markets[@i].SYSTEMID" name="markets[@i].SYSTEMID" class="form-control" type="text" readonly="readonly" value="@markets[i].SYSTEMID">
+
+            <hr />
+        </div>
+
+   }}
+    <a href="#" class="list-add btn btn-small"><i class="icon-plus"></i> Add</a>
+
+</div>
+
+<script>
+    (function ($) {
+
+        $('#markets').find("." + "list-add").click(function (event) { handleAdd(); });
+
+        function handleAdd() {
+               //var length = $('#EmpDeductDIV').find("." + "list-item").length;
+               //$("select[name = 'ddlEmpNoName[" + length + "]']").siblings().removeAttr("disabled");
+            };
+             $(document).ready(function () {
+                 $('#markets').find("." + "list-add").click(function (event) {
+                  handleAdd();
+                  //var length = $("#EmpDeductDIV").find("." + "list-item").length;
+                  //$("select[name ='" + "ddlEmpNoName[1]" + "']").attr('disabled', 'disabled');
+
+                 });
+
+                 $("#markets").dynamiclist({
+                    withEvents: true,
+                });
+            });
+    })(jQuery);
+
+</script>

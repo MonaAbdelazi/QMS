@@ -1,0 +1,177 @@
+﻿@using QMS.Core.Resources
+@using GridMvc.Html
+@using QMS.Data
+@model QMS.Data.VEHICLES_MAKE
+
+@{
+    ViewBag.Title = CommonRes.Edit;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@CommonRes.Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.VehiclesSetup</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+                            @Html.HiddenFor(m => m.SYSTEMID)
+
+
+
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.VehicleMake)
+
+                                @Html.TextBoxFor(model => model.MAKE, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MAKE)
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.VehicleModel)
+                                @Html.TextBox("VehicleModel", string.Empty, new { @class = "form-control" })
+                                <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="add(this.id);" />
+                            </div>
+                        </div>
+
+                        <div id="outputTableInit">
+                            <table id="tableData" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayName(QMSRes.VehicleModel)
+                                        </th>
+
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ 
+                                        var items = (ViewBag.EditVehicleModels as IEnumerable<VEHICLES_MODEL>).ToArray<VEHICLES_MODEL>();
+                                        for (int i = 0; i < (ViewBag.EditVehicleModels as IEnumerable<VEHICLES_MODEL>).Count<VEHICLES_MODEL>(); i++)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @Html.Raw(i + 1)
+                                            </td>
+                                            <td>
+                                                <input id="items[@i].MODEL" class="form-control" value="@items[i].MODEL" type="text" disabled="disabled">
+                                            </td>
+                                            <td>
+                                                <input type="button" value="@CommonRes.Delete" class="btn btn-success hvr-bounce-in" onclick="deleteItem(@items[i].SYSTEMID);" />
+                                            </td>
+                                        </tr>
+                                        }
+                                     }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div id="outputTable">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <center class="mgtp">
+
+                                <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" />
+                                &nbsp;
+                                @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                            </center>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = { newModel: $('#VehicleModel').val() };
+            $.ajax({
+                url: '/Vehicles_Setup/EditAdd',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+                    $("#outputTableInit").hide();
+                    $('#BranchName').val("");
+                },
+                error: function () {
+                }
+            });
+
+            
+        }
+
+        function deleteItem(systemId) {
+
+            var target = $('#outputTable');
+            var input = { id: systemId };
+            $.ajax({
+                url: '/Vehicles_Setup/EditDelete',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+                    $("#outputTableInit").hide();
+                },
+                error: function () {
+                }
+            });
+
+            
+
+        }
+    </script>
+}

@@ -1,0 +1,31 @@
+﻿@using QMS.Core.Resources
+@using GridMvc.Html
+@using QMS.Data
+@model QMS.ViewModels.TestRecordViewModel
+
+@{
+    ViewBag.Title = QMSRes.RecordTests;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@QMSRes.RecordTests</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        
+
+    </form>
+}
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+    </script>
+}

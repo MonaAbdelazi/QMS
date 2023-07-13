@@ -1,0 +1,205 @@
+﻿@using QMS.Core.Resources
+@using QMS.Data
+@using QMS.ViewModels
+@model QMS.ViewModels.ClinicCaseVM
+
+@{
+    ViewBag.Title = GeneralRes.Create;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@GeneralRes.Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.ClinicCases</h2>
+                    </div>
+                    <div class="panel-body">
+                        @Html.ValidationSummary(true)
+                        <hr />
+                        <div>
+                            <div class="col-lg-3">
+                                @{
+                                    Batchs batch = (Batchs)ViewBag.CaseBatch;
+                                }
+                                @Html.Label(@QMSRes.ExporterName + ": " + batch.EXPORTER.EXPORTER_NAME)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Animan_TYPE_NAME + ": " + batch.ANIMAL_TYPE.TYPE_NAME)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.DestenationName + ": " + batch.DESTINATION.DESTINATION_NAME)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.AcceptedAnimals + ": " + batch.AcceptedAnimals)
+                            </div>
+                            <div class="col-lg-3">
+                                @{
+                                    DateTime regDate = (DateTime)batch.RegisterationDate;
+                                    string regDateString = regDate.ToString("dd/MM/yyyy");
+
+                                    IList<QMS.Data.QUARENTINE_PERIOD> periodList = batch.DESTINATION.QUARENTINE_PERIOD
+                                                                                   .Where(a => a.ANIMAL_TYPE_ID == batch.typeID).ToList();
+                                    string quarentineEndDate = regDate.AddDays((double)periodList[0].QUARENTINE_DAYS).ToString("dd/MM/yyyy");
+                                }
+                                @Html.Label(QMSRes.RegisterationDate + ": " + regDateString)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.QuaratineEndDate + ": " + quarentineEndDate)
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.ClinicCaseType)
+
+                                @Html.DropDownListFor(model => model.CASE_TYPE, ViewBag.CaseTypes as SelectList,
+                                                        CommonRes.SelectDropDown, new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.AnimalTag)
+
+                                @Html.TextBoxFor(model => model.ANIMAL_LABEL, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ANIMAL_LABEL)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Comments)
+
+                                @Html.TextAreaFor(model => model.Notes, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Notes)
+                            </div>
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Diagnosis)
+
+                                @Html.DropDownListFor(model => model.Diagnosis, ViewBag.Diagnoses as SelectList,
+                                                        CommonRes.SelectDropDown, new { @class = "form-control" })
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.CheckBoxFor(model => model.DisposedBool)
+
+                                @Html.Label(QMSRes.Dispose)
+                                @Html.Hidden("disposeHidden", "false", new { @id = "recommendDisposalHidden" })
+
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div>
+                            <div>
+                                <div class="col-lg-3">
+                                    @Html.Label(QMSRes.Test)
+
+                                    @Html.DropDownList("testList", ViewBag.Tests as SelectList,
+                                                            CommonRes.SelectDropDown, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div>
+                                <center>
+                                    <p>
+                                        <input type="button" value="@QMSRes.AddTests" id="Add" class="btn btn-success hvr-bounce-in" onclick="add(this.id);" />
+                                    </p>
+                                </center>
+                            </div>
+                            <div id="outputTable">
+
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="form-group">
+
+                            <center class="mgtp">
+
+                                <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" />
+                                &nbsp;
+                                @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                            </center>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $('#DisposedBool').change(function () {
+            if (this.checked == true)
+                $("#disposeHidden").val("true");
+            if (this.checked == false) {
+                $("#disposeHidden").val("false");
+            }
+        });
+
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = {
+                testId: $('#testList').val()
+            };
+            $.ajax({
+                url: '/ClinicCase/AddTest',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#testList').val("");
+            
+        }
+
+        function deleteItem(systemId) {
+
+            var target = $('#outputTable');
+            var input = { testId: systemId };
+            $.ajax({
+                url: '/ClinicCase/DeleteTest',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+
+        }
+    </script>
+}

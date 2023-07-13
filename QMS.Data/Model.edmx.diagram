@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0e1adca568f494eac49fb9bcd02a355" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="QMSModel.ADDRESS" Width="1.5" PointX="3" PointY="16.875" />
+        <EntityTypeShape EntityType="QMSModel.ANIMAL_TYPE" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QMSModel.BANK" Width="1.5" PointX="1.5" PointY="38.375" />
+        <EntityTypeShape EntityType="QMSModel.BatchChemicals" Width="1.5" PointX="10.5" PointY="40.5" />
+        <EntityTypeShape EntityType="QMSModel.BatchLabel" Width="1.5" PointX="10.5" PointY="49.25" />
+        <EntityTypeShape EntityType="QMSModel.Batchs" Width="1.5" PointX="8.25" PointY="12.375" />
+        <EntityTypeShape EntityType="QMSModel.BRANCH" Width="1.5" PointX="3.75" PointY="38.125" />
+        <EntityTypeShape EntityType="QMSModel.CASE_DIAGNOSIS" Width="1.5" PointX="21.75" PointY="15" />
+        <EntityTypeShape EntityType="QMSModel.CASE_SYMPTOMS" Width="1.5" PointX="18.75" PointY="10.125" />
+        <EntityTypeShape EntityType="QMSModel.CASE_TESTS" Width="1.5" PointX="18.75" PointY="15" />
+        <EntityTypeShape EntityType="QMSModel.CHEMICAL" Width="1.5" PointX="3.75" PointY="12" />
+        <EntityTypeShape EntityType="QMSModel.CHEMICAL_DOSE" Width="1.5" PointX="6" PointY="9.125" />
+        <EntityTypeShape EntityType="QMSModel.CLINIC_CASES" Width="1.5" PointX="16.5" PointY="14.5" />
+        <EntityTypeShape EntityType="QMSModel.CONTACT" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="QMSModel.CONTROLRECORD" Width="1.5" PointX="11.75" PointY="3.5" />
+        <EntityTypeShape EntityType="QMSModel.DESTINATION" Width="1.5" PointX="3.75" PointY="27.625" />
+        <EntityTypeShape EntityType="QMSModel.DESTINATION_TESTS" Width="1.5" PointX="6" PointY="1.125" />
+        <EntityTypeShape EntityType="QMSModel.DIAGNOSES" Width="1.5" PointX="19.5" PointY="20.125" />
+        <EntityTypeShape EntityType="QMSModel.DiposedBatchs" Width="1.5" PointX="10.5" PointY="15" />
+        <EntityTypeShape EntityType="QMSModel.DisposeDetails" Width="1.5" PointX="15.75" PointY="8.875" />
+        <EntityTypeShape EntityType="QMSModel.DisposeMethod" Width="1.5" PointX="8.25" PointY="8.25" />
+        <EntityTypeShape EntityType="QMSModel.DRIVERS" Width="1.5" PointX="13.75" PointY="3.5" />
+        <EntityTypeShape EntityType="QMSModel.EXPORTER" Width="1.5" PointX="6" PointY="37.375" />
+        <EntityTypeShape EntityType="QMSModel.EXPORTER_TYPE" Width="1.5" PointX="3.75" PointY="34.125" />
+        <EntityTypeShape EntityType="QMSModel.FEED_RECORD" Width="1.5" PointX="23" PointY="8.75" />
+        <EntityTypeShape EntityType="QMSModel.FEED_TYPE" Width="1.5" PointX="20.75" PointY="8.875" />
+        <EntityTypeShape EntityType="QMSModel.ID_TYPE" Width="1.5" PointX="3.75" PointY="42.375" />
+        <EntityTypeShape EntityType="QMSModel.MARKET" Width="1.5" PointX="21" PointY="3.625" />
+        <EntityTypeShape EntityType="QMSModel.PEN" Width="1.5" PointX="6" PointY="28.75" />
+        <EntityTypeShape EntityType="QMSModel.PensLables" Width="1.5" PointX="13.5" PointY="21.75" />
+        <EntityTypeShape EntityType="QMSModel.QUARENTINE_PERIOD" Width="1.5" PointX="9" PointY="1.25" />
+        <EntityTypeShape EntityType="QMSModel.REGION" Width="1.5" PointX="18.75" PointY="3.625" />
+        <EntityTypeShape EntityType="QMSModel.Rejected_Animals" Width="1.5" PointX="10.5" PointY="45" />
+        <EntityTypeShape EntityType="QMSModel.ReleaseDetails" Width="1.5" PointX="12.75" PointY="9.875" />
+        <EntityTypeShape EntityType="QMSModel.ReleaseRecord" Width="1.5" PointX="10.5" PointY="8.625" />
+        <EntityTypeShape EntityType="QMSModel.SYMPTOMS" Width="1.5" PointX="16.5" PointY="4.25" />
+        <EntityTypeShape EntityType="QMSModel.TESTED_ANIMALS" Width="1.5" PointX="13.5" PointY="14.75" />
+        <EntityTypeShape EntityType="QMSModel.TESTED_RANGES" Width="1.5" PointX="10.5" PointY="19.75" />
+        <EntityTypeShape EntityType="QMSModel.TestKits" Width="1.5" PointX="6" PointY="22.75" />
+        <EntityTypeShape EntityType="QMSModel.TESTS" Width="1.5" PointX="3.75" PointY="21.75" />
+        <EntityTypeShape EntityType="QMSModel.USERS" Width="1.5" PointX="0.75" PointY="8.25" />
+        <EntityTypeShape EntityType="QMSModel.TEST_SUMMARY" Width="1.5" PointX="15.75" PointY="20.5" />
+        <AssociationConnector Association="QMSModel.FK_ADDRESS_AUTHORIZING_USER" />
+        <AssociationConnector Association="QMSModel.FK_ADDRESS_CREATING_USER" />
+        <AssociationConnector Association="QMSModel.FK_ADDRESS_UPDATING_USER" />
+        <AssociationConnector Association="QMSModel.FK_Batchs_type" />
+        <AssociationConnector Association="QMSModel.FK_CHEMICAL_DOSE_ANIMAL_TYPE" />
+        <AssociationConnector Association="QMSModel.FK_DESTINATION_TESTS_ANIMAL_TYPE" />
+        <AssociationConnector Association="QMSModel.FK_PEN_Type" />
+        <AssociationConnector Association="QMSModel.FK_QUARENTINE_PERIOD_ANIMAL_TYPE" />
+        <AssociationConnector Association="QMSModel.FK_ReleaseRecord_AnimalType" />
+        <AssociationConnector Association="QMSModel.FK_BRANCH_BANK" />
+        <AssociationConnector Association="QMSModel.FK_BatchChemicals_Batch" />
+        <AssociationConnector Association="QMSModel.FK_BatchChemicals_BatchChemicals" />
+        <AssociationConnector Association="QMSModel.FK_BatchLabel" />
+        <AssociationConnector Association="QMSModel.FK_Batch_Rejected_Animals" />
+        <AssociationConnector Association="QMSModel.FK_BATCHES_TESTS_BATCHES" />
+        <AssociationConnector Association="QMSModel.FK_BATCHES_TESTS_R_BATCHES" />
+        <AssociationConnector Association="QMSModel.FK_Batchs_Desten" />
+        <AssociationConnector Association="QMSModel.FK_Batchs_Exports" />
+        <AssociationConnector Association="QMSModel.FK_Batchs_Pen" />
+        <AssociationConnector Association="QMSModel.FK_CLINIC_BATCHES" />
+        <AssociationConnector Association="QMSModel.FK_DiposedBatchs_Batchs" />
+        <AssociationConnector Association="QMSModel.FK_DisposeDetails_Batch" />
+        <AssociationConnector Association="QMSModel.FK_PensLables_Batch" />
+        <AssociationConnector Association="QMSModel.FK_ReleaseRecord_Batch" />
+        <AssociationConnector Association="QMSModel.FK_EXPORTER_BRANCH" />
+        <AssociationConnector Association="QMSModel.FK_CASE_DIAGNOSIS" />
+        <AssociationConnector Association="QMSModel.FK_CLINIC_CASES_DIAGNOSIS" />
+        <AssociationConnector Association="QMSModel.FK_DIAGNOSIS_CASE" />
+        <AssociationConnector Association="QMSModel.FK_CASE_SYMPTOMS" />
+        <AssociationConnector Association="QMSModel.FK_SYMPTOMS_CASES" />
+        <AssociationConnector Association="QMSModel.FK_CASE_TEST" />
+        <AssociationConnector Association="QMSModel.FK_CASE_TEST_CASE" />
+        <AssociationConnector Association="QMSModel.FK_CHEMICAL_DOSE_CHEMICAL" />
+        <AssociationConnector Association="QMSModel.FK_CHEMICAL_DOSE_AUTHORIZING_USER" />
+        <AssociationConnector Association="QMSModel.FK_CHEMICAL_DOSE_CREATING_USER" />
+        <AssociationConnector Association="QMSModel.FK_CHEMICAL_DOSE_UPDATING_USER" />
+        <AssociationConnector Association="QMSModel.FK_CONTACT_AUTHORIZING_USER" />
+        <AssociationConnector Association="QMSModel.FK_CONTACT_CREATING_USER" />
+        <AssociationConnector Association="QMSModel.FK_CONTACT_UPDATING_USER" />
+        <AssociationConnector Association="QMSModel.FK_DESTINATION_TESTS_DESTNATION" />
+        <AssociationConnector Association="QMSModel.FK_QUARENTINE_PERIOD_DESTNATION" />
+        <AssociationConnector Association="QMSModel.FK_ReleaseRecord_Destination" />
+        <AssociationConnector Association="QMSModel.FK_DESTINATION_TESTS_TEST" />
+        <AssociationConnector Association="QMSModel.FK_DiposedBatchs_Method" />
+        <AssociationConnector Association="QMSModel.FK_DisposeDetails_DisposeB" />
+        <AssociationConnector Association="QMSModel.FK_DisposeDetails_Method" />
+        <AssociationConnector Association="QMSModel.FK_EXPORTER_ID_TYPE" />
+        <AssociationConnector Association="QMSModel.FK_EXPORTER_TYPE" />
+        <AssociationConnector Association="QMSModel.FK_ReleaseRecord_Exporters" />
+        <AssociationConnector Association="QMSModel.FK_FEED_RECORD_TYPE" />
+        <AssociationConnector Association="QMSModel.FK_MARKET_REGION" />
+        <AssociationConnector Association="QMSModel.FK_PensLables_Pens" />
+        <AssociationConnector Association="QMSModel.FK_ReleaseDetails_ReleaseRecord" />
+        <AssociationConnector Association="QMSModel.FK_BATCHES_TESTS_TESTS" />
+        <AssociationConnector Association="QMSModel.FK_TESTED_ANIMALS_RANGE" />
+        <AssociationConnector Association="QMSModel.FK_BATCHES_TESTS_R_TESTS" />
+        <AssociationConnector Association="QMSModel.FK_TestKits" />
+        <AssociationConnector Association="QMSModel.FK_USERS_AUTHORIZING_USER" />
+        <AssociationConnector Association="QMSModel.FK_USERS_CREATING_USER" />
+        <AssociationConnector Association="QMSModel.FK_USERS_UPDATING_USER" />
+        <EntityTypeShape EntityType="QMSModel.VEHICLES" Width="1.5" PointX="26.875" PointY="20" />
+        <EntityTypeShape EntityType="QMSModel.VEHICLES_MAKE" Width="1.5" PointX="22.375" PointY="20.125" />
+        <EntityTypeShape EntityType="QMSModel.VEHICLES_MODEL" Width="1.5" PointX="24.625" PointY="20" />
+        <AssociationConnector Association="QMSModel.FK_VEHICLES_MODEL" />
+        <AssociationConnector Association="QMSModel.FK_VEHICLES_MODEL_MAKE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,65 @@
+﻿@model QMS.Data.DRIVERS
+@using QMS.Core.Resources
+    
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@MenusRes.Drivers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @QMSRes.Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DRIVER_NAME)
+        </dd>
+
+        <dt>
+            @QMSRes.PhoneNo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONE_NO)
+        </dd>
+
+        <dt>
+            @QMSRes.DriverLicense
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DRIVER_LICENSE)
+        </dd>
+
+        <dt>
+            @QMSRes.ExpiryDate
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXPIRY_DATE)
+        </dd>
+
+        <dt>
+            @QMSRes.Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STATUS)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

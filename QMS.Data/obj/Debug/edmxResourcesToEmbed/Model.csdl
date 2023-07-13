@@ -1,0 +1,1920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADDRESS" EntityType="QMSModel.ADDRESS" />
+    <EntitySet Name="ANIMAL_TYPE" EntityType="QMSModel.ANIMAL_TYPE" />
+    <EntitySet Name="BANK" EntityType="QMSModel.BANK" />
+    <EntitySet Name="BatchChemicals" EntityType="QMSModel.BatchChemicals" />
+    <EntitySet Name="BatchLabel" EntityType="QMSModel.BatchLabel" />
+    <EntitySet Name="Batchs" EntityType="QMSModel.Batchs" />
+    <EntitySet Name="BRANCH" EntityType="QMSModel.BRANCH" />
+    <EntitySet Name="CASE_DIAGNOSIS" EntityType="QMSModel.CASE_DIAGNOSIS" />
+    <EntitySet Name="CASE_SYMPTOMS" EntityType="QMSModel.CASE_SYMPTOMS" />
+    <EntitySet Name="CASE_TESTS" EntityType="QMSModel.CASE_TESTS" />
+    <EntitySet Name="CHEMICAL" EntityType="QMSModel.CHEMICAL" />
+    <EntitySet Name="CHEMICAL_DOSE" EntityType="QMSModel.CHEMICAL_DOSE" />
+    <EntitySet Name="CLINIC_CASES" EntityType="QMSModel.CLINIC_CASES" />
+    <EntitySet Name="CONTACT" EntityType="QMSModel.CONTACT" />
+    <EntitySet Name="CONTROLRECORD" EntityType="QMSModel.CONTROLRECORD" />
+    <EntitySet Name="DESTINATION" EntityType="QMSModel.DESTINATION" />
+    <EntitySet Name="DESTINATION_TESTS" EntityType="QMSModel.DESTINATION_TESTS" />
+    <EntitySet Name="DIAGNOSES" EntityType="QMSModel.DIAGNOSES" />
+    <EntitySet Name="DiposedBatchs" EntityType="QMSModel.DiposedBatchs" />
+    <EntitySet Name="DisposeDetails" EntityType="QMSModel.DisposeDetails" />
+    <EntitySet Name="DisposeMethod" EntityType="QMSModel.DisposeMethod" />
+    <EntitySet Name="DRIVERS" EntityType="QMSModel.DRIVERS" />
+    <EntitySet Name="EXPORTER" EntityType="QMSModel.EXPORTER" />
+    <EntitySet Name="EXPORTER_TYPE" EntityType="QMSModel.EXPORTER_TYPE" />
+    <EntitySet Name="FEED_RECORD" EntityType="QMSModel.FEED_RECORD" />
+    <EntitySet Name="FEED_TYPE" EntityType="QMSModel.FEED_TYPE" />
+    <EntitySet Name="ID_TYPE" EntityType="QMSModel.ID_TYPE" />
+    <EntitySet Name="MARKET" EntityType="QMSModel.MARKET" />
+    <EntitySet Name="PEN" EntityType="QMSModel.PEN" />
+    <EntitySet Name="PensLables" EntityType="QMSModel.PensLables" />
+    <EntitySet Name="QUARENTINE_PERIOD" EntityType="QMSModel.QUARENTINE_PERIOD" />
+    <EntitySet Name="REGION" EntityType="QMSModel.REGION" />
+    <EntitySet Name="Rejected_Animals" EntityType="QMSModel.Rejected_Animals" />
+    <EntitySet Name="ReleaseDetails" EntityType="QMSModel.ReleaseDetails" />
+    <EntitySet Name="ReleaseRecord" EntityType="QMSModel.ReleaseRecord" />
+    <EntitySet Name="SYMPTOMS" EntityType="QMSModel.SYMPTOMS" />
+    <EntitySet Name="TESTED_ANIMALS" EntityType="QMSModel.TESTED_ANIMALS" />
+    <EntitySet Name="TESTED_RANGES" EntityType="QMSModel.TESTED_RANGES" />
+    <EntitySet Name="TestKits" EntityType="QMSModel.TestKits" />
+    <EntitySet Name="TESTS" EntityType="QMSModel.TESTS" />
+    <EntitySet Name="USERS" EntityType="QMSModel.USERS" />
+    <EntitySet Name="TEST_SUMMARY" EntityType="QMSModel.TEST_SUMMARY" />
+    <AssociationSet Name="FK_ADDRESS_AUTHORIZING_USER" Association="QMSModel.FK_ADDRESS_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRESS_CREATING_USER" Association="QMSModel.FK_ADDRESS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRESS_UPDATING_USER" Association="QMSModel.FK_ADDRESS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_type" Association="QMSModel.FK_Batchs_type">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_ANIMAL_TYPE" Association="QMSModel.FK_CHEMICAL_DOSE_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_TESTS_ANIMAL_TYPE" Association="QMSModel.FK_DESTINATION_TESTS_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PEN_Type" Association="QMSModel.FK_PEN_Type">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="PEN" EntitySet="PEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUARENTINE_PERIOD_ANIMAL_TYPE" Association="QMSModel.FK_QUARENTINE_PERIOD_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_AnimalType" Association="QMSModel.FK_ReleaseRecord_AnimalType">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BRANCH_BANK" Association="QMSModel.FK_BRANCH_BANK">
+      <End Role="BANK" EntitySet="BANK" />
+      <End Role="BRANCH" EntitySet="BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BatchChemicals_Batch" Association="QMSModel.FK_BatchChemicals_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="BatchChemicals" EntitySet="BatchChemicals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BatchChemicals_BatchChemicals" Association="QMSModel.FK_BatchChemicals_BatchChemicals">
+      <End Role="BatchChemicals" EntitySet="BatchChemicals" />
+      <End Role="BatchChemicals1" EntitySet="BatchChemicals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BatchLabel" Association="QMSModel.FK_BatchLabel">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="BatchLabel" EntitySet="BatchLabel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batch_Rejected_Animals" Association="QMSModel.FK_Batch_Rejected_Animals">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="Rejected_Animals" EntitySet="Rejected_Animals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_BATCHES" Association="QMSModel.FK_BATCHES_TESTS_BATCHES">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="TESTED_ANIMALS" EntitySet="TESTED_ANIMALS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_R_BATCHES" Association="QMSModel.FK_BATCHES_TESTS_R_BATCHES">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="TESTED_RANGES" EntitySet="TESTED_RANGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_Desten" Association="QMSModel.FK_Batchs_Desten">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_Exports" Association="QMSModel.FK_Batchs_Exports">
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batchs_Pen" Association="QMSModel.FK_Batchs_Pen">
+      <End Role="PEN" EntitySet="PEN" />
+      <End Role="Batchs" EntitySet="Batchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLINIC_BATCHES" Association="QMSModel.FK_CLINIC_BATCHES">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DiposedBatchs_Batchs" Association="QMSModel.FK_DiposedBatchs_Batchs">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="DiposedBatchs" EntitySet="DiposedBatchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisposeDetails_Batch" Association="QMSModel.FK_DisposeDetails_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="DisposeDetails" EntitySet="DisposeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PensLables_Batch" Association="QMSModel.FK_PensLables_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="PensLables" EntitySet="PensLables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_Batch" Association="QMSModel.FK_ReleaseRecord_Batch">
+      <End Role="Batchs" EntitySet="Batchs" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_BRANCH" Association="QMSModel.FK_EXPORTER_BRANCH">
+      <End Role="BRANCH" EntitySet="BRANCH" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_DIAGNOSIS" Association="QMSModel.FK_CASE_DIAGNOSIS">
+      <End Role="DIAGNOSES" EntitySet="DIAGNOSES" />
+      <End Role="CASE_DIAGNOSIS" EntitySet="CASE_DIAGNOSIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLINIC_CASES_DIAGNOSIS" Association="QMSModel.FK_CLINIC_CASES_DIAGNOSIS">
+      <End Role="CASE_DIAGNOSIS" EntitySet="CASE_DIAGNOSIS" />
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIAGNOSIS_CASE" Association="QMSModel.FK_DIAGNOSIS_CASE">
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+      <End Role="CASE_DIAGNOSIS" EntitySet="CASE_DIAGNOSIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_SYMPTOMS" Association="QMSModel.FK_CASE_SYMPTOMS">
+      <End Role="SYMPTOMS" EntitySet="SYMPTOMS" />
+      <End Role="CASE_SYMPTOMS" EntitySet="CASE_SYMPTOMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SYMPTOMS_CASES" Association="QMSModel.FK_SYMPTOMS_CASES">
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+      <End Role="CASE_SYMPTOMS" EntitySet="CASE_SYMPTOMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_TEST" Association="QMSModel.FK_CASE_TEST">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="CASE_TESTS" EntitySet="CASE_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASE_TEST_CASE" Association="QMSModel.FK_CASE_TEST_CASE">
+      <End Role="CLINIC_CASES" EntitySet="CLINIC_CASES" />
+      <End Role="CASE_TESTS" EntitySet="CASE_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_CHEMICAL" Association="QMSModel.FK_CHEMICAL_DOSE_CHEMICAL">
+      <End Role="CHEMICAL" EntitySet="CHEMICAL" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_AUTHORIZING_USER" Association="QMSModel.FK_CHEMICAL_DOSE_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_CREATING_USER" Association="QMSModel.FK_CHEMICAL_DOSE_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_UPDATING_USER" Association="QMSModel.FK_CHEMICAL_DOSE_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_AUTHORIZING_USER" Association="QMSModel.FK_CONTACT_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_CREATING_USER" Association="QMSModel.FK_CONTACT_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_UPDATING_USER" Association="QMSModel.FK_CONTACT_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_TESTS_DESTNATION" Association="QMSModel.FK_DESTINATION_TESTS_DESTNATION">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUARENTINE_PERIOD_DESTNATION" Association="QMSModel.FK_QUARENTINE_PERIOD_DESTNATION">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_Destination" Association="QMSModel.FK_ReleaseRecord_Destination">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_TESTS_TEST" Association="QMSModel.FK_DESTINATION_TESTS_TEST">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DiposedBatchs_Method" Association="QMSModel.FK_DiposedBatchs_Method">
+      <End Role="DisposeMethod" EntitySet="DisposeMethod" />
+      <End Role="DiposedBatchs" EntitySet="DiposedBatchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisposeDetails_DisposeB" Association="QMSModel.FK_DisposeDetails_DisposeB">
+      <End Role="DiposedBatchs" EntitySet="DiposedBatchs" />
+      <End Role="DisposeDetails" EntitySet="DisposeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisposeDetails_Method" Association="QMSModel.FK_DisposeDetails_Method">
+      <End Role="DisposeMethod" EntitySet="DisposeMethod" />
+      <End Role="DisposeDetails" EntitySet="DisposeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_ID_TYPE" Association="QMSModel.FK_EXPORTER_ID_TYPE">
+      <End Role="ID_TYPE" EntitySet="ID_TYPE" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_TYPE" Association="QMSModel.FK_EXPORTER_TYPE">
+      <End Role="EXPORTER_TYPE" EntitySet="EXPORTER_TYPE" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseRecord_Exporters" Association="QMSModel.FK_ReleaseRecord_Exporters">
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FEED_RECORD_TYPE" Association="QMSModel.FK_FEED_RECORD_TYPE">
+      <End Role="FEED_TYPE" EntitySet="FEED_TYPE" />
+      <End Role="FEED_RECORD" EntitySet="FEED_RECORD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARKET_REGION" Association="QMSModel.FK_MARKET_REGION">
+      <End Role="REGION" EntitySet="REGION" />
+      <End Role="MARKET" EntitySet="MARKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PensLables_Pens" Association="QMSModel.FK_PensLables_Pens">
+      <End Role="PEN" EntitySet="PEN" />
+      <End Role="PensLables" EntitySet="PensLables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReleaseDetails_ReleaseRecord" Association="QMSModel.FK_ReleaseDetails_ReleaseRecord">
+      <End Role="ReleaseRecord" EntitySet="ReleaseRecord" />
+      <End Role="ReleaseDetails" EntitySet="ReleaseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_TESTS" Association="QMSModel.FK_BATCHES_TESTS_TESTS">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="TESTED_ANIMALS" EntitySet="TESTED_ANIMALS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TESTED_ANIMALS_RANGE" Association="QMSModel.FK_TESTED_ANIMALS_RANGE">
+      <End Role="TESTED_RANGES" EntitySet="TESTED_RANGES" />
+      <End Role="TESTED_ANIMALS" EntitySet="TESTED_ANIMALS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BATCHES_TESTS_R_TESTS" Association="QMSModel.FK_BATCHES_TESTS_R_TESTS">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="TESTED_RANGES" EntitySet="TESTED_RANGES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TestKits" Association="QMSModel.FK_TestKits">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="TestKits" EntitySet="TestKits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_AUTHORIZING_USER" Association="QMSModel.FK_USERS_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_CREATING_USER" Association="QMSModel.FK_USERS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_UPDATING_USER" Association="QMSModel.FK_USERS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <EntitySet Name="VEHICLES" EntityType="QMSModel.VEHICLES" />
+    <EntitySet Name="VEHICLES_MAKE" EntityType="QMSModel.VEHICLES_MAKE" />
+    <EntitySet Name="VEHICLES_MODEL" EntityType="QMSModel.VEHICLES_MODEL" />
+    <AssociationSet Name="FK_VEHICLES_MODEL" Association="QMSModel.FK_VEHICLES_MODEL">
+      <End Role="VEHICLES_MODEL" EntitySet="VEHICLES_MODEL" />
+      <End Role="VEHICLES" EntitySet="VEHICLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICLES_MODEL_MAKE" Association="QMSModel.FK_VEHICLES_MODEL_MAKE">
+      <End Role="VEHICLES_MAKE" EntitySet="VEHICLES_MAKE" />
+      <End Role="VEHICLES_MODEL" EntitySet="VEHICLES_MODEL" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ADDRESS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="LINE1" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LINE2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LINE3" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LINE4" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="REFERENCE_ID" Type="Int64" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="USERS" Relationship="QMSModel.FK_ADDRESS_AUTHORIZING_USER" FromRole="ADDRESS" ToRole="USERS" />
+    <NavigationProperty Name="USERS1" Relationship="QMSModel.FK_ADDRESS_CREATING_USER" FromRole="ADDRESS" ToRole="USERS" />
+    <NavigationProperty Name="USERS2" Relationship="QMSModel.FK_ADDRESS_UPDATING_USER" FromRole="ADDRESS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="ANIMAL_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="TYPE_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DEFAULT_AVERAGE_WEIGHT" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+    <Property Name="FEED_WEIGHT_PERCENTAGE" Type="Decimal" Nullable="false" Precision="7" Scale="4" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_Batchs_type" FromRole="ANIMAL_TYPE" ToRole="Batchs" />
+    <NavigationProperty Name="CHEMICAL_DOSE" Relationship="QMSModel.FK_CHEMICAL_DOSE_ANIMAL_TYPE" FromRole="ANIMAL_TYPE" ToRole="CHEMICAL_DOSE" />
+    <NavigationProperty Name="DESTINATION_TESTS" Relationship="QMSModel.FK_DESTINATION_TESTS_ANIMAL_TYPE" FromRole="ANIMAL_TYPE" ToRole="DESTINATION_TESTS" />
+    <NavigationProperty Name="PEN" Relationship="QMSModel.FK_PEN_Type" FromRole="ANIMAL_TYPE" ToRole="PEN" />
+    <NavigationProperty Name="QUARENTINE_PERIOD" Relationship="QMSModel.FK_QUARENTINE_PERIOD_ANIMAL_TYPE" FromRole="ANIMAL_TYPE" ToRole="QUARENTINE_PERIOD" />
+    <NavigationProperty Name="ReleaseRecord" Relationship="QMSModel.FK_ReleaseRecord_AnimalType" FromRole="ANIMAL_TYPE" ToRole="ReleaseRecord" />
+  </EntityType>
+  <EntityType Name="BANK">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="BANK_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="BRANCH" Relationship="QMSModel.FK_BRANCH_BANK" FromRole="BANK" ToRole="BRANCH" />
+  </EntityType>
+  <EntityType Name="BatchChemicals">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="CREATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="ChemcialTypeId" Type="Int64" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="batchId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_BatchChemicals_Batch" FromRole="BatchChemicals" ToRole="Batchs" />
+    <NavigationProperty Name="BatchChemicals1" Relationship="QMSModel.FK_BatchChemicals_BatchChemicals" FromRole="BatchChemicals" ToRole="BatchChemicals1" />
+    <NavigationProperty Name="BatchChemicals2" Relationship="QMSModel.FK_BatchChemicals_BatchChemicals" FromRole="BatchChemicals1" ToRole="BatchChemicals" />
+  </EntityType>
+  <EntityType Name="BatchLabel">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="CREATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BatchId" Type="Int64" Nullable="false" />
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="batchLabel1" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_BatchLabel" FromRole="BatchLabel" ToRole="Batchs" />
+  </EntityType>
+  <EntityType Name="Batchs">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="ExporterID" Type="Int64" Nullable="false" />
+    <Property Name="DestenationID" Type="Int64" Nullable="false" />
+    <Property Name="typeID" Type="Int64" Nullable="false" />
+    <Property Name="AcceptedAnimals" Type="Int64" />
+    <Property Name="marketID" Type="Int64" />
+    <Property Name="PenId" Type="Int64" />
+    <Property Name="spray" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="ChemicalType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ChemicalAMT" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FeedMethod" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="AverageWeight" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="RegisterationDate" Type="DateTime" Precision="0" />
+    <Property Name="PermitReference" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ScanOfPermit" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="RecieptReference" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfPermittedAnimals" Type="Int32" Nullable="false" />
+    <Property Name="VerfiyStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NoOFDisposed" Type="Int32" />
+    <NavigationProperty Name="ANIMAL_TYPE" Relationship="QMSModel.FK_Batchs_type" FromRole="Batchs" ToRole="ANIMAL_TYPE" />
+    <NavigationProperty Name="BatchChemicals" Relationship="QMSModel.FK_BatchChemicals_Batch" FromRole="Batchs" ToRole="BatchChemicals" />
+    <NavigationProperty Name="BatchLabel" Relationship="QMSModel.FK_BatchLabel" FromRole="Batchs" ToRole="BatchLabel" />
+    <NavigationProperty Name="Rejected_Animals" Relationship="QMSModel.FK_Batch_Rejected_Animals" FromRole="Batchs" ToRole="Rejected_Animals" />
+    <NavigationProperty Name="TESTED_ANIMALS" Relationship="QMSModel.FK_BATCHES_TESTS_BATCHES" FromRole="Batchs" ToRole="TESTED_ANIMALS" />
+    <NavigationProperty Name="TESTED_RANGES" Relationship="QMSModel.FK_BATCHES_TESTS_R_BATCHES" FromRole="Batchs" ToRole="TESTED_RANGES" />
+    <NavigationProperty Name="DESTINATION" Relationship="QMSModel.FK_Batchs_Desten" FromRole="Batchs" ToRole="DESTINATION" />
+    <NavigationProperty Name="EXPORTER" Relationship="QMSModel.FK_Batchs_Exports" FromRole="Batchs" ToRole="EXPORTER" />
+    <NavigationProperty Name="PEN" Relationship="QMSModel.FK_Batchs_Pen" FromRole="Batchs" ToRole="PEN" />
+    <NavigationProperty Name="CLINIC_CASES" Relationship="QMSModel.FK_CLINIC_BATCHES" FromRole="Batchs" ToRole="CLINIC_CASES" />
+    <NavigationProperty Name="DiposedBatchs" Relationship="QMSModel.FK_DiposedBatchs_Batchs" FromRole="Batchs" ToRole="DiposedBatchs" />
+    <NavigationProperty Name="DisposeDetails" Relationship="QMSModel.FK_DisposeDetails_Batch" FromRole="Batchs" ToRole="DisposeDetails" />
+    <NavigationProperty Name="PensLables" Relationship="QMSModel.FK_PensLables_Batch" FromRole="Batchs" ToRole="PensLables" />
+    <NavigationProperty Name="ReleaseRecord" Relationship="QMSModel.FK_ReleaseRecord_Batch" FromRole="Batchs" ToRole="ReleaseRecord" />
+  </EntityType>
+  <EntityType Name="BRANCH">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="BRANCH_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BANK_ID" Type="Int64" Nullable="false" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="BANK" Relationship="QMSModel.FK_BRANCH_BANK" FromRole="BRANCH" ToRole="BANK" />
+    <NavigationProperty Name="EXPORTER" Relationship="QMSModel.FK_EXPORTER_BRANCH" FromRole="BRANCH" ToRole="EXPORTER" />
+  </EntityType>
+  <EntityType Name="CASE_DIAGNOSIS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="CASE_ID" Type="Int64" Nullable="false" />
+    <Property Name="DIAGNOSIS_ID" Type="Int64" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DIAGNOSES" Relationship="QMSModel.FK_CASE_DIAGNOSIS" FromRole="CASE_DIAGNOSIS" ToRole="DIAGNOSES" />
+    <NavigationProperty Name="CLINIC_CASES" Relationship="QMSModel.FK_CLINIC_CASES_DIAGNOSIS" FromRole="CASE_DIAGNOSIS" ToRole="CLINIC_CASES" />
+    <NavigationProperty Name="CLINIC_CASES1" Relationship="QMSModel.FK_DIAGNOSIS_CASE" FromRole="CASE_DIAGNOSIS" ToRole="CLINIC_CASES" />
+  </EntityType>
+  <EntityType Name="CASE_SYMPTOMS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="CASE_ID" Type="Int64" Nullable="false" />
+    <Property Name="SYMPTOM_ID" Type="Int64" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="SYMPTOMS" Relationship="QMSModel.FK_CASE_SYMPTOMS" FromRole="CASE_SYMPTOMS" ToRole="SYMPTOMS" />
+    <NavigationProperty Name="CLINIC_CASES" Relationship="QMSModel.FK_SYMPTOMS_CASES" FromRole="CASE_SYMPTOMS" ToRole="CLINIC_CASES" />
+  </EntityType>
+  <EntityType Name="CASE_TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="CASE_ID" Type="Int64" Nullable="false" />
+    <Property Name="TEST_ID" Type="Int64" Nullable="false" />
+    <Property Name="ANIMAL_LABEL" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TEST_RESULT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TESTS" Relationship="QMSModel.FK_CASE_TEST" FromRole="CASE_TESTS" ToRole="TESTS" />
+    <NavigationProperty Name="CLINIC_CASES" Relationship="QMSModel.FK_CASE_TEST_CASE" FromRole="CASE_TESTS" ToRole="CLINIC_CASES" />
+  </EntityType>
+  <EntityType Name="CHEMICAL">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="CHEMICAL_TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CHEMICAL_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="INVENTORY_REFERENCE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MEASURE_UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PREQUARENTINE_PROCESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="CHEMICAL_DOSE" Relationship="QMSModel.FK_CHEMICAL_DOSE_CHEMICAL" FromRole="CHEMICAL" ToRole="CHEMICAL_DOSE" />
+  </EntityType>
+  <EntityType Name="CHEMICAL_DOSE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="CHEMICAL_ID" Type="Int64" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="Int64" Nullable="false" />
+    <Property Name="WEIGHT_HEAD" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="DOSE" Type="Decimal" Nullable="false" Precision="8" Scale="4" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ANIMAL_TYPE" Relationship="QMSModel.FK_CHEMICAL_DOSE_ANIMAL_TYPE" FromRole="CHEMICAL_DOSE" ToRole="ANIMAL_TYPE" />
+    <NavigationProperty Name="CHEMICAL" Relationship="QMSModel.FK_CHEMICAL_DOSE_CHEMICAL" FromRole="CHEMICAL_DOSE" ToRole="CHEMICAL" />
+    <NavigationProperty Name="USERS" Relationship="QMSModel.FK_CHEMICAL_DOSE_AUTHORIZING_USER" FromRole="CHEMICAL_DOSE" ToRole="USERS" />
+    <NavigationProperty Name="USERS1" Relationship="QMSModel.FK_CHEMICAL_DOSE_CREATING_USER" FromRole="CHEMICAL_DOSE" ToRole="USERS" />
+    <NavigationProperty Name="USERS2" Relationship="QMSModel.FK_CHEMICAL_DOSE_UPDATING_USER" FromRole="CHEMICAL_DOSE" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="CLINIC_CASES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="BATCH_ID" Type="Int64" Nullable="false" />
+    <Property Name="CASE_TYPE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ANIMAL_LABEL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Diagnosis" Type="Int64" />
+    <Property Name="DISPOSED" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_CLINIC_BATCHES" FromRole="CLINIC_CASES" ToRole="Batchs" />
+    <NavigationProperty Name="CASE_DIAGNOSIS" Relationship="QMSModel.FK_CLINIC_CASES_DIAGNOSIS" FromRole="CLINIC_CASES" ToRole="CASE_DIAGNOSIS" />
+    <NavigationProperty Name="CASE_DIAGNOSIS1" Relationship="QMSModel.FK_DIAGNOSIS_CASE" FromRole="CLINIC_CASES" ToRole="CASE_DIAGNOSIS" />
+    <NavigationProperty Name="CASE_SYMPTOMS" Relationship="QMSModel.FK_SYMPTOMS_CASES" FromRole="CLINIC_CASES" ToRole="CASE_SYMPTOMS" />
+    <NavigationProperty Name="CASE_TESTS" Relationship="QMSModel.FK_CASE_TEST_CASE" FromRole="CLINIC_CASES" ToRole="CASE_TESTS" />
+  </EntityType>
+  <EntityType Name="CONTACT">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="COONTACT_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SECOND_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE_NUMBER" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SECOND_PHONE_NUMBER" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="REFERENCE_ID" Type="Int64" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="USERS" Relationship="QMSModel.FK_CONTACT_AUTHORIZING_USER" FromRole="CONTACT" ToRole="USERS" />
+    <NavigationProperty Name="USERS1" Relationship="QMSModel.FK_CONTACT_CREATING_USER" FromRole="CONTACT" ToRole="USERS" />
+    <NavigationProperty Name="USERS2" Relationship="QMSModel.FK_CONTACT_UPDATING_USER" FromRole="CONTACT" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="CONTROLRECORD">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="PEN_OCCUPIED" Type="Int32" Nullable="false" />
+    <Property Name="PEN_CAPACITY" Type="Int32" Nullable="false" />
+    <Property Name="BATCH_FULL_DATA" Type="Int32" Nullable="false" />
+    <Property Name="ANIMAL_TAG_MAX" Type="Int32" Nullable="false" />
+    <Property Name="QUARENTINE_PERIOD_WEEKEND" Type="Int32" Nullable="false" />
+    <Property Name="BATCH_APPROVAL" Type="Int32" Nullable="false" />
+    <Property Name="MASTER_APPROVAL" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DESTINATION">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="DESTINATION_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_Batchs_Desten" FromRole="DESTINATION" ToRole="Batchs" />
+    <NavigationProperty Name="DESTINATION_TESTS" Relationship="QMSModel.FK_DESTINATION_TESTS_DESTNATION" FromRole="DESTINATION" ToRole="DESTINATION_TESTS" />
+    <NavigationProperty Name="QUARENTINE_PERIOD" Relationship="QMSModel.FK_QUARENTINE_PERIOD_DESTNATION" FromRole="DESTINATION" ToRole="QUARENTINE_PERIOD" />
+    <NavigationProperty Name="ReleaseRecord" Relationship="QMSModel.FK_ReleaseRecord_Destination" FromRole="DESTINATION" ToRole="ReleaseRecord" />
+  </EntityType>
+  <EntityType Name="DESTINATION_TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="DESTINATION_ID" Type="Int64" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="Int64" Nullable="false" />
+    <Property Name="TEST_ID" Type="Int64" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ANIMAL_TYPE" Relationship="QMSModel.FK_DESTINATION_TESTS_ANIMAL_TYPE" FromRole="DESTINATION_TESTS" ToRole="ANIMAL_TYPE" />
+    <NavigationProperty Name="DESTINATION" Relationship="QMSModel.FK_DESTINATION_TESTS_DESTNATION" FromRole="DESTINATION_TESTS" ToRole="DESTINATION" />
+    <NavigationProperty Name="TESTS" Relationship="QMSModel.FK_DESTINATION_TESTS_TEST" FromRole="DESTINATION_TESTS" ToRole="TESTS" />
+  </EntityType>
+  <EntityType Name="DIAGNOSES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="SHORT_DESCRIPTION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LONG_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="RECOMMEND_DISPOSAL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CASE_DIAGNOSIS" Relationship="QMSModel.FK_CASE_DIAGNOSIS" FromRole="DIAGNOSES" ToRole="CASE_DIAGNOSIS" />
+  </EntityType>
+  <EntityType Name="DiposedBatchs">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="BatchId" Type="Int64" Nullable="false" />
+    <Property Name="MethodID" Type="Int64" Nullable="false" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_DiposedBatchs_Batchs" FromRole="DiposedBatchs" ToRole="Batchs" />
+    <NavigationProperty Name="DisposeMethod" Relationship="QMSModel.FK_DiposedBatchs_Method" FromRole="DiposedBatchs" ToRole="DisposeMethod" />
+    <NavigationProperty Name="DisposeDetails" Relationship="QMSModel.FK_DisposeDetails_DisposeB" FromRole="DiposedBatchs" ToRole="DisposeDetails" />
+  </EntityType>
+  <EntityType Name="DisposeDetails">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="DiposeId" Type="Int64" Nullable="false" />
+    <Property Name="BatchId" Type="Int64" Nullable="false" />
+    <Property Name="AnimalTag" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MethodID" Type="Int64" Nullable="false" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_DisposeDetails_Batch" FromRole="DisposeDetails" ToRole="Batchs" />
+    <NavigationProperty Name="DiposedBatchs" Relationship="QMSModel.FK_DisposeDetails_DisposeB" FromRole="DisposeDetails" ToRole="DiposedBatchs" />
+    <NavigationProperty Name="DisposeMethod" Relationship="QMSModel.FK_DisposeDetails_Method" FromRole="DisposeDetails" ToRole="DisposeMethod" />
+  </EntityType>
+  <EntityType Name="DisposeMethod">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="DisposeMethod1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DiposedBatchs" Relationship="QMSModel.FK_DiposedBatchs_Method" FromRole="DisposeMethod" ToRole="DiposedBatchs" />
+    <NavigationProperty Name="DisposeDetails" Relationship="QMSModel.FK_DisposeDetails_Method" FromRole="DisposeMethod" ToRole="DisposeDetails" />
+  </EntityType>
+  <EntityType Name="DRIVERS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="DRIVER_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DRIVER_LICENSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EXPIRY_DATE" Type="DateTime" Precision="0" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="EXPORTER">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="EXPORTER_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EXPORTER_TYPE_ID" Type="Int64" Nullable="false" />
+    <Property Name="BANK_BRANCH_ID" Type="Int64" />
+    <Property Name="ID_TYPE_ID" Type="Int64" />
+    <Property Name="ID_REFERENCE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BIRTH_ESTABLISHMENT_DATE" Type="DateTime" Precision="0" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_Batchs_Exports" FromRole="EXPORTER" ToRole="Batchs" />
+    <NavigationProperty Name="BRANCH" Relationship="QMSModel.FK_EXPORTER_BRANCH" FromRole="EXPORTER" ToRole="BRANCH" />
+    <NavigationProperty Name="ID_TYPE" Relationship="QMSModel.FK_EXPORTER_ID_TYPE" FromRole="EXPORTER" ToRole="ID_TYPE" />
+    <NavigationProperty Name="EXPORTER_TYPE" Relationship="QMSModel.FK_EXPORTER_TYPE" FromRole="EXPORTER" ToRole="EXPORTER_TYPE" />
+    <NavigationProperty Name="ReleaseRecord" Relationship="QMSModel.FK_ReleaseRecord_Exporters" FromRole="EXPORTER" ToRole="ReleaseRecord" />
+  </EntityType>
+  <EntityType Name="EXPORTER_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="TYP_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INDIVIDUAL_CORPORATE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="EXPORTER" Relationship="QMSModel.FK_EXPORTER_TYPE" FromRole="EXPORTER_TYPE" ToRole="EXPORTER" />
+  </EntityType>
+  <EntityType Name="FEED_RECORD">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="FEED_TYPE" Type="Int64" Nullable="false" />
+    <Property Name="BATCH_ID" Type="Int64" Nullable="false" />
+    <Property Name="AMOUNT" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+    <Property Name="FEED_METHOD" Type="Int32" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="FEED_TYPE1" Relationship="QMSModel.FK_FEED_RECORD_TYPE" FromRole="FEED_RECORD" ToRole="FEED_TYPE" />
+  </EntityType>
+  <EntityType Name="FEED_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="FEED_NAME" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="FEED_RECORD" Relationship="QMSModel.FK_FEED_RECORD_TYPE" FromRole="FEED_TYPE" ToRole="FEED_RECORD" />
+  </EntityType>
+  <EntityType Name="ID_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="TYPE_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="INDIVIDUAL_CORPORATE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EXPORTER" Relationship="QMSModel.FK_EXPORTER_ID_TYPE" FromRole="ID_TYPE" ToRole="EXPORTER" />
+  </EntityType>
+  <EntityType Name="MARKET">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="MARKET_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="REGION_ID" Type="Int64" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="REGION" Relationship="QMSModel.FK_MARKET_REGION" FromRole="MARKET" ToRole="REGION" />
+  </EntityType>
+  <EntityType Name="PEN">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="PEN_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CAPACITY" Type="Int32" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TypeID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ANIMAL_TYPE" Relationship="QMSModel.FK_PEN_Type" FromRole="PEN" ToRole="ANIMAL_TYPE" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_Batchs_Pen" FromRole="PEN" ToRole="Batchs" />
+    <NavigationProperty Name="PensLables" Relationship="QMSModel.FK_PensLables_Pens" FromRole="PEN" ToRole="PensLables" />
+  </EntityType>
+  <EntityType Name="PensLables">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PenId" Type="Int64" Nullable="false" />
+    <Property Name="batchId" Type="Int64" Nullable="false" />
+    <Property Name="lableRanges" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Range" Type="Int32" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_PensLables_Batch" FromRole="PensLables" ToRole="Batchs" />
+    <NavigationProperty Name="PEN" Relationship="QMSModel.FK_PensLables_Pens" FromRole="PensLables" ToRole="PEN" />
+  </EntityType>
+  <EntityType Name="QUARENTINE_PERIOD">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="DESTINATION_ID" Type="Int64" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="Int64" Nullable="false" />
+    <Property Name="QUARENTINE_DAYS" Type="Int32" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="ANIMAL_TYPE" Relationship="QMSModel.FK_QUARENTINE_PERIOD_ANIMAL_TYPE" FromRole="QUARENTINE_PERIOD" ToRole="ANIMAL_TYPE" />
+    <NavigationProperty Name="DESTINATION" Relationship="QMSModel.FK_QUARENTINE_PERIOD_DESTNATION" FromRole="QUARENTINE_PERIOD" ToRole="DESTINATION" />
+  </EntityType>
+  <EntityType Name="REGION">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="REGION_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="MARKET" Relationship="QMSModel.FK_MARKET_REGION" FromRole="REGION" ToRole="MARKET" />
+  </EntityType>
+  <EntityType Name="Rejected_Animals">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="CREATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="RejectedAnimals" Type="Int32" Nullable="false" />
+    <Property Name="Reasons" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BatchId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_Batch_Rejected_Animals" FromRole="Rejected_Animals" ToRole="Batchs" />
+  </EntityType>
+  <EntityType Name="ReleaseDetails">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="ReleaseRecordId" Type="Int64" Nullable="false" />
+    <Property Name="AnimalTag1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnimalTag2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnimalTag3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnimalTag4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ReleaseRecord" Relationship="QMSModel.FK_ReleaseDetails_ReleaseRecord" FromRole="ReleaseDetails" ToRole="ReleaseRecord" />
+  </EntityType>
+  <EntityType Name="ReleaseRecord">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="BatchId" Type="Int64" Nullable="false" />
+    <Property Name="ExporterId" Type="Int64" Nullable="false" />
+    <Property Name="DestinationId" Type="Int64" Nullable="false" />
+    <Property Name="AnimalTypeId" Type="Int64" Nullable="false" />
+    <Property Name="QuarantineFacility" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ReportTitle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AnimalCount" Type="Int32" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ANIMAL_TYPE" Relationship="QMSModel.FK_ReleaseRecord_AnimalType" FromRole="ReleaseRecord" ToRole="ANIMAL_TYPE" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_ReleaseRecord_Batch" FromRole="ReleaseRecord" ToRole="Batchs" />
+    <NavigationProperty Name="DESTINATION" Relationship="QMSModel.FK_ReleaseRecord_Destination" FromRole="ReleaseRecord" ToRole="DESTINATION" />
+    <NavigationProperty Name="EXPORTER" Relationship="QMSModel.FK_ReleaseRecord_Exporters" FromRole="ReleaseRecord" ToRole="EXPORTER" />
+    <NavigationProperty Name="ReleaseDetails" Relationship="QMSModel.FK_ReleaseDetails_ReleaseRecord" FromRole="ReleaseRecord" ToRole="ReleaseDetails" />
+  </EntityType>
+  <EntityType Name="SYMPTOMS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="SHORT_DESCRIPTION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LONG_DESCRIPTION" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CASE_SYMPTOMS" Relationship="QMSModel.FK_CASE_SYMPTOMS" FromRole="SYMPTOMS" ToRole="CASE_SYMPTOMS" />
+  </EntityType>
+  <EntityType Name="TESTED_ANIMALS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="BATCH_ID" Type="Int64" Nullable="false" />
+    <Property Name="TEST_ID" Type="Int64" Nullable="false" />
+    <Property Name="ANIMAL_LABEL" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TEST_RESULT" Type="Int32" Nullable="false" />
+    <Property Name="TestRange" Type="Int64" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_BATCHES_TESTS_BATCHES" FromRole="TESTED_ANIMALS" ToRole="Batchs" />
+    <NavigationProperty Name="TESTS" Relationship="QMSModel.FK_BATCHES_TESTS_TESTS" FromRole="TESTED_ANIMALS" ToRole="TESTS" />
+    <NavigationProperty Name="TESTED_RANGES" Relationship="QMSModel.FK_TESTED_ANIMALS_RANGE" FromRole="TESTED_ANIMALS" ToRole="TESTED_RANGES" />
+  </EntityType>
+  <EntityType Name="TESTED_RANGES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="BATCH_ID" Type="Int64" Nullable="false" />
+    <Property Name="TEST_ID" Type="Int64" Nullable="false" />
+    <Property Name="RANGE_FROM" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RANGE_TO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TESTED_ANIMALS" Type="Int32" Nullable="false" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Batchs" Relationship="QMSModel.FK_BATCHES_TESTS_R_BATCHES" FromRole="TESTED_RANGES" ToRole="Batchs" />
+    <NavigationProperty Name="TESTED_ANIMALS1" Relationship="QMSModel.FK_TESTED_ANIMALS_RANGE" FromRole="TESTED_RANGES" ToRole="TESTED_ANIMALS" />
+    <NavigationProperty Name="TESTS" Relationship="QMSModel.FK_BATCHES_TESTS_R_TESTS" FromRole="TESTED_RANGES" ToRole="TESTS" />
+  </EntityType>
+  <EntityType Name="TestKits">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="TestID" Type="Int64" Nullable="false" />
+    <Property Name="kit" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="TESTS" Relationship="QMSModel.FK_TestKits" FromRole="TestKits" ToRole="TESTS" />
+  </EntityType>
+  <EntityType Name="TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="TEST_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NOTES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AUTHORIZED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_UPDATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Sample" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TestAction" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="RoundRequired" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Kits" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Percentage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="CASE_TESTS" Relationship="QMSModel.FK_CASE_TEST" FromRole="TESTS" ToRole="CASE_TESTS" />
+    <NavigationProperty Name="DESTINATION_TESTS" Relationship="QMSModel.FK_DESTINATION_TESTS_TEST" FromRole="TESTS" ToRole="DESTINATION_TESTS" />
+    <NavigationProperty Name="TESTED_ANIMALS" Relationship="QMSModel.FK_BATCHES_TESTS_TESTS" FromRole="TESTS" ToRole="TESTED_ANIMALS" />
+    <NavigationProperty Name="TESTED_RANGES" Relationship="QMSModel.FK_BATCHES_TESTS_R_TESTS" FromRole="TESTS" ToRole="TESTED_RANGES" />
+    <NavigationProperty Name="TestKits" Relationship="QMSModel.FK_TestKits" FromRole="TESTS" ToRole="TestKits" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="USR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FIRST_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MIDDLE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="Int64" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ADDRESS" Relationship="QMSModel.FK_ADDRESS_AUTHORIZING_USER" FromRole="USERS" ToRole="ADDRESS" />
+    <NavigationProperty Name="ADDRESS1" Relationship="QMSModel.FK_ADDRESS_CREATING_USER" FromRole="USERS" ToRole="ADDRESS" />
+    <NavigationProperty Name="ADDRESS2" Relationship="QMSModel.FK_ADDRESS_UPDATING_USER" FromRole="USERS" ToRole="ADDRESS" />
+    <NavigationProperty Name="CHEMICAL_DOSE" Relationship="QMSModel.FK_CHEMICAL_DOSE_AUTHORIZING_USER" FromRole="USERS" ToRole="CHEMICAL_DOSE" />
+    <NavigationProperty Name="CHEMICAL_DOSE1" Relationship="QMSModel.FK_CHEMICAL_DOSE_CREATING_USER" FromRole="USERS" ToRole="CHEMICAL_DOSE" />
+    <NavigationProperty Name="CHEMICAL_DOSE2" Relationship="QMSModel.FK_CHEMICAL_DOSE_UPDATING_USER" FromRole="USERS" ToRole="CHEMICAL_DOSE" />
+    <NavigationProperty Name="CONTACT" Relationship="QMSModel.FK_CONTACT_AUTHORIZING_USER" FromRole="USERS" ToRole="CONTACT" />
+    <NavigationProperty Name="CONTACT1" Relationship="QMSModel.FK_CONTACT_CREATING_USER" FromRole="USERS" ToRole="CONTACT" />
+    <NavigationProperty Name="CONTACT2" Relationship="QMSModel.FK_CONTACT_UPDATING_USER" FromRole="USERS" ToRole="CONTACT" />
+    <NavigationProperty Name="USERS1" Relationship="QMSModel.FK_USERS_AUTHORIZING_USER" FromRole="USERS" ToRole="USERS1" />
+    <NavigationProperty Name="USERS2" Relationship="QMSModel.FK_USERS_AUTHORIZING_USER" FromRole="USERS1" ToRole="USERS" />
+    <NavigationProperty Name="USERS11" Relationship="QMSModel.FK_USERS_CREATING_USER" FromRole="USERS" ToRole="USERS1" />
+    <NavigationProperty Name="USERS3" Relationship="QMSModel.FK_USERS_CREATING_USER" FromRole="USERS1" ToRole="USERS" />
+    <NavigationProperty Name="USERS12" Relationship="QMSModel.FK_USERS_UPDATING_USER" FromRole="USERS" ToRole="USERS1" />
+    <NavigationProperty Name="USERS4" Relationship="QMSModel.FK_USERS_UPDATING_USER" FromRole="USERS1" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="TEST_SUMMARY">
+    <Key>
+      <PropertyRef Name="BATCH_ID" />
+      <PropertyRef Name="TEST_ID" />
+      <PropertyRef Name="TEST_NAME" />
+      <PropertyRef Name="SAMPLING_METHOD" />
+      <PropertyRef Name="CURRENT_STATUS" />
+    </Key>
+    <Property Name="BATCH_ID" Type="Int64" Nullable="false" />
+    <Property Name="TEST_ID" Type="Int64" Nullable="false" />
+    <Property Name="TEST_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ACCEPTED_ANIMALS" Type="Int64" />
+    <Property Name="SAMPLING_METHOD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RECOMMENDED_SAMPLE_SIZE" Type="Int64" />
+    <Property Name="TESTED_ANIMALS" Type="Int32" />
+    <Property Name="POSITIVE_CASES" Type="Int32" />
+    <Property Name="CURRENT_STATUS" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_ADDRESS_AUTHORIZING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.ADDRESS" Role="ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRESS_CREATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.ADDRESS" Role="ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRESS_UPDATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.ADDRESS" Role="ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_type">
+    <End Type="QMSModel.ANIMAL_TYPE" Role="ANIMAL_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="typeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_ANIMAL_TYPE">
+    <End Type="QMSModel.ANIMAL_TYPE" Role="ANIMAL_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.CHEMICAL_DOSE" Role="CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_TESTS_ANIMAL_TYPE">
+    <End Type="QMSModel.ANIMAL_TYPE" Role="ANIMAL_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.DESTINATION_TESTS" Role="DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PEN_Type">
+    <End Type="QMSModel.ANIMAL_TYPE" Role="ANIMAL_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.PEN" Role="PEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PEN">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUARENTINE_PERIOD_ANIMAL_TYPE">
+    <End Type="QMSModel.ANIMAL_TYPE" Role="ANIMAL_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.QUARENTINE_PERIOD" Role="QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_AnimalType">
+    <End Type="QMSModel.ANIMAL_TYPE" Role="ANIMAL_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.ReleaseRecord" Role="ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="AnimalTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BRANCH_BANK">
+    <End Type="QMSModel.BANK" Role="BANK" Multiplicity="1" />
+    <End Type="QMSModel.BRANCH" Role="BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANK">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BRANCH">
+        <PropertyRef Name="BANK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BatchChemicals_Batch">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.BatchChemicals" Role="BatchChemicals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BatchChemicals">
+        <PropertyRef Name="batchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BatchChemicals_BatchChemicals">
+    <End Type="QMSModel.BatchChemicals" Role="BatchChemicals" Multiplicity="1" />
+    <End Type="QMSModel.BatchChemicals" Role="BatchChemicals1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BatchChemicals">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BatchChemicals1">
+        <PropertyRef Name="SYSTEMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BatchLabel">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.BatchLabel" Role="BatchLabel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BatchLabel">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batch_Rejected_Animals">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.Rejected_Animals" Role="Rejected_Animals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Rejected_Animals">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_BATCHES">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.TESTED_ANIMALS" Role="TESTED_ANIMALS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_ANIMALS">
+        <PropertyRef Name="BATCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_R_BATCHES">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.TESTED_RANGES" Role="TESTED_RANGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_RANGES">
+        <PropertyRef Name="BATCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_Desten">
+    <End Type="QMSModel.DESTINATION" Role="DESTINATION" Multiplicity="1" />
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="DestenationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_Exports">
+    <End Type="QMSModel.EXPORTER" Role="EXPORTER" Multiplicity="1" />
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXPORTER">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="ExporterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batchs_Pen">
+    <End Type="QMSModel.PEN" Role="PEN" Multiplicity="0..1" />
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEN">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="Batchs">
+        <PropertyRef Name="PenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLINIC_BATCHES">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.CLINIC_CASES" Role="CLINIC_CASES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CLINIC_CASES">
+        <PropertyRef Name="BATCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DiposedBatchs_Batchs">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.DiposedBatchs" Role="DiposedBatchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DiposedBatchs">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisposeDetails_Batch">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.DisposeDetails" Role="DisposeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DisposeDetails">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PensLables_Batch">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.PensLables" Role="PensLables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PensLables">
+        <PropertyRef Name="batchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_Batch">
+    <End Type="QMSModel.Batchs" Role="Batchs" Multiplicity="1" />
+    <End Type="QMSModel.ReleaseRecord" Role="ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_BRANCH">
+    <End Type="QMSModel.BRANCH" Role="BRANCH" Multiplicity="0..1" />
+    <End Type="QMSModel.EXPORTER" Role="EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRANCH">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="BANK_BRANCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_DIAGNOSIS">
+    <End Type="QMSModel.DIAGNOSES" Role="DIAGNOSES" Multiplicity="1" />
+    <End Type="QMSModel.CASE_DIAGNOSIS" Role="CASE_DIAGNOSIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIAGNOSES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_DIAGNOSIS">
+        <PropertyRef Name="DIAGNOSIS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLINIC_CASES_DIAGNOSIS">
+    <End Type="QMSModel.CASE_DIAGNOSIS" Role="CASE_DIAGNOSIS" Multiplicity="0..1" />
+    <End Type="QMSModel.CLINIC_CASES" Role="CLINIC_CASES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CASE_DIAGNOSIS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CLINIC_CASES">
+        <PropertyRef Name="Diagnosis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIAGNOSIS_CASE">
+    <End Type="QMSModel.CLINIC_CASES" Role="CLINIC_CASES" Multiplicity="1" />
+    <End Type="QMSModel.CASE_DIAGNOSIS" Role="CASE_DIAGNOSIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLINIC_CASES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_DIAGNOSIS">
+        <PropertyRef Name="CASE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_SYMPTOMS">
+    <End Type="QMSModel.SYMPTOMS" Role="SYMPTOMS" Multiplicity="1" />
+    <End Type="QMSModel.CASE_SYMPTOMS" Role="CASE_SYMPTOMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SYMPTOMS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_SYMPTOMS">
+        <PropertyRef Name="SYMPTOM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SYMPTOMS_CASES">
+    <End Type="QMSModel.CLINIC_CASES" Role="CLINIC_CASES" Multiplicity="1" />
+    <End Type="QMSModel.CASE_SYMPTOMS" Role="CASE_SYMPTOMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLINIC_CASES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_SYMPTOMS">
+        <PropertyRef Name="CASE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_TEST">
+    <End Type="QMSModel.TESTS" Role="TESTS" Multiplicity="1" />
+    <End Type="QMSModel.CASE_TESTS" Role="CASE_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_TESTS">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASE_TEST_CASE">
+    <End Type="QMSModel.CLINIC_CASES" Role="CLINIC_CASES" Multiplicity="1" />
+    <End Type="QMSModel.CASE_TESTS" Role="CASE_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLINIC_CASES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CASE_TESTS">
+        <PropertyRef Name="CASE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_CHEMICAL">
+    <End Type="QMSModel.CHEMICAL" Role="CHEMICAL" Multiplicity="1" />
+    <End Type="QMSModel.CHEMICAL_DOSE" Role="CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHEMICAL">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="CHEMICAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_AUTHORIZING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.CHEMICAL_DOSE" Role="CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_CREATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.CHEMICAL_DOSE" Role="CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_UPDATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.CHEMICAL_DOSE" Role="CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_AUTHORIZING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.CONTACT" Role="CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_CREATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.CONTACT" Role="CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_UPDATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.CONTACT" Role="CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_TESTS_DESTNATION">
+    <End Type="QMSModel.DESTINATION" Role="DESTINATION" Multiplicity="1" />
+    <End Type="QMSModel.DESTINATION_TESTS" Role="DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUARENTINE_PERIOD_DESTNATION">
+    <End Type="QMSModel.DESTINATION" Role="DESTINATION" Multiplicity="1" />
+    <End Type="QMSModel.QUARENTINE_PERIOD" Role="QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_Destination">
+    <End Type="QMSModel.DESTINATION" Role="DESTINATION" Multiplicity="1" />
+    <End Type="QMSModel.ReleaseRecord" Role="ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="DestinationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_TESTS_TEST">
+    <End Type="QMSModel.TESTS" Role="TESTS" Multiplicity="1" />
+    <End Type="QMSModel.DESTINATION_TESTS" Role="DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DiposedBatchs_Method">
+    <End Type="QMSModel.DisposeMethod" Role="DisposeMethod" Multiplicity="1" />
+    <End Type="QMSModel.DiposedBatchs" Role="DiposedBatchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DisposeMethod">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DiposedBatchs">
+        <PropertyRef Name="MethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisposeDetails_DisposeB">
+    <End Type="QMSModel.DiposedBatchs" Role="DiposedBatchs" Multiplicity="1" />
+    <End Type="QMSModel.DisposeDetails" Role="DisposeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiposedBatchs">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DisposeDetails">
+        <PropertyRef Name="DiposeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisposeDetails_Method">
+    <End Type="QMSModel.DisposeMethod" Role="DisposeMethod" Multiplicity="1" />
+    <End Type="QMSModel.DisposeDetails" Role="DisposeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DisposeMethod">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DisposeDetails">
+        <PropertyRef Name="MethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_ID_TYPE">
+    <End Type="QMSModel.ID_TYPE" Role="ID_TYPE" Multiplicity="0..1" />
+    <End Type="QMSModel.EXPORTER" Role="EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ID_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="ID_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_TYPE">
+    <End Type="QMSModel.EXPORTER_TYPE" Role="EXPORTER_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.EXPORTER" Role="EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXPORTER_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="EXPORTER_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseRecord_Exporters">
+    <End Type="QMSModel.EXPORTER" Role="EXPORTER" Multiplicity="1" />
+    <End Type="QMSModel.ReleaseRecord" Role="ReleaseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXPORTER">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseRecord">
+        <PropertyRef Name="ExporterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FEED_RECORD_TYPE">
+    <End Type="QMSModel.FEED_TYPE" Role="FEED_TYPE" Multiplicity="1" />
+    <End Type="QMSModel.FEED_RECORD" Role="FEED_RECORD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEED_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="FEED_RECORD">
+        <PropertyRef Name="FEED_TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARKET_REGION">
+    <End Type="QMSModel.REGION" Role="REGION" Multiplicity="0..1" />
+    <End Type="QMSModel.MARKET" Role="MARKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="MARKET">
+        <PropertyRef Name="REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PensLables_Pens">
+    <End Type="QMSModel.PEN" Role="PEN" Multiplicity="1" />
+    <End Type="QMSModel.PensLables" Role="PensLables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEN">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PensLables">
+        <PropertyRef Name="PenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReleaseDetails_ReleaseRecord">
+    <End Type="QMSModel.ReleaseRecord" Role="ReleaseRecord" Multiplicity="1" />
+    <End Type="QMSModel.ReleaseDetails" Role="ReleaseDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReleaseRecord">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ReleaseDetails">
+        <PropertyRef Name="ReleaseRecordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_TESTS">
+    <End Type="QMSModel.TESTS" Role="TESTS" Multiplicity="1" />
+    <End Type="QMSModel.TESTED_ANIMALS" Role="TESTED_ANIMALS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_ANIMALS">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TESTED_ANIMALS_RANGE">
+    <End Type="QMSModel.TESTED_RANGES" Role="TESTED_RANGES" Multiplicity="0..1" />
+    <End Type="QMSModel.TESTED_ANIMALS" Role="TESTED_ANIMALS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTED_RANGES">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_ANIMALS">
+        <PropertyRef Name="TestRange" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BATCHES_TESTS_R_TESTS">
+    <End Type="QMSModel.TESTS" Role="TESTS" Multiplicity="1" />
+    <End Type="QMSModel.TESTED_RANGES" Role="TESTED_RANGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTED_RANGES">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TestKits">
+    <End Type="QMSModel.TESTS" Role="TESTS" Multiplicity="1" />
+    <End Type="QMSModel.TestKits" Role="TestKits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TestKits">
+        <PropertyRef Name="TestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_AUTHORIZING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.USERS" Role="USERS1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_CREATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.USERS" Role="USERS1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_UPDATING_USER">
+    <End Type="QMSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="QMSModel.USERS" Role="USERS1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VEHICLES">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="MODEL_ID" Type="Int64" Nullable="false" />
+    <Property Name="YEAR" Type="Int32" Nullable="false" />
+    <Property Name="LICENSE_PLATE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="VEHICLES_MODEL" Relationship="QMSModel.FK_VEHICLES_MODEL" FromRole="VEHICLES" ToRole="VEHICLES_MODEL" />
+  </EntityType>
+  <EntityType Name="VEHICLES_MAKE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="MAKE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="VEHICLES_MODEL" Relationship="QMSModel.FK_VEHICLES_MODEL_MAKE" FromRole="VEHICLES_MAKE" ToRole="VEHICLES_MODEL" />
+  </EntityType>
+  <EntityType Name="VEHICLES_MODEL">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="Int64" Nullable="false" />
+    <Property Name="MAKE_ID" Type="Int64" Nullable="false" />
+    <Property Name="MODEL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CREATED_BY" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AUTHORIZED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_UPDATED_BY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AUTHORIZATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="VEHICLES" Relationship="QMSModel.FK_VEHICLES_MODEL" FromRole="VEHICLES_MODEL" ToRole="VEHICLES" />
+    <NavigationProperty Name="VEHICLES_MAKE" Relationship="QMSModel.FK_VEHICLES_MODEL_MAKE" FromRole="VEHICLES_MODEL" ToRole="VEHICLES_MAKE" />
+  </EntityType>
+  <Association Name="FK_VEHICLES_MODEL">
+    <End Type="QMSModel.VEHICLES_MODEL" Role="VEHICLES_MODEL" Multiplicity="1" />
+    <End Type="QMSModel.VEHICLES" Role="VEHICLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLES_MODEL">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="VEHICLES">
+        <PropertyRef Name="MODEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICLES_MODEL_MAKE">
+    <End Type="QMSModel.VEHICLES_MAKE" Role="VEHICLES_MAKE" Multiplicity="1" />
+    <End Type="QMSModel.VEHICLES_MODEL" Role="VEHICLES_MODEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLES_MAKE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="VEHICLES_MODEL">
+        <PropertyRef Name="MAKE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

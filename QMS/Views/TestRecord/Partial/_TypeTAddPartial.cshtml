@@ -1,0 +1,127 @@
+﻿
+@model QMS.Data.Batchs
+@using QMS.Core.Resources
+@using QMS
+@using GridMvc.Html
+
+
+<style type="text/css">
+    .paging-nav {
+        text-align: right;
+        padding-top: 2px;
+    }
+
+        .paging-nav a {
+            margin: auto 1px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1px 7px;
+            background: #91b9e6;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .paging-nav .selected-page {
+            background: #187ed5;
+            font-weight: bold;
+        }
+
+    .paging-nav,
+    #tableData {
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+<div id="batchForm">
+    <div>
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.ExporterName)
+
+            @Html.TextBoxFor(model => model.EXPORTER.EXPORTER_NAME, new { @class = "form-control", @readonly = "yes" })
+
+        </div>
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.Animan_TYPE_NAME)
+
+            @Html.TextBoxFor(model => model.ANIMAL_TYPE.TYPE_NAME, new { @class = "form-control", @readonly = "yes" })
+
+        </div>
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.DestenationName)
+
+            @Html.TextBoxFor(model => model.DESTINATION.DESTINATION_NAME, new { @class = "form-control", @readonly = "yes" })
+
+        </div>
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.AcceptedAnimals)
+
+            @Html.TextBoxFor(model => model.AcceptedAnimals, new { @class = "form-control", @readonly = "yes" })
+
+        </div>
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.RegisterationDate)
+
+            @{
+                DateTime regDate = (DateTime)Model.RegisterationDate;
+                string regDateString = regDate.ToString("dd/MM/yyyy");
+
+                IList<QMS.Data.QUARENTINE_PERIOD> periodList = Model.DESTINATION.QUARENTINE_PERIOD.Where(a => a.ANIMAL_TYPE_ID == Model.typeID).ToList();
+                string quarentineEndDate = regDate.AddDays((double)periodList[0].QUARENTINE_DAYS).ToString("dd/MM/yyyy");
+
+            }
+
+            @Html.TextBoxFor(model => regDateString, new { @class = "form-control", @readonly = "yes" })
+
+        </div>
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.QuaratineEndDate)
+
+            
+
+            @Html.TextBoxFor(model => quarentineEndDate, new { @class = "form-control", @readonly = "yes" })
+
+        </div>
+    </div>
+    <div>
+        <button type="submit" formaction="/Create" class="btn btn-default alignPreview">
+            <span class="glyphicon glyphicon-new-window"></span>
+            @QMSRes.PlusSign
+        </button>
+    </div>
+    <div>
+        @Html.Grid(ViewBag.ClinicCases as IEnumerable<QMS.Data.CLINIC_CASES>).Named("ordersGrid").Columns(columns =>
+        {
+            columns.Add(model => model.CASE_TYPE).Sortable(true).SetWidth(50).Titled(QMSRes.TestName);
+            columns.Add(model => model.ANIMAL_LABEL).Sortable(true).SetWidth(50).Titled(QMSRes.SamplingMethod);
+            columns.Add(model => model.STATUS).Sortable(true).SetWidth(50).Titled(QMSRes.RecommendedSampleSize);
+            columns.Add(model => model.CREATION_DATE).Sortable(true).SetWidth(50).Titled(QMSRes.TestedAnimals);
+            
+            columns.Add().Encoded(false).Sanitized(false)
+            .RenderValueAs(o => Html.ActionLink(QMSRes.EditSign, "Edit", new { batchId = o.BATCH_ID, caseId = o.SYSTEMID  })).SetWidth(50);
+            }).WithPaging(10).Filterable().SetLanguage(GeneralRes.Lang)
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+       
+}
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+</script>
+

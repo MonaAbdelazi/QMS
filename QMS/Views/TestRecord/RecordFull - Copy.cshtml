@@ -1,0 +1,281 @@
+﻿@using QMS.Core.Resources
+@using GridMvc.Html
+@using QMS.Data
+@model QMS.ViewModels.TestRecordViewModel
+
+@{
+    ViewBag.Title = QMSRes.RecordTests;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@QMSRes.RecordTests</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+                    @Html.ValidationSummary(true)
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@QMSRes.BatchDetails</h2>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group row">
+                            <table width="100%">
+                                <tr>
+                                    <td valign="top">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <b> @QMSRes.BatchDetails </b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.ExporterName + ": " + Model.BatchDetails.EXPORTER.EXPORTER_NAME)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.DestenationName + ": " + Model.BatchDetails.DESTINATION.DESTINATION_NAME)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.Animan_TYPE_NAME + ": " + Model.BatchDetails.ANIMAL_TYPE.TYPE_NAME)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.AcceptedAnimals + ": " + Model.BatchDetails.AcceptedAnimals)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @{
+                                                        DateTime regDate = (DateTime)Model.BatchDetails.RegisterationDate;
+                                                        string regDateString = regDate.ToString("dd/MM/yyyy");
+
+                                                        IList<QMS.Data.QUARENTINE_PERIOD>
+                                                            periodList = Model.BatchDetails.DESTINATION.QUARENTINE_PERIOD
+                                                                            .Where(a => a.ANIMAL_TYPE_ID == Model.BatchDetails.typeID)
+                                                                            .ToList();
+                                                        string quarentineEndDate = regDate.AddDays((double)periodList[0].QUARENTINE_DAYS).ToString("dd/MM/yyyy");
+
+                                                    }
+                                                    @Html.Label(@QMSRes.RegisterationDate + ": " + regDate)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.QuaratineEndDate + ": " + quarentineEndDate)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td valign="top">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <b> @QMSRes.TestDetails </b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.TestName + ": " + Model.TestDetails.TEST_NAME)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.Kit + ": " + Model.TestDetails.Kits)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.SamplingMethod + ": " + Model.TestDetails.Sample)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @{
+                                                        string numberPercentage = QMSRes.NA;
+                                                        if (Model.TestDetails.Sample == "Percentage")
+                                                        {
+                                                            numberPercentage = Model.TestDetails.Percentage.ToString() + "%";
+                                                        }
+                                                        else if (Model.TestDetails.Sample == "Number")
+                                                        {
+                                                            numberPercentage = Model.TestDetails.Number.ToString();
+                                                        }
+                                                    }
+                                                    @Html.Label(@QMSRes.NumberPercentage + ": " + numberPercentage)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @{
+                                                        string disposalThreshold = QMSRes.NA;
+                                                        if (Model.TestDetails.TestAction != null)
+                                                        {
+                                                            disposalThreshold = Model.TestDetails.TestAction.ToString() + "%";
+                                                        }
+                                                    }
+                                                    @Html.Label(@QMSRes.DisposalThresold + ": " + disposalThreshold)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @{
+                                                        string retest = (Model.TestDetails.RoundRequired == "True") ? "Yes" : "No";
+                                                    }
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.FullTestThreshold + ": " + retest)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td valign="top">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <b> @QMSRes.TestResults </b>
+                                                    @{
+                                                        double sampleFullPerc = Math.Round(100.00 * (double)Model.Summary.RECOMMENDED_SAMPLE_SIZE
+                                                                                             / (double)Model.BatchDetails.AcceptedAnimals, 2);
+                                                        string sampleFullPercStr = QMSRes.PercentageFromFullBatch + ": " + sampleFullPerc + "%";
+
+                                                        double testedFullPerc = Math.Round(100.00 * (double)Model.Summary.TESTED_ANIMALS
+                                                                                             / (double)Model.BatchDetails.AcceptedAnimals, 2);
+                                                        double testedSamplePerc = Math.Round(100.00 * (double)Model.Summary.TESTED_ANIMALS
+                                                                                             / (double)Model.Summary.RECOMMENDED_SAMPLE_SIZE, 2);
+                                                        string testedFullPercStr = QMSRes.PercentageFromFullBatch + ": " + testedFullPerc + "%";
+                                                        string testedSamplePercStr = QMSRes.PercentageFromSample + ": " + testedSamplePerc + "%";
+
+                                                        double positiveFullPerc = Math.Round(100.00 * (double)Model.Summary.POSITIVE_CASES
+                                                                                     / (double)Model.BatchDetails.AcceptedAnimals, 2);
+                                                        double positiveSamplePerc = Math.Round(100.00 * (double)Model.Summary.POSITIVE_CASES
+                                                                                                                                     / (double)Model.Summary.RECOMMENDED_SAMPLE_SIZE, 2);
+                                                        double positiveTestedPerc = Math.Round(100.00 * (double)Model.Summary.POSITIVE_CASES
+                                                                                             / (double)Model.Summary.TESTED_ANIMALS, 2);
+                                                        string positiveFullPercStr = QMSRes.PercentageFromFullBatch + ": " + positiveFullPerc + "%";
+                                                        string positiveSamplePercStr = QMSRes.PercentageFromSample + ": " + positiveSamplePerc + "%";
+                                                        string positiveTestedPercStr = QMSRes.PercentageFromTested + ": " 
+                                                                                             + ((Model.Summary.TESTED_ANIMALS == 0) ? 0.00 : positiveTestedPerc) 
+                                                                                             + "%";
+
+                                                        long? remaining = Model.Summary.RECOMMENDED_SAMPLE_SIZE - Model.Summary.TESTED_ANIMALS;
+                                                        double RemainigSamplePerc = Math.Round(100.00 * (double)remaining
+                                                                                             / (double)Model.Summary.RECOMMENDED_SAMPLE_SIZE, 2);
+                                                        string RemainigSamplePercStr = QMSRes.PercentageFromSample + ": " + RemainigSamplePerc + "%";
+
+                                                    }
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.RecommendedSampleSize + ": " + Model.Summary.RECOMMENDED_SAMPLE_SIZE)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;&nbsp; @Html.Label(sampleFullPercStr)
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.TestedAnimals + ": " + Model.Summary.TESTED_ANIMALS)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;&nbsp; @Html.Label(testedFullPercStr)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(testedSamplePercStr)
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.PositiveCases + ": " + Model.Summary.POSITIVE_CASES)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;&nbsp; @Html.Label(positiveFullPercStr)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;&nbsp; @Html.Label(positiveSamplePercStr)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;&nbsp; @Html.Label(positiveTestedPercStr)
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    @Html.Label(@QMSRes.Remaining + ": " + remaining)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;&nbsp; @Html.Label(RemainigSamplePercStr)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+
+
+
+
+
+
+
+                        <div id="outputTable">
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+    </script>
+}

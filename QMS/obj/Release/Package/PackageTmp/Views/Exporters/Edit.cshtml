@@ -1,0 +1,163 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.EXPORTER
+
+@{
+    ViewBag.Title = CommonRes.Edit;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Exporters</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+                            @Html.HiddenFor(model => model.SYSTEMID)
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Name)
+
+                                @Html.TextBoxFor(model => model.EXPORTER_NAME, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EXPORTER_NAME)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.TYPE_NAME)
+
+                                @Html.DropDownList("EXPORTER_TYPE_ID", ViewBag.EXPORTER_TYPE_ID as SelectList, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EXPORTER_TYPE_ID)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.BankName)
+                                @if (Model.BRANCH != null && Model.BRANCH.BANK != null)
+                                {
+                                    @Html.DropDownList("Banks", ViewBag.Banks as SelectList, Model.BRANCH.BANK.BANK_NAME, new { @class = "form-control" })}
+                                else
+                                {
+                                    @Html.DropDownList("Banks", ViewBag.Banks as SelectList, string.Empty, new { @class = "form-control" })
+                                }
+
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.BranchName)
+                                @if (Model.BRANCH != null)
+                                {
+                                    @Html.DropDownList("BANK_BRANCH_ID", ViewBag.BANK_BRANCH_ID as SelectList,  new { @class = "form-control" })
+
+                                }
+                                else
+                                {
+                                    @Html.DropDownList("BANK_BRANCH_ID", ViewBag.BANK_BRANCH_ID as SelectList,  new { @class = "form-control" })
+
+                                }
+                                @Html.ValidationMessageFor(model => model.BANK_BRANCH_ID)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.IdType)
+                                @if (Model.ID_TYPE != null)
+                                {                            
+                                        @Html.DropDownList("ID_TYPE_ID", ViewBag.ID_TYPE_ID as SelectList,  new { @class = "form-control" })
+                                }
+                                else
+                                {
+                                       @Html.DropDownList("ID_TYPE_ID", ViewBag.ID_TYPE_ID as SelectList, string.Empty, new { @class = "form-control" })
+
+                                    } @Html.ValidationMessageFor(model => model.ID_TYPE_ID)
+                                </div>
+                                <div class="col-lg-3">
+                                    @Html.Label(QMSRes.ID_REFERENCE)
+
+                                    @Html.TextBoxFor(model => model.ID_REFERENCE, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ID_REFERENCE)
+                                </div>
+                                <div class="col-lg-3">
+                                    @Html.Label(QMSRes.BIRTH_ESTABLISHMENT_DATE)
+
+                                    @Html.TextBox("BIRTH_ESTABLISHMENT_DATE",Model.BIRTH_ESTABLISHMENT_DATE,  new { @class = "form-control", @Date = "Date" })
+                                    @Html.ValidationMessageFor(model => model.BIRTH_ESTABLISHMENT_DATE)
+                                </div>
+                                <div class="col-lg-3">
+                                    @Html.Label(QMSRes.Note)
+
+                                    @Html.TextAreaFor(model => model.NOTES, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NOTES)
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <center class="mgtp">
+
+                                    <input type="submit" value="@CommonRes.Edit" class="btn btn-primary hvr-bounce-in" />
+                                    &nbsp;
+                                    @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                                </center>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+                                }
+
+
+                                <div>
+                                    @Html.ActionLink(CommonRes.BackToList, "Index")
+                                </div>
+
+                                @section Scripts {
+                                    <script type="text/javascript">
+
+                                        function add(_ddlDesc) {
+
+                                            var target = $('#outputTable');
+                                            var input = { name: $('#Curr_Name').val(), namear: $('#Curr_Name_AR').val(), CurrentCost: $('#CurrentCost').val(), EX_Rate: $('#EX_Rate').val(), Last_Ex_Rare_Date: $('#Last_Ex_Rare_Date').val() };
+                                            $.ajax({
+                                                url: '/Currencies/Add',
+                                                type: "POST",
+                                                data: JSON.stringify(input),
+                                                dataType: "json",
+                                                contentType: "application/json; charset=utf-8",
+                                                success: function (data) {
+                                                    target.html(data);
+
+                                                },
+                                                error: function () {
+                                                }
+                                            });
+
+                                            $('#Curr_Name').val("");
+                                            $('#Curr_Name_AR').val("");
+                                            $('#CurrentCost').val("");
+                                            $('#EX_Rate').val("");
+                                            $('#Last_Ex_Rare_Date').val("");
+                                        }
+                                    </script>
+                                }

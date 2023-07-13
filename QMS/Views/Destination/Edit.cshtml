@@ -1,0 +1,207 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.DESTINATION
+
+@{
+    ViewBag.Title = CommonRes.Edit;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Destination</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+                        @Html.HiddenFor(model=>model.SYSTEMID)
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.DestenationName)
+
+                                @Html.TextBoxFor(model => model.DESTINATION_NAME, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DESTINATION_NAME)
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-light-blue">
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@QMSRes.RequiredTests</h2>
+                    </div>
+                    <hr />
+                    <div class="panel-body">
+
+                        <div class="panel-light-blue">
+
+                            <div class="col-lg-6">
+                                @Html.Label(MenusRes.AnimalType)
+
+                                @Html.DropDownList("ANIMAL_TYPE_ID", ViewBag.typeID as SelectList, CommonRes.SelectDropDown, new { @class = "form-control", @onchange = "typeSelected();" })
+                            </div>
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.QuaratinePeriod)
+
+                                @Html.TextBox("QuaratinePeriod", string.Empty, new { @class = "form-control", @type = "number" })
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3">
+                            @Html.Label(MenusRes.Title_Testing)
+                            @Html.ListBox("ChooseRight", null, new { @class = "form-control", multiple = "multiple" })
+
+
+                        </div>
+                        <div class="col-lg-1">
+                            <br>
+                            <input id="ShiftRight" type="button" value=">>>" />
+                            <input id="ShiftLeft" type="button" value="<<<" />
+                        </div>
+                        <div class="col-lg-3">
+                            <br>
+                            @Html.Label("Selected Tests")
+
+
+                            @Html.ListBoxFor(model => model.DESTINATION_TESTS, ViewBag.TEST_ID as SelectList, new { @class = "form-control", @onchange = "typeSelected();", @multiple = "multiple" })
+
+
+                        </div>
+
+                    </div>
+                    <div>
+                        <center>
+                            <p>
+                                <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="add(this.id);" />
+                            </p>
+                        </center>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            @{Html.RenderPartial("Partial/_DestinationsPartial", Model.QUARENTINE_PERIOD.ToList());}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <center class="mgtp">
+
+                        <input type="submit" value="@CommonRes.Edit" class="btn btn-primary hvr-bounce-in" />
+                        &nbsp;
+                        @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                    </center>
+
+                </div>
+            </div>
+        </div>
+ </form>
+
+                                }
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $('#Dispose').change(function () {
+            if (this.checked == true)
+                $("#TestAction").removeAttr("disabled");
+            if (this.checked == false) {
+                $("#TestAction").attr('disabled', 'disabled');
+                $("#TestAction").val("");
+            }
+        });
+
+        function sampleSelected() {
+
+            var Sample = $('#Sample').val();
+            if (Sample == "Full") {
+                $("#Number").attr('disabled', 'disabled');
+                $("#Number").val(" ");
+
+                $("#Percentage").attr('disabled', 'disabled');
+                $("#Percentage").val(" ");
+
+                $("#RoundRequired").attr('disabled', 'disabled');
+                $("#RoundRequired").checked = false;
+                $("#RoundRequired").removeAttr("checked");
+
+            }
+            if (Sample == "Percentage") {
+                $("#Number").attr('disabled', 'disabled');
+                $("#Number").val(" ");
+
+                $("#Percentage").removeAttr("disabled");
+                $("#RoundRequired").removeAttr("disabled");
+
+
+            }
+            if (Sample == "Number") {
+                $("#Percentage").attr('disabled', 'disabled');
+                $("#Percentage").val(" ");
+
+                $("#Number").removeAttr("disabled");
+                $("#RoundRequired").removeAttr("disabled");
+
+            }
+
+
+
+        }
+        $(function () {
+            $("#ShiftRight,#ShiftLeft").click(function (event) {
+                var ID = $(event.target).attr("ID");
+                var ChooseFrom = ID == "ShiftRight" ? "#ChooseRight" : "#DESTINATION_TESTS";
+                var moveTo = ID == "ShiftRight" ? "#DESTINATION_TESTS" : "#ChooseRight";
+                var SelectData = $(ChooseFrom + " :selected").toArray();
+                $(moveTo).append(SelectData);
+                SelectData.remove;
+            });
+        });
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = { TEST_ID: $('#DESTINATION_TESTS').val(), QuaratinePeriod: $('#QuaratinePeriod').val(), ANIMAL_TYPE_ID: $('#ANIMAL_TYPE_ID').val(), DESTINATION_NAME: $('#DESTINATION_NAME').val() };
+            $.ajax({
+                url: '/Destination/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#QuaratinePeriod').val("");
+            $('#ANIMAL_TYPE_ID').val("");
+        }
+    </script>
+}

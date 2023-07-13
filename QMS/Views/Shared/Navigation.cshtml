@@ -1,0 +1,182 @@
+﻿﻿﻿@using QMS.Core.Resources
+
+
+
+<!--Left navigation section start-->
+<section id="left-navigation" dir="ltr">
+    <!--Left navigation user details start-->
+    <div class="user-image" dir="ltr">
+        <img src="~/assets/images/demo/avatar-80.png" alt="" />
+        <div class="user-online-status"> </div>
+    </div>
+    <ul class="social-icon" dir="ltr">
+        <li><a href="~/Home/ChangePassword" style="text-decoration:none;"> </a></li>
+    </ul>
+    <!--Left navigation user details end-->
+    <!--Phone Navigation Menu icon start-->
+    <div class="phone-nav-box visible-xs" dir="ltr">
+        <a class="phone-logo" href="index" title="">
+            <h1>@GeneralRes.SystemName</h1>
+        </a>
+        <a class="phone-nav-control" href="javascript:void(0)">
+            <span class="fa fa-bars"></span>
+        </a>
+
+    </div>
+    <!--Phone Navigation Menu icon start-->
+    <!--Left navigation start-->
+    <div dir="ltr">
+        <ul class="mainNav" style="float:left">
+            @if (Session["Role"]!=null && Session["Role"].ToString() == "Admins")
+        {
+
+
+                <li>
+                    <a>
+                        <i class="fa fa-dashboard"></i> <span>@MenusRes.Title_Settings</span>
+
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Animal_Type" ? "active" : "")" href="~/Animal_Type/Index">@MenusRes.AnimalType</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Exporter_Type" ? "active" : "")" href="~/Exporter_Type/Index">@MenusRes.Exporter_Type</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Regions_Markets" ? "active" : "")" href="~/Regions_Markets/Index">@MenusRes.RegionsAndMarket</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Pens" ? "active" : "")" href="~/Pens/Index">@MenusRes.Pens</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Exporters" ? "active" : "")" href="~/Exporters/Index">@MenusRes.Exporters</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Chemicals" ? "active" : "")" href="~/Chemicals/Index">@MenusRes.Chemicals</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Banks_Branches" ? "active" : "")" href="~/Banks_Branches/Index">@MenusRes.Banks_Branches</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Test" ? "active" : "")" href="~/Test/Index">@MenusRes.Title_Testing</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Destination" ? "active" : "")" href="~/Destination/Index">@MenusRes.Destination</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " DisposeMethod" ? "active" : "")" href="~/DisposeMethod/Index">@MenusRes.DisposeMethod</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Diagnoses" ? "active" : "")" href="~/Diagnoses/Index">@MenusRes.Diagnoses</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Vehicles_Setup" ? "active" : "")" href="~/Vehicles_Setup/Index">@MenusRes.Diagnoses</a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="fa fa-dashboard"></i> <span>@MenusRes.Title_BatchRegisteration</span>
+
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " BatchRegisteration" ? "active" : "")" href="~/BatchRegisteration/Index">@MenusRes.BatchRegisteration</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " BatchRegisteration" ? "active" : "")" href="~/BatchRegisteration/VerifyIndex">@MenusRes.BatchVerification</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Release" ? "active" : "")" href="~/Release/Index">@MenusRes.BatchRelease</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Dispose" ? "active" : "")" href="~/Dispose/Create">@MenusRes.Dispose</a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="fa fa-dashboard"></i> <span>@MenusRes.Title_Feeding</span>
+
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Feed_Type" ? "active" : "")" href="~/Feed_Type/Index">@MenusRes.Feed_Type</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Feeding" ? "active" : "")" href="~/Feeding/Index">@MenusRes.Feeding</a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="fa fa-dashboard"></i> <span>@MenusRes.Title_Testing</span>
+
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Test" ? "active" : "")" href="~/Test/Index">@MenusRes.TestsSetup</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " TestRecord" ? "active" : "")" href="~/TestRecord/Index">@MenusRes.Tests</a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a>
+                        <i class="fa fa-dashboard"></i> <span>@MenusRes.Clinic</span>
+
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " ClinicCase" ? "active" : "")" href="~/ClinicCase/Index">@MenusRes.ClinicCases</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " ClinicCase" ? "active" : "")" href="~/ClinicCase/CaseTestIndex">@MenusRes.ClinicCaseTests</a></li>
+
+                    </ul>
+
+                </li>
+                
+                <li >
+                    <a >
+                        <i class="fa fa-dashboard"></i>
+                        <span>@MenuRes.Title_UsersPermissions</span>
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "Role" ? "active" : "")" href="~/Roles/Index">@MenusRes.UserRoles</a></li>
+
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() =="RegisterUser" ? "active" : "")" href="~/Account/Register">@MenuRes.Title_RegisterUser</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "Permission" ? "active" : "")" href="~/Permission/Permissions">@MenuRes.Title_Permissions</a></li>
+
+                    </ul>
+                </li>
+                @*<li>
+                    <a>
+                        <i class="fa fa-dashboard"></i> <span>@MenusRes.Title_Reports</span>
+
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == " Animal_Type" ? "active" : "")" href="~/Animal_Type/Index">@MenusRes.AnimalType</a></li>
+
+                    </ul>
+
+                </li>*@
+        }
+
+
+
+
+
+
+
+
+
+
+            @*<li class="@((ViewContext.RouteData.Values["controller"].ToString() == "Vehicle" || ViewContext.RouteData.Values["controller"].ToString() == "VehicleInsurance" || ViewContext.RouteData.Values["controller"].ToString() == "VehicleLicense" || ViewContext.RouteData.Values["controller"].ToString() == "VehiclePlate" || ViewContext.RouteData.Values["controller"].ToString() == "VehicleRequest") ? "active" : "")">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>@MenuRes.Title_Vehicle</span>
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "Vehicle" ? "active" : "")" href="~/Vehicle/Index">@MenuRes.Title_Vehicle</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "VehicleInsurance" ? "active" : "")" href="~/Vehicle/Index">@MenuRes.Title_VehicleInsurance</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "VehicleLicense" ? "active" : "")" href="~/VehicleLicense/Index">@MenuRes.Title_VehicleLicense</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "VehiclePlate" ? "active" : "")" href="~/VehiclePlate/Index">@MenuRes.Title_VehiclePlate</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "VehicleRequest" ? "active" : "")" href="~/VehicleRequest/Index">@MenuRes.Title_VehicleRequest</a></li>
+
+                    </ul>
+                </li>
+                <li class="@((ViewContext.RouteData.Values["controller"].ToString() == "MaintenanceStaff" || ViewContext.RouteData.Values["controller"].ToString() == "MaintenanceJob" ) ? "active" : "")">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>@MenuRes.Title_Maintenance</span>
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "MaintenanceStaff" ? "active" : "")" href="~/MaintenanceStaff/Index">@MenuRes.Title_MaintenanceStaff</a></li>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "MaintenanceJob" ? "active" : "")" href="~/MaintenanceJob/Index">@MenuRes.Title_MaintenanceJob</a></li>
+
+                    </ul>
+                </li>
+                <li class="@((ViewContext.RouteData.Values["controller"].ToString() == "Trip" ) ? "active" : "")">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>@MenuRes.Title_Trip</span>
+                    </a>
+                    <ul>
+                        <li><a class="@(ViewContext.RouteData.Values["controller"].ToString() == "Trip" ? "active" : "")" href="~/Trip/Index">@MenuRes.Title_Trip</a></li>
+                    </ul>
+                </li>*@
+
+        </ul>
+    </div>
+        
+           <!--Left navigation end-->
+</section>
+<!--Left navigation section end-->

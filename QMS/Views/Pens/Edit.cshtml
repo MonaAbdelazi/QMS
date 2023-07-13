@@ -1,0 +1,147 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.PEN
+
+@{
+    ViewBag.Title = CommonRes.Edit;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@CommonRes.Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Pens</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+                            @Html.HiddenFor(m => m.SYSTEMID)
+
+                            @Html.HiddenFor(m => m.PEN_ID)
+
+
+
+
+
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Name)
+
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Animan_TYPE_NAME)
+
+                                @Html.DropDownListFor(model => model.TypeID, ViewBag.ANIMAL_TYPE as SelectList, new { @id = "TypeID", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TypeID)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Capacity)
+
+                                @Html.TextBoxFor(model => model.CAPACITY, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CAPACITY)
+                            </div>
+                          
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Note)
+
+                                @Html.TextBoxFor(model => model.NOTES, new { @class = "form-control", @Value = Model.TypeID })
+                                @Html.ValidationMessageFor(model => model.NOTES)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Status)
+                                @Html.DropDownListFor(m => m.STATUS, ViewBag.Status as SelectList, htmlAttributes: new { @Value = Model.STATUS, @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.STATUS)
+                            </div>
+
+                        </div>
+                        <div>
+
+                           
+
+
+
+                        </div>
+
+
+
+                        <div id="outputTable">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <center class="mgtp">
+
+                                <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" />
+                                &nbsp;
+                                @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                            </center>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = { name: $('#Curr_Name').val(), namear: $('#Curr_Name_AR').val(), CurrentCost: $('#CurrentCost').val(), EX_Rate: $('#EX_Rate').val(), Last_Ex_Rare_Date: $('#Last_Ex_Rare_Date').val() };
+            $.ajax({
+                url: '/Currencies/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#Curr_Name').val("");
+            $('#Curr_Name_AR').val("");
+            $('#CurrentCost').val("");
+            $('#EX_Rate').val("");
+            $('#Last_Ex_Rare_Date').val("");
+        }
+    </script>
+}

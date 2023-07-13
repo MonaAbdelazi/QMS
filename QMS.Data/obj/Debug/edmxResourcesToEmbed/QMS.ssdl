@@ -1,0 +1,1374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADDRESS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LINE1" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="LINE2" Type="varchar2" MaxLength="200" />
+    <Property Name="LINE3" Type="varchar2" MaxLength="200" />
+    <Property Name="LINE4" Type="varchar2" MaxLength="200" />
+    <Property Name="REFERENCE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ANIMAL_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="TYPE_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="DEFAULT_AVERAGE_WEIGHT" Type="number" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="FEED_WEIGHT_PERCENTAGE" Type="number" Precision="3" Scale="2" Nullable="false" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANK">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="BANK_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANK_BRANCH">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="BANK_BRANCH_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="BANK_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHEMICAL">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CHEMICAL_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="INVENTORY_REFERENCE" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="MEASURE_UNIT" Type="varchar2" MaxLength="20" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHEMICAL_DOSE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CHEMICAL_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="WEIGHT_HEAD" Type="varchar2" MaxLength="6" Nullable="false" />
+    <Property Name="DOSE" Type="number" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONTACT">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="COONTACT_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="200" />
+    <Property Name="SECOND_EMAIL" Type="varchar2" MaxLength="200" />
+    <Property Name="PHONE_NUMBER" Type="varchar2" MaxLength="200" />
+    <Property Name="SECOND_PHONE_NUMBER" Type="varchar2" MaxLength="200" />
+    <Property Name="REFERENCE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DESTINATION">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="DESTINATION_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DESTINATION_TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="DESTINATION_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="TEST_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXPORTER">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="EXPORTER_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="EXPORTER_TYPE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="BANK_BRANCH_ID" Type="number" Precision="20" Scale="0" />
+    <Property Name="ID_TYPE_ID" Type="number" Precision="20" Scale="0" />
+    <Property Name="ID_REFERENCE" Type="varchar2" MaxLength="30" />
+    <Property Name="BIRTH_ESTABLISHMENT_DATE" Type="date" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXPORTER_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="TYPE_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="INDIVIDUAL_CORPORATE" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ID_TYPE">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="TYPE_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="INDIVIDUAL_CORPORATE" Type="varchar2" MaxLength="30" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MARKET">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="MARKET_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="REGION_ID" Type="number" Precision="20" Scale="0" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEN">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="PEN_ID" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="CAPACITY" Type="number" Precision="5" Scale="0" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QUARENTINE_PERIOD">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="DESTINATION_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="ANIMAL_TYPE_ID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="QUARENTINE_DAYS" Type="number" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REGION">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="REGION_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TESTS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="TEST_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="NOTES" Type="varchar2" MaxLength="250" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="SYSTEMID" />
+    </Key>
+    <Property Name="SYSTEMID" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="MIDDLE_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="LAST_NAME" Type="varchar2" MaxLength="50" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CREATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="AUTHORIZED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="number" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+    <Property Name="AUTHORIZATION_DATE" Type="date" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ADDRESS_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRESS_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRESS_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ADDRESS">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ANIMAL_TYPE_AUTH_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ANIMAL_TYPE">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ANIMAL_TYPE_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ANIMAL_TYPE">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ANIMAL_TYPE_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ANIMAL_TYPE">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANK_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BANK" Type="Self.BANK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BANK">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANK_BRANCH_BANK">
+    <End Role="BANK" Type="Self.BANK" Multiplicity="1" />
+    <End Role="BANK_BRANCH" Type="Self.BANK_BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANK">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BANK_BRANCH">
+        <PropertyRef Name="BANK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANK_BRANCH_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BANK_BRANCH" Type="Self.BANK_BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BANK_BRANCH">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANK_BRANCH_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BANK_BRANCH" Type="Self.BANK_BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BANK_BRANCH">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANK_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BANK" Type="Self.BANK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BANK">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANK_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BANK" Type="Self.BANK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BANK">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BRANCH_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BANK_BRANCH" Type="Self.BANK_BRANCH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="BANK_BRANCH">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL" Type="Self.CHEMICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL" Type="Self.CHEMICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_ANIMAL_TYPE">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_AUTH_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_CHEMICAL">
+    <End Role="CHEMICAL" Type="Self.CHEMICAL" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHEMICAL">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="CHEMICAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_DOSE_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL_DOSE" Type="Self.CHEMICAL_DOSE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL_DOSE">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHEMICAL_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CHEMICAL" Type="Self.CHEMICAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CHEMICAL">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTACT_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CONTACT" Type="Self.CONTACT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="CONTACT">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEST_TESTS_ANIMAL_TYPE">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEST_TESTS_AUTH_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEST_TESTS_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEST_TESTS_DESTNATION">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEST_TESTS_TEST">
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TESTS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="TEST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEST_TESTS_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="DESTINATION_TESTS" Type="Self.DESTINATION_TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION_TESTS">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_AUTH_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINATION_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="DESTINATION">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXP_TYPE_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EXPORTER_TYPE" Type="Self.EXPORTER_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER_TYPE">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_BRANCH">
+    <End Role="BANK_BRANCH" Type="Self.BANK_BRANCH" Multiplicity="0..1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANK_BRANCH">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="BANK_BRANCH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_ID_TYPE">
+    <End Role="ID_TYPE" Type="Self.ID_TYPE" Multiplicity="0..1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ID_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="ID_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_TYPE">
+    <End Role="EXPORTER_TYPE" Type="Self.EXPORTER_TYPE" Multiplicity="1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXPORTER_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="EXPORTER_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_TYPE_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EXPORTER_TYPE" Type="Self.EXPORTER_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER_TYPE">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_TYPE_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EXPORTER_TYPE" Type="Self.EXPORTER_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER_TYPE">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPORTER_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EXPORTER" Type="Self.EXPORTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="EXPORTER">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_TYPE_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ID_TYPE" Type="Self.ID_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ID_TYPE">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_TYPE_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ID_TYPE" Type="Self.ID_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ID_TYPE">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_TYPE_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ID_TYPE" Type="Self.ID_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="ID_TYPE">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARKET_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="MARKET" Type="Self.MARKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="MARKET">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARKET_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="MARKET" Type="Self.MARKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="MARKET">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARKET_REGION">
+    <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+    <End Role="MARKET" Type="Self.MARKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="MARKET">
+        <PropertyRef Name="REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARKET_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="MARKET" Type="Self.MARKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="MARKET">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PEN_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="PEN" Type="Self.PEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PEN">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PEN_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="PEN" Type="Self.PEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PEN">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PEN_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="PEN" Type="Self.PEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="PEN">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUAR_PERIOD_ANIMAL_TYPE">
+    <End Role="ANIMAL_TYPE" Type="Self.ANIMAL_TYPE" Multiplicity="1" />
+    <End Role="QUARENTINE_PERIOD" Type="Self.QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANIMAL_TYPE">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="ANIMAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUAR_PERIOD_AUTH_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="QUARENTINE_PERIOD" Type="Self.QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUAR_PERIOD_CREAT_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="QUARENTINE_PERIOD" Type="Self.QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUAR_PERIOD_DESTNATION">
+    <End Role="DESTINATION" Type="Self.DESTINATION" Multiplicity="1" />
+    <End Role="QUARENTINE_PERIOD" Type="Self.QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUAR_PERIOD_UPDATE_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="QUARENTINE_PERIOD" Type="Self.QUARENTINE_PERIOD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="QUARENTINE_PERIOD">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGION_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="REGION">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGION_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="REGION">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGION_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="REGION" Type="Self.REGION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="REGION">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TESTS_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTS">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TESTS_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTS">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TESTS_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="TESTS" Type="Self.TESTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="TESTS">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_AUTHORIZING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS1" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="AUTHORIZED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_CREATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS1" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_UPDATING_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS1" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="SYSTEMID" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="LAST_UPDATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ADDRESS" EntityType="Self.ADDRESS" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="ANIMAL_TYPE" EntityType="Self.ANIMAL_TYPE" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="BANK" EntityType="Self.BANK" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="BANK_BRANCH" EntityType="Self.BANK_BRANCH" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="CHEMICAL" EntityType="Self.CHEMICAL" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="CHEMICAL_DOSE" EntityType="Self.CHEMICAL_DOSE" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="CONTACT" EntityType="Self.CONTACT" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="DESTINATION" EntityType="Self.DESTINATION" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="DESTINATION_TESTS" EntityType="Self.DESTINATION_TESTS" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="EXPORTER" EntityType="Self.EXPORTER" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="EXPORTER_TYPE" EntityType="Self.EXPORTER_TYPE" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="ID_TYPE" EntityType="Self.ID_TYPE" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="MARKET" EntityType="Self.MARKET" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="PEN" EntityType="Self.PEN" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="QUARENTINE_PERIOD" EntityType="Self.QUARENTINE_PERIOD" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="REGION" EntityType="Self.REGION" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="TESTS" EntityType="Self.TESTS" Schema="AQMS" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="AQMS" store:Type="Tables" />
+    <AssociationSet Name="FK_ADDRESS_AUTHORIZING_USER" Association="Self.FK_ADDRESS_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRESS_CREATING_USER" Association="Self.FK_ADDRESS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRESS_UPDATING_USER" Association="Self.FK_ADDRESS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ADDRESS" EntitySet="ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ANIMAL_TYPE_AUTH_USER" Association="Self.FK_ANIMAL_TYPE_AUTH_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ANIMAL_TYPE_CREATING_USER" Association="Self.FK_ANIMAL_TYPE_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ANIMAL_TYPE_UPDATING_USER" Association="Self.FK_ANIMAL_TYPE_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANK_AUTHORIZING_USER" Association="Self.FK_BANK_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BANK" EntitySet="BANK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANK_BRANCH_BANK" Association="Self.FK_BANK_BRANCH_BANK">
+      <End Role="BANK" EntitySet="BANK" />
+      <End Role="BANK_BRANCH" EntitySet="BANK_BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANK_BRANCH_CREATING_USER" Association="Self.FK_BANK_BRANCH_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BANK_BRANCH" EntitySet="BANK_BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANK_BRANCH_UPDATING_USER" Association="Self.FK_BANK_BRANCH_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BANK_BRANCH" EntitySet="BANK_BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANK_CREATING_USER" Association="Self.FK_BANK_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BANK" EntitySet="BANK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANK_UPDATING_USER" Association="Self.FK_BANK_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BANK" EntitySet="BANK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BRANCH_AUTHORIZING_USER" Association="Self.FK_BRANCH_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BANK_BRANCH" EntitySet="BANK_BRANCH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_AUTHORIZING_USER" Association="Self.FK_CHEMICAL_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL" EntitySet="CHEMICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_CREATING_USER" Association="Self.FK_CHEMICAL_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL" EntitySet="CHEMICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_ANIMAL_TYPE" Association="Self.FK_CHEMICAL_DOSE_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_AUTH_USER" Association="Self.FK_CHEMICAL_DOSE_AUTH_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_CHEMICAL" Association="Self.FK_CHEMICAL_DOSE_CHEMICAL">
+      <End Role="CHEMICAL" EntitySet="CHEMICAL" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_CREATING_USER" Association="Self.FK_CHEMICAL_DOSE_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_DOSE_UPDATING_USER" Association="Self.FK_CHEMICAL_DOSE_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL_DOSE" EntitySet="CHEMICAL_DOSE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHEMICAL_UPDATING_USER" Association="Self.FK_CHEMICAL_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CHEMICAL" EntitySet="CHEMICAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_AUTHORIZING_USER" Association="Self.FK_CONTACT_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_CREATING_USER" Association="Self.FK_CONTACT_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTACT_UPDATING_USER" Association="Self.FK_CONTACT_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CONTACT" EntitySet="CONTACT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEST_TESTS_ANIMAL_TYPE" Association="Self.FK_DEST_TESTS_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEST_TESTS_AUTH_USER" Association="Self.FK_DEST_TESTS_AUTH_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEST_TESTS_CREATING_USER" Association="Self.FK_DEST_TESTS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEST_TESTS_DESTNATION" Association="Self.FK_DEST_TESTS_DESTNATION">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEST_TESTS_TEST" Association="Self.FK_DEST_TESTS_TEST">
+      <End Role="TESTS" EntitySet="TESTS" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEST_TESTS_UPDATING_USER" Association="Self.FK_DEST_TESTS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="DESTINATION_TESTS" EntitySet="DESTINATION_TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_AUTH_USER" Association="Self.FK_DESTINATION_AUTH_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_CREATING_USER" Association="Self.FK_DESTINATION_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINATION_UPDATING_USER" Association="Self.FK_DESTINATION_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXP_TYPE_AUTHORIZING_USER" Association="Self.FK_EXP_TYPE_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EXPORTER_TYPE" EntitySet="EXPORTER_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_AUTHORIZING_USER" Association="Self.FK_EXPORTER_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_BRANCH" Association="Self.FK_EXPORTER_BRANCH">
+      <End Role="BANK_BRANCH" EntitySet="BANK_BRANCH" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_CREATING_USER" Association="Self.FK_EXPORTER_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_ID_TYPE" Association="Self.FK_EXPORTER_ID_TYPE">
+      <End Role="ID_TYPE" EntitySet="ID_TYPE" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_TYPE" Association="Self.FK_EXPORTER_TYPE">
+      <End Role="EXPORTER_TYPE" EntitySet="EXPORTER_TYPE" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_TYPE_CREATING_USER" Association="Self.FK_EXPORTER_TYPE_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EXPORTER_TYPE" EntitySet="EXPORTER_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_TYPE_UPDATING_USER" Association="Self.FK_EXPORTER_TYPE_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EXPORTER_TYPE" EntitySet="EXPORTER_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPORTER_UPDATING_USER" Association="Self.FK_EXPORTER_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EXPORTER" EntitySet="EXPORTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_TYPE_AUTHORIZING_USER" Association="Self.FK_ID_TYPE_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ID_TYPE" EntitySet="ID_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_TYPE_CREATING_USER" Association="Self.FK_ID_TYPE_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ID_TYPE" EntitySet="ID_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_TYPE_UPDATING_USER" Association="Self.FK_ID_TYPE_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ID_TYPE" EntitySet="ID_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARKET_AUTHORIZING_USER" Association="Self.FK_MARKET_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="MARKET" EntitySet="MARKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARKET_CREATING_USER" Association="Self.FK_MARKET_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="MARKET" EntitySet="MARKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARKET_REGION" Association="Self.FK_MARKET_REGION">
+      <End Role="REGION" EntitySet="REGION" />
+      <End Role="MARKET" EntitySet="MARKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARKET_UPDATING_USER" Association="Self.FK_MARKET_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="MARKET" EntitySet="MARKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PEN_AUTHORIZING_USER" Association="Self.FK_PEN_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="PEN" EntitySet="PEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PEN_CREATING_USER" Association="Self.FK_PEN_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="PEN" EntitySet="PEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PEN_UPDATING_USER" Association="Self.FK_PEN_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="PEN" EntitySet="PEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUAR_PERIOD_ANIMAL_TYPE" Association="Self.FK_QUAR_PERIOD_ANIMAL_TYPE">
+      <End Role="ANIMAL_TYPE" EntitySet="ANIMAL_TYPE" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUAR_PERIOD_AUTH_USER" Association="Self.FK_QUAR_PERIOD_AUTH_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUAR_PERIOD_CREAT_USER" Association="Self.FK_QUAR_PERIOD_CREAT_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUAR_PERIOD_DESTNATION" Association="Self.FK_QUAR_PERIOD_DESTNATION">
+      <End Role="DESTINATION" EntitySet="DESTINATION" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUAR_PERIOD_UPDATE_USER" Association="Self.FK_QUAR_PERIOD_UPDATE_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="QUARENTINE_PERIOD" EntitySet="QUARENTINE_PERIOD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGION_AUTHORIZING_USER" Association="Self.FK_REGION_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="REGION" EntitySet="REGION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGION_CREATING_USER" Association="Self.FK_REGION_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="REGION" EntitySet="REGION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGION_UPDATING_USER" Association="Self.FK_REGION_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="REGION" EntitySet="REGION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TESTS_AUTHORIZING_USER" Association="Self.FK_TESTS_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="TESTS" EntitySet="TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TESTS_CREATING_USER" Association="Self.FK_TESTS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="TESTS" EntitySet="TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TESTS_UPDATING_USER" Association="Self.FK_TESTS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="TESTS" EntitySet="TESTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_AUTHORIZING_USER" Association="Self.FK_USERS_AUTHORIZING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_CREATING_USER" Association="Self.FK_USERS_CREATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_UPDATING_USER" Association="Self.FK_USERS_UPDATING_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

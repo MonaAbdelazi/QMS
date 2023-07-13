@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AQMS">
+    <EntitySetMapping Name="ADDRESS">
+      <EntityTypeMapping TypeName="Model.ADDRESS">
+        <MappingFragment StoreEntitySet="ADDRESS">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="LINE1" ColumnName="LINE1" />
+          <ScalarProperty Name="LINE2" ColumnName="LINE2" />
+          <ScalarProperty Name="LINE3" ColumnName="LINE3" />
+          <ScalarProperty Name="LINE4" ColumnName="LINE4" />
+          <ScalarProperty Name="REFERENCE_ID" ColumnName="REFERENCE_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ANIMAL_TYPE">
+      <EntityTypeMapping TypeName="Model.ANIMAL_TYPE">
+        <MappingFragment StoreEntitySet="ANIMAL_TYPE">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="TYPE_NAME" ColumnName="TYPE_NAME" />
+          <ScalarProperty Name="DEFAULT_AVERAGE_WEIGHT" ColumnName="DEFAULT_AVERAGE_WEIGHT" />
+          <ScalarProperty Name="FEED_WEIGHT_PERCENTAGE" ColumnName="FEED_WEIGHT_PERCENTAGE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BANK">
+      <EntityTypeMapping TypeName="Model.BANK">
+        <MappingFragment StoreEntitySet="BANK">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="BANK_NAME" ColumnName="BANK_NAME" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BANK_BRANCH">
+      <EntityTypeMapping TypeName="Model.BANK_BRANCH">
+        <MappingFragment StoreEntitySet="BANK_BRANCH">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="BANK_BRANCH_NAME" ColumnName="BANK_BRANCH_NAME" />
+          <ScalarProperty Name="BANK_ID" ColumnName="BANK_ID" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHEMICAL">
+      <EntityTypeMapping TypeName="Model.CHEMICAL">
+        <MappingFragment StoreEntitySet="CHEMICAL">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="CHEMICAL_NAME" ColumnName="CHEMICAL_NAME" />
+          <ScalarProperty Name="INVENTORY_REFERENCE" ColumnName="INVENTORY_REFERENCE" />
+          <ScalarProperty Name="MEASURE_UNIT" ColumnName="MEASURE_UNIT" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHEMICAL_DOSE">
+      <EntityTypeMapping TypeName="Model.CHEMICAL_DOSE">
+        <MappingFragment StoreEntitySet="CHEMICAL_DOSE">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="CHEMICAL_ID" ColumnName="CHEMICAL_ID" />
+          <ScalarProperty Name="ANIMAL_TYPE_ID" ColumnName="ANIMAL_TYPE_ID" />
+          <ScalarProperty Name="WEIGHT_HEAD" ColumnName="WEIGHT_HEAD" />
+          <ScalarProperty Name="DOSE" ColumnName="DOSE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTACT">
+      <EntityTypeMapping TypeName="Model.CONTACT">
+        <MappingFragment StoreEntitySet="CONTACT">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="COONTACT_NAME" ColumnName="COONTACT_NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SECOND_EMAIL" ColumnName="SECOND_EMAIL" />
+          <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+          <ScalarProperty Name="SECOND_PHONE_NUMBER" ColumnName="SECOND_PHONE_NUMBER" />
+          <ScalarProperty Name="REFERENCE_ID" ColumnName="REFERENCE_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESTINATION">
+      <EntityTypeMapping TypeName="Model.DESTINATION">
+        <MappingFragment StoreEntitySet="DESTINATION">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="DESTINATION_NAME" ColumnName="DESTINATION_NAME" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESTINATION_TESTS">
+      <EntityTypeMapping TypeName="Model.DESTINATION_TESTS">
+        <MappingFragment StoreEntitySet="DESTINATION_TESTS">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+          <ScalarProperty Name="ANIMAL_TYPE_ID" ColumnName="ANIMAL_TYPE_ID" />
+          <ScalarProperty Name="TEST_ID" ColumnName="TEST_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXPORTER">
+      <EntityTypeMapping TypeName="Model.EXPORTER">
+        <MappingFragment StoreEntitySet="EXPORTER">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="EXPORTER_NAME" ColumnName="EXPORTER_NAME" />
+          <ScalarProperty Name="EXPORTER_TYPE_ID" ColumnName="EXPORTER_TYPE_ID" />
+          <ScalarProperty Name="BANK_BRANCH_ID" ColumnName="BANK_BRANCH_ID" />
+          <ScalarProperty Name="ID_TYPE_ID" ColumnName="ID_TYPE_ID" />
+          <ScalarProperty Name="ID_REFERENCE" ColumnName="ID_REFERENCE" />
+          <ScalarProperty Name="BIRTH_ESTABLISHMENT_DATE" ColumnName="BIRTH_ESTABLISHMENT_DATE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXPORTER_TYPE">
+      <EntityTypeMapping TypeName="Model.EXPORTER_TYPE">
+        <MappingFragment StoreEntitySet="EXPORTER_TYPE">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="TYPE_NAME" ColumnName="TYPE_NAME" />
+          <ScalarProperty Name="INDIVIDUAL_CORPORATE" ColumnName="INDIVIDUAL_CORPORATE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ID_TYPE">
+      <EntityTypeMapping TypeName="Model.ID_TYPE">
+        <MappingFragment StoreEntitySet="ID_TYPE">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="TYPE_NAME" ColumnName="TYPE_NAME" />
+          <ScalarProperty Name="INDIVIDUAL_CORPORATE" ColumnName="INDIVIDUAL_CORPORATE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARKET">
+      <EntityTypeMapping TypeName="Model.MARKET">
+        <MappingFragment StoreEntitySet="MARKET">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="MARKET_NAME" ColumnName="MARKET_NAME" />
+          <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEN">
+      <EntityTypeMapping TypeName="Model.PEN">
+        <MappingFragment StoreEntitySet="PEN">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="PEN_ID" ColumnName="PEN_ID" />
+          <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QUARENTINE_PERIOD">
+      <EntityTypeMapping TypeName="Model.QUARENTINE_PERIOD">
+        <MappingFragment StoreEntitySet="QUARENTINE_PERIOD">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+          <ScalarProperty Name="ANIMAL_TYPE_ID" ColumnName="ANIMAL_TYPE_ID" />
+          <ScalarProperty Name="QUARENTINE_DAYS" ColumnName="QUARENTINE_DAYS" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGION">
+      <EntityTypeMapping TypeName="Model.REGION">
+        <MappingFragment StoreEntitySet="REGION">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="REGION_NAME" ColumnName="REGION_NAME" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TESTS">
+      <EntityTypeMapping TypeName="Model.TESTS">
+        <MappingFragment StoreEntitySet="TESTS">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="TEST_NAME" ColumnName="TEST_NAME" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="Model.USERS">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="SYSTEMID" ColumnName="SYSTEMID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="MIDDLE_NAME" ColumnName="MIDDLE_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="AUTHORIZED_BY" ColumnName="AUTHORIZED_BY" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="AUTHORIZATION_DATE" ColumnName="AUTHORIZATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

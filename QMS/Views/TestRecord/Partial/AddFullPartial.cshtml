@@ -1,0 +1,116 @@
+﻿
+@model QMS.Data.Batchs
+@using QMS.Core.Resources
+@using QMS
+@using GridMvc.Html
+@using QMS.ViewModels
+
+
+<style type="text/css">
+    .paging-nav {
+        text-align: right;
+        padding-top: 2px;
+    }
+
+        .paging-nav a {
+            margin: auto 1px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1px 7px;
+            background: #91b9e6;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .paging-nav .selected-page {
+            background: #187ed5;
+            font-weight: bold;
+        }
+
+    .paging-nav,
+    #tableData {
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+<div id="outputTable">
+    <table width = "100%">
+        <tr>
+            <td width="60%" valign="top">
+                <table id="tableData" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th valign="top">
+                                #
+                            </th>
+
+                            <th valign="top">
+                                @Html.DisplayName(QMSRes.DateEntered)
+                            </th>
+
+                            <th valign="top">
+                                @Html.DisplayName(QMSRes.Range)
+                            </th>
+                            <th valign="top">
+                                @Html.DisplayName(QMSRes.PositiveCases)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ 
+                            IList<TestedAnimalsVM> items = (IList<TestedAnimalsVM>)ViewBag.TestedAnimals;
+                        }  
+                        @for (int i = 0; i < ((IList<TestedAnimalsVM>)ViewBag.TestedAnimals).Count() ; i++)
+                        {
+                        <tr>
+                            <td width="5%">
+                                @{ string lblIDNew = (i >= 0) ? "New" + i.ToString() : "NewX";}
+                                @items[i].IsNewPlus
+                            </td>
+                            <td>
+                                @{string lblIdDate = (i >= 0) ? "DateEntered" + i.ToString() : "DateEnteredX";}
+                                @items[i].DateEntered.ToString("dd/MM/yyyy")
+                            </td>
+                            <td>
+                                @{
+                                    string lblIdRange = (i >= 0) ? "Range" + i.ToString() : "RangeX";
+                                    string rangeValue = items[i].RangeFrom + @QMSRes.Dash + @items[i].RangeTo;
+                                 }
+                                @rangeValue
+                            </td>
+                            <td width="20%">
+                                <center>
+                                    <input type="button" value="..." class="btn btn-success hvr-bounce-in" onclick="getPositiveCases(@items[i].SystemId);" />
+                                </center>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </td>
+            <td width="5%"></td>
+            <td width="35%" valign="top">
+                <div id="PositiveCasesDiv">
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+</script>
+

@@ -1,0 +1,130 @@
+﻿
+@model QMS.ViewModels.ReleaseViewModel
+@using QMS.Core.Resources
+@using QMS
+@using GridMvc.Html
+
+
+<style type="text/css">
+    .paging-nav {
+        text-align: right;
+        padding-top: 2px;
+    }
+
+        .paging-nav a {
+            margin: auto 1px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1px 7px;
+            background: #91b9e6;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .paging-nav .selected-page {
+            background: #187ed5;
+            font-weight: bold;
+        }
+
+    .paging-nav,
+    #tableData {
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+
+<table>
+    <tr>
+        <td>
+            <div id="batchForm">
+                <div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.BatchId)
+                        @Html.TextBoxFor(model => model.BatchId, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.ExporterName)
+                        @Html.TextBoxFor(model => model.ExporterName, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.Animan_TYPE_NAME)
+                        @Html.TextBoxFor(model => model.AnimalType, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.DestenationName)
+                        @Html.TextBoxFor(model => model.Destination, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.OriginallyAccepted)
+                        @Html.TextBoxFor(model => model.OriginallyAccepted, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.ReadyForRelease)
+                        @Html.TextBoxFor(model => model.ReadyForRelease, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.DisposedAnimals)
+                        @Html.TextBoxFor(model => model.ReadyForRelease, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.PendingAnimals)
+                        @Html.TextBoxFor(model => model.PendingAnimals, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.RegisterationDate)
+                        @Html.TextBoxFor(model => model.RegistrationDate, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.QuaratinePeriod)
+                        @Html.TextBoxFor(model => model.QuarantinePeriod, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.Label(QMSRes.QuaratineEndDate)
+                        @Html.TextBoxFor(model => model.QuarantineEndDate, new { @class = "form-control", @readonly = "yes" })
+                    </div>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <br />
+                @Html.Label(QMSRes.Message)
+
+                @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @readonly = "yes"  })
+                <br />
+                <br />
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+
+                @if ((string)ViewBag.EnableSave == "Yes")
+                {
+                    <input id="btnSave" type="submit" value="@QMSRes.Release" class="btn btn-primary hvr-bounce-in" />
+                }
+                else
+                {
+                    <input id="btnSave" type="submit" value="@QMSRes.Release" class="btn btn-primary hvr-bounce-in" />
+                }
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+</script>
+

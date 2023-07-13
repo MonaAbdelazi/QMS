@@ -1,0 +1,175 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.DiposedBatchs
+
+@{
+    ViewBag.Title = MenusRes.Dispose;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@GeneralRes.Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Dispose</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-6">
+                                @Html.Label(QMSRes.Batch)
+
+                                @Html.DropDownListFor(model => model.Batchs,ViewBag.Batchs  as SelectList ,CommonRes.SelectDropDown, new { @class = "form-control" ,@chosen= "chosen" })
+                                @Html.ValidationMessageFor(model => model.Batchs)
+                            </div>
+                            <div>
+                                    <p>
+                                        <input type="button" value="Load All Tested Positive Animals" id="Add" class="btn btn-success hvr-bounce-in" onclick="load(this.id);" />
+                                    </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                           <div class="panel panel-light-blue">
+
+                            <div class="panel-heading">
+                                <h2 class="panel-title">@QMSRes.batchLables</h2>
+                            </div>
+                               <hr />
+                               <div class="panel-body">
+
+                                   <div class="panel-light-blue">
+
+                                       <div class="col-lg-6">
+                                           @Html.Label(QMSRes.batchLables)
+
+                                           @Html.TextBox("label",string.Empty, new { @class = "form-control", @onchange = "labelSelected();" })
+                                           @Html.TextBox("Error", string.Empty, new { @id = "Error", @hidden = "hidden",@class= "label-danger" })
+
+
+                                       </div>
+                                       <div class="col-lg-6">
+                                           @Html.Label(QMSRes.DisposeReason)
+
+                                           @Html.DropDownListFor(model=>model.Reason,ViewBag.Reason as SelectList,CommonRes.SelectDropDown, new { @class = "form-control", @type = "number" })
+                                       </div>
+                                       <div class="col-lg-6">
+                                           @Html.Label(MenusRes.DisposeMethod)
+
+                                           @Html.DropDownListFor(model => model.DisposeMethod, ViewBag.DisposeMethod as SelectList, CommonRes.SelectDropDown, new { @class = "form-control" })
+                                       </div>
+
+                                   </div>
+                                      </div>
+                                   <div>
+                                       <center>
+                                           <p>
+                                               <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="add(this.id);" />
+                                           </p>
+                                       </center>
+                                                                          </div>
+
+                                  <div id="outputTable">
+                                                                         </div>
+                                   </div>
+                           <div class="form-group">
+
+                                <center class="mgtp">
+
+                                    <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" />
+                                    &nbsp;
+                                    @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                                </center>
+
+                            </div>
+                            </div>
+        </div>
+    </form>
+}
+@section Scripts {
+    <script type="text/javascript">
+
+        function labelSelected() {
+            var label = $('#label').val();
+            var input = { label: $('#label').val(), Batchs: $('#Batchs').val() };
+            $.ajax({
+                url: '/Dispose/labelSelected',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data == "OK") {
+                        $('#Error').hide();
+                       
+                    }
+                    else {
+                        $('#Error').show();
+                        $('#label').val(" ");
+                        $('#Error').val("Batch doesn't have this tag");
+                    }
+
+                },
+                error: function () {
+                }
+            });
+
+        }
+        $(function () {
+            $("#ShiftRight,#ShiftLeft").click(function (event) {
+                var ID = $(event.target).attr("ID");
+                var ChooseFrom = ID == "ShiftRight" ? "#ChooseRight" : "#TESTS";
+                var moveTo = ID == "ShiftRight" ? "#TESTS" : "#ChooseRight";
+                var SelectData = $(ChooseFrom + " :selected").toArray();
+                $(moveTo).append(SelectData);
+                SelectData.remove;
+            });
+        });
+
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = { DisposeMethod: $('#DisposeMethod').val(), Reason: $('#Reason').val(), label: $('#label').val(), Batchs: $('#Batchs').val() };
+            $.ajax({
+                url: '/Dispose/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#DisposeMethod').val("");
+            $('#Reason').val("");
+            $('#label').val("");
+            $('#Batchs').attr("disabled", "disabled");
+
+        }
+    </script>
+}

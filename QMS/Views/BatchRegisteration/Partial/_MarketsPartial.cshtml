@@ -1,0 +1,126 @@
+﻿
+@model QMS.Data.MARKET
+@using QMS.Core.Resources
+@using QMS
+
+
+<style type="text/css">
+    .paging-nav {
+        text-align: right;
+        padding-top: 2px;
+    }
+
+        .paging-nav a {
+            margin: auto 1px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1px 7px;
+            background: #91b9e6;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .paging-nav .selected-page {
+            background: #187ed5;
+            font-weight: bold;
+        }
+
+    .paging-nav,
+    #tableData {
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+<div id="outputTableM">
+    <!--Pop Modal -->
+    <div class="modal fade" id="myModalMarket" role="dialog">
+
+
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add New Market</h4>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <div class="form-horizontal">
+
+                        <hr />
+                       
+
+                        <div class="panel-body">
+
+
+                            <hr />
+
+                            <div class="form-group row">
+                                @Html.HiddenFor(m => m.SYSTEMID)
+
+
+
+
+                                <div class="col-lg-3">
+                                    @Html.Label(QMSRes.MarketName)
+
+                                    @Html.TextBoxFor(model => model.MARKET_NAME, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MARKET_NAME)
+                                </div>
+
+                               
+
+                            </div>
+                            <div>
+
+
+
+
+
+                            </div>
+
+
+                            <div>
+
+                                <center>
+                                    <p>
+                                        <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="addMarkets(this.id);" />
+                                    </p>
+                                </center>
+
+
+
+                            </div>
+
+
+
+                            <div id="outputTableMarket">
+
+                            </div>
+                        
+                        </div>
+      </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" onclick="SaveMarkets();">Save Data</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+  </div>
+<script type="text/javascript">
+
+
+
+
+</script>
+

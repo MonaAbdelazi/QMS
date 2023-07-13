@@ -1,0 +1,78 @@
+﻿@model QMS.ViewModels.ClinicCaseVM
+@using QMS.Core.Resources
+@using QMS.Data
+    
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@MenusRes.ClinicCases</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.Label(QMSRes.BatchDetails)
+        </dt>
+        <dd>
+            @{
+                Batchs batch = (Batchs)ViewBag.CaseBatch;
+            }
+            @Html.Label(@batch.ANIMAL_TYPE.TYPE_NAME + " "
+                        + QMSRes.BatchOfExporter + batch.EXPORTER.EXPORTER_NAME
+                        + QMSRes.HeadingTo + batch.DESTINATION.DESTINATION_NAME
+                       )
+        </dd>
+
+        <dt>
+            @Html.Label(QMSRes.ClinicCaseType)
+        </dt>
+        <dd>
+            @Html.Label(Model.CASE_TYPE)
+        </dd>
+
+        <dt>
+            @Html.Label(QMSRes.AnimalsLabels)
+        </dt>
+        <dd>
+            @Html.Label(Model.ANIMAL_LABEL)
+        </dd>
+
+        <dt>
+            @Html.Label(QMSRes.Note)
+        </dt>
+        <dd>
+            @Html.Label(Model.Notes)
+        </dd>
+
+        <dt>
+            @Html.Label(QMSRes.Diagnosis)
+        </dt>
+        <dd>
+            @Html.Label(Model.DiagnosisObject.LONG_DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.Label(QMSRes.Dispose)
+        </dt>
+        <dd>
+            @Html.Label(Model.DISPOSED)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

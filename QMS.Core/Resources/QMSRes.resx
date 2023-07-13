@@ -1,0 +1,939 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptedAnimals" xml:space="preserve">
+    <value>Accepted Animals</value>
+  </data>
+  <data name="Capacity" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="ChemicalType" xml:space="preserve">
+    <value>Chemical Type</value>
+  </data>
+  <data name="ChemicalTypeAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="DEFAULT_AVERAGE_WEIGHT" xml:space="preserve">
+    <value>Default Average Weight</value>
+  </data>
+  <data name="DestenationID" xml:space="preserve">
+    <value>Destenation</value>
+  </data>
+  <data name="FeedingMethod" xml:space="preserve">
+    <value>Feeding Method</value>
+  </data>
+  <data name="FEED_WEIGHT_PERCENTAGE" xml:space="preserve">
+    <value>Feed Weight Percentage</value>
+  </data>
+  <data name="IndividualCorp" xml:space="preserve">
+    <value>Exporter Type</value>
+  </data>
+  <data name="MarketName" xml:space="preserve">
+    <value>Market Name</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Reasons" xml:space="preserve">
+    <value>Reasons</value>
+  </data>
+  <data name="rejectedAnimals" xml:space="preserve">
+    <value>Rejected Animals</value>
+  </data>
+  <data name="Spray" xml:space="preserve">
+    <value>Spray</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TYPE_NAME" xml:space="preserve">
+    <value>Type Name</value>
+  </data>
+  <data name="Animan_TYPE_NAME" xml:space="preserve">
+    <value>Animal Type</value>
+  </data>
+  <data name="BatchNumber" xml:space="preserve">
+    <value>Batch Number</value>
+  </data>
+  <data name="ExporterName" xml:space="preserve">
+    <value>Exporter </value>
+  </data>
+  <data name="RegisterationDate" xml:space="preserve">
+    <value>Registeration Date</value>
+  </data>
+  <data name="batchLables" xml:space="preserve">
+    <value>Batch Lables</value>
+  </data>
+  <data name="DestenationName" xml:space="preserve">
+    <value>Destenation Name</value>
+  </data>
+  <data name="Kit" xml:space="preserve">
+    <value>Kit Reference</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number </value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Sample Percentage of Batch</value>
+  </data>
+  <data name="QUARENTINE_PERIOD" xml:space="preserve">
+    <value>Quaratine Period</value>
+  </data>
+  <data name="RequiredTests" xml:space="preserve">
+    <value>Required Tests</value>
+  </data>
+  <data name="RoundRequired" xml:space="preserve">
+    <value>Round 2 </value>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>Sample Size</value>
+  </data>
+  <data name="TestAction" xml:space="preserve">
+    <value>Test Action</value>
+  </data>
+  <data name="TestName" xml:space="preserve">
+    <value>Test Name</value>
+  </data>
+  <data name="QuaratinePeriod" xml:space="preserve">
+    <value>Quaratine Period</value>
+  </data>
+  <data name="BankName" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="BIRTH_ESTABLISHMENT_DATE" xml:space="preserve">
+    <value>Birth Establishment Date</value>
+  </data>
+  <data name="BranchName" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="IdType" xml:space="preserve">
+    <value>ID Type</value>
+  </data>
+  <data name="ID_REFERENCE" xml:space="preserve">
+    <value>ID Reference</value>
+  </data>
+  <data name="RegionName" xml:space="preserve">
+    <value>Region Name</value>
+  </data>
+  <data name="NoOfPermittedAnimals" xml:space="preserve">
+    <value>No Of Permitted Animals</value>
+  </data>
+  <data name="PermitReference" xml:space="preserve">
+    <value>Permit Reference</value>
+  </data>
+  <data name="RecieptReference" xml:space="preserve">
+    <value>Reciept Reference</value>
+  </data>
+  <data name="RegisterationForm" xml:space="preserve">
+    <value>Registeration Form</value>
+  </data>
+  <data name="ScanOfPermit" xml:space="preserve">
+    <value>Scan Of Permit</value>
+  </data>
+  <data name="AddNewBranch" xml:space="preserve">
+    <value>Add New Branch</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="AssociatedBranches" xml:space="preserve">
+    <value>Number of Branches</value>
+  </data>
+  <data name="Batch" xml:space="preserve">
+    <value>Batch</value>
+  </data>
+  <data name="ChemicalName" xml:space="preserve">
+    <value>Chemical Name</value>
+  </data>
+  <data name="ChemicalTypeInjections" xml:space="preserve">
+    <value>Injections</value>
+  </data>
+  <data name="ChemicalTypePills" xml:space="preserve">
+    <value>Pills</value>
+  </data>
+  <data name="ChemicalTypeSpray" xml:space="preserve">
+    <value>Spray</value>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="FeedingHistory" xml:space="preserve">
+    <value>Feeding History</value>
+  </data>
+  <data name="FeedType" xml:space="preserve">
+    <value>Feed Type</value>
+  </data>
+  <data name="FromStoreLabel" xml:space="preserve">
+    <value>From Store</value>
+  </data>
+  <data name="IndividualCorp1" xml:space="preserve">
+    <value>Exporter Type</value>
+  </data>
+  <data name="InventoryReference" xml:space="preserve">
+    <value>Inventory Reference</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ChemicalPreQuarentineMandatory" xml:space="preserve">
+    <value>Mandatory</value>
+  </data>
+  <data name="ChemicalPreQuarentineNever" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="ChemicalPreQuarentineOptional" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="PreQuarentineProcess" xml:space="preserve">
+    <value>Prerequarentine Process</value>
+  </data>
+  <data name="SamplingMethod" xml:space="preserve">
+    <value>Sampling Method</value>
+  </data>
+  <data name="CurrentStatus" xml:space="preserve">
+    <value>Current Status</value>
+  </data>
+  <data name="PositiveCases" xml:space="preserve">
+    <value>Positive Cases</value>
+  </data>
+  <data name="RecommendedSampleSize" xml:space="preserve">
+    <value>Recommended Sample Size</value>
+  </data>
+  <data name="TestedAnimals" xml:space="preserve">
+    <value>Tested Animals</value>
+  </data>
+  <data name="RecordTests" xml:space="preserve">
+    <value>Record Test Results</value>
+  </data>
+  <data name="QuaratineEndDate" xml:space="preserve">
+    <value>Quaratine Last Date</value>
+  </data>
+  <data name="BatchDetails" xml:space="preserve">
+    <value>Batch Details</value>
+  </data>
+  <data name="DisposalThresold" xml:space="preserve">
+    <value>Disposal Thresold (%)</value>
+  </data>
+  <data name="FullTestThreshold" xml:space="preserve">
+    <value>Retest If Positive Case Found</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="NumberPercentage" xml:space="preserve">
+    <value>Number / Percentage</value>
+  </data>
+  <data name="TestDetails" xml:space="preserve">
+    <value>Test Details</value>
+  </data>
+  <data name="TestFullBatchIf" xml:space="preserve">
+    <value>Test All Batch if a positive case is detected</value>
+  </data>
+  <data name="PercentageFromFullBatch" xml:space="preserve">
+    <value>Percentage From Batch</value>
+  </data>
+  <data name="PercentageFromSample" xml:space="preserve">
+    <value>Percentage From Sample</value>
+  </data>
+  <data name="PercentageFromTested" xml:space="preserve">
+    <value>Percentage From Tested</value>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>Remaining</value>
+  </data>
+  <data name="TestResults" xml:space="preserve">
+    <value>Test Results</value>
+  </data>
+  <data name="TestSummary" xml:space="preserve">
+    <value>Test Summary</value>
+  </data>
+  <data name="AnimalTag" xml:space="preserve">
+    <value>Animal Tag</value>
+  </data>
+  <data name="TestResult" xml:space="preserve">
+    <value>Test Result</value>
+  </data>
+  <data name="DateEntered" xml:space="preserve">
+    <value>Date Entered</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>Negative</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>Positive</value>
+  </data>
+  <data name="Dash" xml:space="preserve">
+    <value> - </value>
+  </data>
+  <data name="Range" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="RangeFrom" xml:space="preserve">
+    <value>Range From</value>
+  </data>
+  <data name="RangeTo" xml:space="preserve">
+    <value>Range To</value>
+  </data>
+  <data name="AcceptedAnimals1" xml:space="preserve">
+    <value>Accepted Animals</value>
+  </data>
+  <data name="AcceptedAnimals2" xml:space="preserve">
+    <value>Accepted Animals</value>
+  </data>
+  <data name="AddNewBranch1" xml:space="preserve">
+    <value>Add New Branch</value>
+  </data>
+  <data name="Amount1" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="AnimalsLabels" xml:space="preserve">
+    <value>Animals Labels</value>
+  </data>
+  <data name="AnimalTag1" xml:space="preserve">
+    <value>Animal Tag</value>
+  </data>
+  <data name="Animan_TYPE_NAME1" xml:space="preserve">
+    <value>Animal Type</value>
+  </data>
+  <data name="Animan_TYPE_NAME2" xml:space="preserve">
+    <value>Animal Type</value>
+  </data>
+  <data name="AssociatedBranches1" xml:space="preserve">
+    <value>Number of Branches</value>
+  </data>
+  <data name="BankName1" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="BankName2" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="Batch1" xml:space="preserve">
+    <value>Batch</value>
+  </data>
+  <data name="BatchDetails1" xml:space="preserve">
+    <value>Batch Details</value>
+  </data>
+  <data name="BatchId" xml:space="preserve">
+    <value>Batch Id</value>
+  </data>
+  <data name="batchLables1" xml:space="preserve">
+    <value>Batch Lables</value>
+  </data>
+  <data name="batchLables2" xml:space="preserve">
+    <value>Batch Lables</value>
+  </data>
+  <data name="BatchNotReadyForRelease" xml:space="preserve">
+    <value>Batch is not ready for release for the following reasons:</value>
+  </data>
+  <data name="BatchNumber1" xml:space="preserve">
+    <value>Batch Number</value>
+  </data>
+  <data name="BatchNumber2" xml:space="preserve">
+    <value>Batch Number</value>
+  </data>
+  <data name="BatchReadyForRelease" xml:space="preserve">
+    <value>Batch is ready for release.</value>
+  </data>
+  <data name="BIRTH_ESTABLISHMENT_DATE1" xml:space="preserve">
+    <value>Birth Establishment Date</value>
+  </data>
+  <data name="BIRTH_ESTABLISHMENT_DATE2" xml:space="preserve">
+    <value>Birth Establishment Date</value>
+  </data>
+  <data name="BranchName1" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="BranchName2" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="Capacity1" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="Capacity2" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="ChemicalName1" xml:space="preserve">
+    <value>Chemical Name</value>
+  </data>
+  <data name="ChemicalPreQuarentineMandatory1" xml:space="preserve">
+    <value>Mandatory</value>
+  </data>
+  <data name="ChemicalPreQuarentineNever1" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="ChemicalPreQuarentineOptional1" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="ChemicalType1" xml:space="preserve">
+    <value>Chemical Type</value>
+  </data>
+  <data name="ChemicalType2" xml:space="preserve">
+    <value>Chemical Type</value>
+  </data>
+  <data name="ChemicalTypeAmount1" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="ChemicalTypeAmount2" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="ChemicalTypeInjections1" xml:space="preserve">
+    <value>Injections</value>
+  </data>
+  <data name="ChemicalTypePills1" xml:space="preserve">
+    <value>Pills</value>
+  </data>
+  <data name="ChemicalTypeSpray1" xml:space="preserve">
+    <value>Spray</value>
+  </data>
+  <data name="color" xml:space="preserve">
+    <value>color</value>
+  </data>
+  <data name="CreationDate1" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="CurrentStatus1" xml:space="preserve">
+    <value>Current Status</value>
+  </data>
+  <data name="Dash1" xml:space="preserve">
+    <value> - </value>
+  </data>
+  <data name="DateEntered1" xml:space="preserve">
+    <value>Date Entered</value>
+  </data>
+  <data name="DEFAULT_AVERAGE_WEIGHT1" xml:space="preserve">
+    <value>Default Average Weight</value>
+  </data>
+  <data name="DEFAULT_AVERAGE_WEIGHT2" xml:space="preserve">
+    <value>Default Average Weight</value>
+  </data>
+  <data name="DestenationID1" xml:space="preserve">
+    <value>Destenation</value>
+  </data>
+  <data name="DestenationID2" xml:space="preserve">
+    <value>Destenation</value>
+  </data>
+  <data name="DestenationName1" xml:space="preserve">
+    <value>Destenation Name</value>
+  </data>
+  <data name="DestenationName2" xml:space="preserve">
+    <value>Destenation Name</value>
+  </data>
+  <data name="DisposalThresold1" xml:space="preserve">
+    <value>Disposal Thresold (%)</value>
+  </data>
+  <data name="DisposedAnimals" xml:space="preserve">
+    <value>Disposed Animals</value>
+  </data>
+  <data name="DisposeReason" xml:space="preserve">
+    <value>Dispose Reason</value>
+  </data>
+  <data name="ExporterName1" xml:space="preserve">
+    <value>Exporter </value>
+  </data>
+  <data name="ExporterName2" xml:space="preserve">
+    <value>Exporter </value>
+  </data>
+  <data name="FeedingHistory1" xml:space="preserve">
+    <value>Feeding History</value>
+  </data>
+  <data name="FeedingMethod1" xml:space="preserve">
+    <value>Feeding Method</value>
+  </data>
+  <data name="FeedMethod" xml:space="preserve">
+    <value>Feeding Method</value>
+  </data>
+  <data name="FeedMethod1" xml:space="preserve">
+    <value>Feed Method</value>
+  </data>
+  <data name="FeedType1" xml:space="preserve">
+    <value>Feed Type</value>
+  </data>
+  <data name="FEED_WEIGHT_PERCENTAGE1" xml:space="preserve">
+    <value>Feed Weight Percentage</value>
+  </data>
+  <data name="FEED_WEIGHT_PERCENTAGE2" xml:space="preserve">
+    <value>Feed Weight Percentage</value>
+  </data>
+  <data name="FromStoreLabel1" xml:space="preserve">
+    <value>From Store</value>
+  </data>
+  <data name="FullTestThreshold1" xml:space="preserve">
+    <value>Retest If Positive Case Found</value>
+  </data>
+  <data name="IdType1" xml:space="preserve">
+    <value>ID Type</value>
+  </data>
+  <data name="IdType2" xml:space="preserve">
+    <value>ID Type</value>
+  </data>
+  <data name="ID_REFERENCE1" xml:space="preserve">
+    <value>ID Reference</value>
+  </data>
+  <data name="ID_REFERENCE2" xml:space="preserve">
+    <value>ID Reference</value>
+  </data>
+  <data name="IndividualCorp11" xml:space="preserve">
+    <value>Exporter Type</value>
+  </data>
+  <data name="IndividualCorp2" xml:space="preserve">
+    <value>Exporter Type</value>
+  </data>
+  <data name="IndividualCorp3" xml:space="preserve">
+    <value>Exporter Type</value>
+  </data>
+  <data name="InventoryReference1" xml:space="preserve">
+    <value>Inventory Reference</value>
+  </data>
+  <data name="Kit1" xml:space="preserve">
+    <value>Kit Reference</value>
+  </data>
+  <data name="Kit2" xml:space="preserve">
+    <value>Kit Reference</value>
+  </data>
+  <data name="MarketName1" xml:space="preserve">
+    <value>Market Name</value>
+  </data>
+  <data name="MarketName2" xml:space="preserve">
+    <value>Market Name</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="NA1" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Name1" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Name2" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Negative1" xml:space="preserve">
+    <value>Negative</value>
+  </data>
+  <data name="NoOfPermittedAnimals1" xml:space="preserve">
+    <value>No Of Permitted Animals</value>
+  </data>
+  <data name="NoOfPermittedAnimals2" xml:space="preserve">
+    <value>No Of Permitted Animals</value>
+  </data>
+  <data name="Note1" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Note2" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Number1" xml:space="preserve">
+    <value>Number </value>
+  </data>
+  <data name="Number2" xml:space="preserve">
+    <value>Number </value>
+  </data>
+  <data name="NumberPercentage1" xml:space="preserve">
+    <value>Number / Percentage</value>
+  </data>
+  <data name="OriginallyAccepted" xml:space="preserve">
+    <value>Originally Accepted</value>
+  </data>
+  <data name="PendingAnimals" xml:space="preserve">
+    <value>Pending Animals</value>
+  </data>
+  <data name="Percentage1" xml:space="preserve">
+    <value>Sample Percentage of Batch</value>
+  </data>
+  <data name="Percentage2" xml:space="preserve">
+    <value>Sample Percentage of Batch</value>
+  </data>
+  <data name="PercentageFromFullBatch1" xml:space="preserve">
+    <value>Percentage From Batch</value>
+  </data>
+  <data name="PercentageFromSample1" xml:space="preserve">
+    <value>Percentage From Sample</value>
+  </data>
+  <data name="PercentageFromTested1" xml:space="preserve">
+    <value>Percentage From Tested</value>
+  </data>
+  <data name="PermitReference1" xml:space="preserve">
+    <value>Permit Reference</value>
+  </data>
+  <data name="PermitReference2" xml:space="preserve">
+    <value>Permit Reference</value>
+  </data>
+  <data name="Positive1" xml:space="preserve">
+    <value>Positive</value>
+  </data>
+  <data name="PositiveCases1" xml:space="preserve">
+    <value>Positive Cases</value>
+  </data>
+  <data name="PreQuarentineProcess1" xml:space="preserve">
+    <value>Prerequarentine Process</value>
+  </data>
+  <data name="QuarantineFacility" xml:space="preserve">
+    <value>Mille Quarentine Facility</value>
+  </data>
+  <data name="QuarantinePeriodNotPassed" xml:space="preserve">
+    <value>Quarantine period did not pass.</value>
+  </data>
+  <data name="QuaratineEndDate1" xml:space="preserve">
+    <value>Quarantine Last Date</value>
+  </data>
+  <data name="QuaratinePeriod1" xml:space="preserve">
+    <value>Quaratine Period</value>
+  </data>
+  <data name="QuaratinePeriod2" xml:space="preserve">
+    <value>Quarantine Period</value>
+  </data>
+  <data name="QUARENTINE_PERIOD1" xml:space="preserve">
+    <value>Quaratine Period</value>
+  </data>
+  <data name="QUARENTINE_PERIOD2" xml:space="preserve">
+    <value>Quaratine Period</value>
+  </data>
+  <data name="Range1" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="RangeFrom1" xml:space="preserve">
+    <value>Range From</value>
+  </data>
+  <data name="RangeTo1" xml:space="preserve">
+    <value>Range To</value>
+  </data>
+  <data name="ReadyForRelease" xml:space="preserve">
+    <value>Ready For Release</value>
+  </data>
+  <data name="Reasons1" xml:space="preserve">
+    <value>Reasons</value>
+  </data>
+  <data name="Reasons2" xml:space="preserve">
+    <value>Reasons</value>
+  </data>
+  <data name="RecieptReference1" xml:space="preserve">
+    <value>Reciept Reference</value>
+  </data>
+  <data name="RecieptReference2" xml:space="preserve">
+    <value>Reciept Reference</value>
+  </data>
+  <data name="RecommendedSampleSize1" xml:space="preserve">
+    <value>Recommended Sample Size</value>
+  </data>
+  <data name="RecordTests1" xml:space="preserve">
+    <value>Record Test Results</value>
+  </data>
+  <data name="RegionName1" xml:space="preserve">
+    <value>Region Name</value>
+  </data>
+  <data name="RegionName2" xml:space="preserve">
+    <value>Region Name</value>
+  </data>
+  <data name="RegisterationDate1" xml:space="preserve">
+    <value>Registeration Date</value>
+  </data>
+  <data name="RegisterationDate2" xml:space="preserve">
+    <value>Registeration Date</value>
+  </data>
+  <data name="RegisterationForm1" xml:space="preserve">
+    <value>Registeration Form</value>
+  </data>
+  <data name="RegisterationForm2" xml:space="preserve">
+    <value>Registeration Form</value>
+  </data>
+  <data name="rejectedAnimals1" xml:space="preserve">
+    <value>Rejected Animals</value>
+  </data>
+  <data name="rejectedAnimals2" xml:space="preserve">
+    <value>Rejected Animals</value>
+  </data>
+  <data name="Release" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="ReleaseReportTitle" xml:space="preserve">
+    <value>Quarantine Clearance Certificate</value>
+  </data>
+  <data name="ReleaseTestValidation1" xml:space="preserve">
+    <value>The test (</value>
+  </data>
+  <data name="ReleaseTestValidation2" xml:space="preserve">
+    <value>) is not complete.</value>
+  </data>
+  <data name="RelMsgBatchNotFound" xml:space="preserve">
+    <value>Batch was not found.</value>
+  </data>
+  <data name="Remaining1" xml:space="preserve">
+    <value>Remaining</value>
+  </data>
+  <data name="RequiredTests1" xml:space="preserve">
+    <value>Required Tests</value>
+  </data>
+  <data name="RequiredTests2" xml:space="preserve">
+    <value>Required Tests</value>
+  </data>
+  <data name="RoundRequired1" xml:space="preserve">
+    <value>Round 2 </value>
+  </data>
+  <data name="RoundRequired2" xml:space="preserve">
+    <value>Round 2 </value>
+  </data>
+  <data name="Sample1" xml:space="preserve">
+    <value>Sample Size</value>
+  </data>
+  <data name="Sample2" xml:space="preserve">
+    <value>Sample Size</value>
+  </data>
+  <data name="SamplingMethod1" xml:space="preserve">
+    <value>Sampling Method</value>
+  </data>
+  <data name="ScanOfPermit1" xml:space="preserve">
+    <value>Scan Of Permit</value>
+  </data>
+  <data name="ScanOfPermit2" xml:space="preserve">
+    <value>Scan Of Permit</value>
+  </data>
+  <data name="Spray1" xml:space="preserve">
+    <value>Spray</value>
+  </data>
+  <data name="Spray2" xml:space="preserve">
+    <value>Spray</value>
+  </data>
+  <data name="Status1" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Status2" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TestAction1" xml:space="preserve">
+    <value>Test Action</value>
+  </data>
+  <data name="TestAction2" xml:space="preserve">
+    <value>Test Action</value>
+  </data>
+  <data name="TestDetails1" xml:space="preserve">
+    <value>Test Details</value>
+  </data>
+  <data name="TestedAnimals1" xml:space="preserve">
+    <value>Tested Animals</value>
+  </data>
+  <data name="TestFullBatchIf1" xml:space="preserve">
+    <value>Test All Batch if a positive case is detected</value>
+  </data>
+  <data name="TestName1" xml:space="preserve">
+    <value>Test Name</value>
+  </data>
+  <data name="TestName2" xml:space="preserve">
+    <value>Test Name</value>
+  </data>
+  <data name="TestResult1" xml:space="preserve">
+    <value>Test Result</value>
+  </data>
+  <data name="TestResults1" xml:space="preserve">
+    <value>Test Results</value>
+  </data>
+  <data name="TestSummary1" xml:space="preserve">
+    <value>Test Summary</value>
+  </data>
+  <data name="Type1" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TYPE_NAME1" xml:space="preserve">
+    <value>Type Name</value>
+  </data>
+  <data name="TYPE_NAME2" xml:space="preserve">
+    <value>Type Name</value>
+  </data>
+  <data name="RecommendDisposal" xml:space="preserve">
+    <value>Recommend Disposal</value>
+  </data>
+  <data name="RecommendDisposalLabel" xml:space="preserve">
+    <value>Recommend disposal if this diagnosis was found</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditSign" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="PlusSign" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="ClinicCaseType" xml:space="preserve">
+    <value>Case Type</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Dispose" xml:space="preserve">
+    <value>Dispose</value>
+  </data>
+  <data name="Diagnosis" xml:space="preserve">
+    <value>Diagnosis</value>
+  </data>
+  <data name="AddTests" xml:space="preserve">
+    <value>Add Test</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="BatchOfExporter" xml:space="preserve">
+    <value>batch of exporter </value>
+  </data>
+  <data name="HeadingTo" xml:space="preserve">
+    <value>. Heading to </value>
+  </data>
+  <data name="AnimalLabel" xml:space="preserve">
+    <value>Animal Label</value>
+  </data>
+  <data name="ClinicCase" xml:space="preserve">
+    <value>Clinic Case</value>
+  </data>
+  <data name="ClinicTests" xml:space="preserve">
+    <value>Clinic Tests</value>
+  </data>
+  <data name="TestedAnimal" xml:space="preserve">
+    <value>Tested Animal</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="DriverLicense" xml:space="preserve">
+    <value>Driver License</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="PhoneNo" xml:space="preserve">
+    <value>PhoneNo</value>
+  </data>
+  <data name="LicensePlate" xml:space="preserve">
+    <value>License Plate</value>
+  </data>
+  <data name="VehicleMake" xml:space="preserve">
+    <value>Make</value>
+  </data>
+  <data name="VehicleModel" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="VehicleYear" xml:space="preserve">
+    <value>Year</value>
+  </data>
+</root>

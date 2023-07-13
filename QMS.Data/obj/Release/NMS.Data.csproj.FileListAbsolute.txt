@@ -1,0 +1,10 @@
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\bin\Release\NMS.Data.dll.config
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\bin\Release\NMS.Data.dll
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\bin\Release\NMS.Data.pdb
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\bin\Release\EntityFramework.dll
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\bin\Release\EntityFramework.xml
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\obj\Release\NMS.Data.dll
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\obj\Release\NMS.Data.pdb
+D:\work\BBB\LastProject\LastProject\Naalax\NMS\NMS.Data\obj\Release\NMS.Data.csprojResolveAssemblyReference.cache

@@ -1,0 +1,125 @@
+﻿@using QMS.Core.Resources
+@using GridMvc.Html
+@model IEnumerable<QMS.Data.CASE_TESTS>
+
+@{
+    ViewBag.Title = GeneralRes.Index;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@GeneralRes.Index</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.ClinicCasesTests</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+
+                            <div>
+                                @Html.Label(QMSRes.ClinicTests)
+                                
+                                @Html.Grid(Model).Named("ordersGrid").Columns(columns =>
+                           {
+                               columns.Add(model => model.CLINIC_CASES.BATCH_ID).Sortable(true).SetWidth(50).Titled(QMSRes.Batch);
+                               columns.Add(model => model.CASE_ID).Sortable(true).SetWidth(50).Titled(QMSRes.ClinicCase);
+                               columns.Add(model => model.CLINIC_CASES.ANIMAL_LABEL).Sortable(true).SetWidth(50).Titled(QMSRes.AnimalLabel);
+                               columns.Add(model => model.TEST_RESULT).Sortable(true).SetWidth(50).Titled(QMSRes.TestResult);
+
+                               columns.Add().Encoded(false).Sanitized(false)
+                               .RenderValueAs(o => Html.ActionLink(QMSRes.Select, null, null, null, 
+                                                               new { @onclick = "SelectTest(" + o.SYSTEMID + ")", @href = "#" })).SetWidth(50);
+                           }).WithPaging(10).Filterable().SetLanguage(GeneralRes.Lang)
+                            </div>
+                            
+
+                        </div>
+                        <div id="RecordTestResult">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function SelectTest(testId)
+        {
+
+            var target = $('#RecordTestResult');
+            var input = { caseTestId: testId };
+            $.ajax({
+                url: '/ClinicCase/RecordTest',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+                    $("#RecordTestResult").show();
+                },
+                error: function () {
+                }
+
+            });
+
+        }
+
+        
+
+        function recordTest(_ddlDesc)
+        {
+
+            var target = $('#RecordTestResult');
+            var input = { caseTestId = $('#RecordId').val(), animalLabel: $('#animalLabelValue').val(), result = $('testResultValue').val() };
+            $.ajax({
+                url: '/ClinicCase/RecordTestResult',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(null);
+                    $("#RecordTestResult").hide();
+                    location.reload();
+                },
+                error: function () {
+                }
+
+            });
+
+        }
+
+        function cancel(_ddlDesc)
+        {
+            target.html(null);
+            $("#RecordTestResult").hide();
+        }
+    </script>
+}

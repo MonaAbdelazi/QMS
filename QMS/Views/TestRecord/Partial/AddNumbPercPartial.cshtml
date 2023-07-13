@@ -1,0 +1,67 @@
+﻿
+@model QMS.Data.Batchs
+@using QMS.Core.Resources
+@using QMS
+@using GridMvc.Html
+
+
+<style type="text/css">
+    .paging-nav {
+        text-align: right;
+        padding-top: 2px;
+    }
+
+        .paging-nav a {
+            margin: auto 1px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1px 7px;
+            background: #91b9e6;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .paging-nav .selected-page {
+            background: #187ed5;
+            font-weight: bold;
+        }
+
+    .paging-nav,
+    #tableData {
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+<div id="outputTable">
+
+
+    <div>
+        @Html.Grid(ViewBag.TestedAnimals as IEnumerable<QMS.ViewModels.TestedAnimalsVM>).Named("ordersGrid").Columns(columns =>
+   {
+       columns.Add(model => model.IsNewPlus).Sortable(true).SetWidth(20).Titled("#");
+       columns.Add(model => model.FormattedDateEntered).Sortable(true).SetWidth(50).Titled(QMSRes.DateEntered);
+       columns.Add(model => model.AnimalTag).Sortable(true).SetWidth(50).Titled(QMSRes.AnimalTag);
+       columns.Add(model => model.Result).Sortable(true).SetWidth(50).Titled(QMSRes.TestResult);
+
+   }).WithPaging(10).Filterable().SetLanguage(GeneralRes.Lang)
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+}
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+</script>
+

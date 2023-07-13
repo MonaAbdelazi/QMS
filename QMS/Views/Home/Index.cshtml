@@ -1,0 +1,176 @@
+﻿@using QMS.Core.Resources
+@using QMS.Data
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var db = new QMSEntities();
+    var time = DateTime.Now.Date;
+
+}
+
+
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-comments fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-left">
+                        <div class="huge">@db.Batchs.Count()</div>
+                        <div>Batch Registeration</div>
+                    </div>
+                </div>
+            </div>
+            <a href="~/BatchRegisteration/Index">
+                <div class="panel-footer">
+                    <span class="pull-right">Link_ViewDetails</span>
+                    <span class="pull-left"><i class="fa fa-arrow-circle-left"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-left">
+                        <div class="huge">@db.TESTS.Where(o => o.STATUS == "Active").Count()</div>
+                        <div>Testing</div>
+                    </div>
+                </div>
+            </div>
+            <a href="~/Test/Index">
+                <div class="panel-footer">
+                    <span class="pull-right">Link_ViewDetails</span>
+                    <span class="pull-left"><i class="fa fa-arrow-circle-left"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    @* gfsdgfsdgf *@
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-left">
+                        <div class="huge">@db.DiposedBatchs.Where(o => o.STATUS == "Active").Count()</div>
+                        <div>Dispose</div>
+                    </div>
+                </div>
+            </div>
+            <a href="~/Dispose/Create">
+                <div class="panel-footer">
+                    <span class="pull-right">Link_ViewDetails</span>
+                    <span class="pull-left"><i class="fa fa-arrow-circle-left"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    @* gsdfgsdfgdfg *@
+
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-paperclip fa-5x"></i>
+                    </div>
+
+                    @*class="col-xs-9 text-right"*@
+                    <div class="chartjs-render-monitor">
+                        <div class="huge">
+                            @db.FEED_RECORD.Count(o => o.STATUS == "Active")
+                        </div>
+                        <div>Feeding</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/Feeding/Index">
+                <div class="panel-footer">
+                    <span class="pull-right">Link_ViewDetails</span>
+                    <span class="pull-left"><i class="fa fa-arrow-circle-left"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .text-left {
+        text-align: justify-all;
+    }
+
+    .col-xs-3 {
+        float: outside;
+    }
+</style>
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>users </h3>
+            </div>
+            <div class="panel-body">
+                <div id="morris-donut-chart"></div>
+                <div class="text-left">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>@MenusRes.Title_BatchRegisteration </h3>
+            </div>
+            <div class="panel-body">
+                <div id="morris-donut-chart2"></div>
+                <div class="text-left">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>@MenuRes.Title_Item </h3>
+                </div>
+                <div class="panel-body">
+                    <div id="morris-donut-chart3"></div>
+                    <div class="text-left">
+
+                    </div>
+                </div>
+            </div>
+        </div>*@
+</div>
+
+
+
+
+
+
+

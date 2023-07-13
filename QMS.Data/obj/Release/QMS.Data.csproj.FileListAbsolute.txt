@@ -1,0 +1,10 @@
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\bin\Release\QMS.Data.dll.config
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\bin\Release\QMS.Data.dll
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\bin\Release\QMS.Data.pdb
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\bin\Release\Oracle.ManagedDataAccess.dll
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\bin\Release\EntityFramework.xml
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\obj\Release\QMS.Data.csprojResolveAssemblyReference.cache
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\obj\Release\QMS.Data.dll
+D:\work\BBB\Quarantine\Project\QMS\QMS.Data\obj\Release\QMS.Data.pdb

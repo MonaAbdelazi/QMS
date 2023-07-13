@@ -1,0 +1,155 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.CHEMICAL
+
+@{
+    ViewBag.Title = GeneralRes.Create;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@GeneralRes.Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Chemicals</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Name)
+
+                                @Html.TextBoxFor(model => model.CHEMICAL_NAME, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CHEMICAL_NAME)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Type)
+
+                                @Html.DropDownListFor(model => model.CHEMICAL_TYPE, 
+                                                      ViewBag.ChemicalTypes as SelectList, 
+                                                      CommonRes.SelectDropDown, 
+                                                      new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CHEMICAL_TYPE)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.InventoryReference)
+
+                                @Html.TextBoxFor(model => model.INVENTORY_REFERENCE, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.INVENTORY_REFERENCE)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Note)
+
+                                @Html.TextAreaFor(model => model.NOTES, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NOTES)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.PreQuarentineProcess)
+
+                                @Html.DropDownListFor(model => model.PREQUARENTINE_PROCESS,
+                                                      ViewBag.PreQuarentineProcess as SelectList,
+                                                      CommonRes.SelectDropDown,
+                                                      new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PREQUARENTINE_PROCESS)
+                            </div>
+
+
+                        </div>
+                        <div>
+
+                            <center>
+                                <p>
+                                    <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="add(this.id);" />
+                                </p>
+                            </center>
+
+
+
+                        </div>
+
+
+
+                        <div id="outputTable">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <center class="mgtp">
+
+                                <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" />
+                                &nbsp;
+                                @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                            </center>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = {
+                CHEMICAL_NAME: $('#CHEMICAL_NAME').val(), CHEMICAL_TYPE: $('#CHEMICAL_TYPE').val(),
+                INVENTORY_REFERENCE: $('#INVENTORY_REFERENCE').val(), NOTES: $('#NOTES').val(),
+                PREQUARENTINE_PROCESS: $('#PREQUARENTINE_PROCESS').val(),
+            };
+            $.ajax({
+                url: '/Chemicals/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#CHEMICAL_NAME').val("");
+            $('#CHEMICAL_TYPE').val("");
+            $('#INVENTORY_REFERENCE').val("");            
+            $('#PREQUARENTINE_PROCESS').val("");
+            $('#NOTES').val("");
+        }
+    </script>
+}

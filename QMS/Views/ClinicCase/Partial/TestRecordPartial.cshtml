@@ -1,0 +1,91 @@
+﻿@model QMS.Data.CASE_TESTS
+@using QMS.Core.Resources
+@using QMS.ViewModels
+
+
+<style type="text/css">
+    .paging-nav {
+        text-align: right;
+        padding-top: 2px;
+    }
+
+        .paging-nav a {
+            margin: auto 1px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1px 7px;
+            background: #91b9e6;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .paging-nav .selected-page {
+            background: #187ed5;
+            font-weight: bold;
+        }
+
+    .paging-nav,
+    #tableData {
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+<div id="outputTable">
+    <div class="form-group row">
+        @Html.HiddenFor(model => model.SYSTEMID, new { id = "RecordId" })
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.ClinicCaseType)
+
+            @Html.LabelFor(model => model.CLINIC_CASES.CASE_TYPE, new { @class = "form-control" })
+        </div>
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.AnimalLabel)
+
+            @Html.LabelFor(model => model.CLINIC_CASES.ANIMAL_LABEL, new { @class = "form-control" })
+        </div>
+        @{
+            if (Model.CLINIC_CASES.CASE_TYPE != "SingleCase")
+            {
+                <div class="col-lg-3">
+                    @Html.Label(QMSRes.TestedAnimal)
+
+                    @Html.TextBoxFor(model => model.ANIMAL_LABEL, new { @class = "form-control", id = "animalLabelValue" })
+                    @Html.ValidationMessageFor(model => model.ANIMAL_LABEL)
+                </div>
+            }
+            else
+            {
+                @Html.HiddenFor(model => model.ANIMAL_LABEL, new {id = "animalLabelValue" })
+
+            }
+        }
+
+        <div class="col-lg-3">
+            @Html.Label(QMSRes.TestResult)
+
+            @Html.TextAreaFor(model => model.TEST_RESULT, new { @class = "form-control", id="testResultValue" })
+            @Html.ValidationMessageFor(model => model.TEST_RESULT)
+        </div>
+
+
+        <div>
+            <p>
+                <input type="button" value="@CommonRes.Button_Save" id="save" class="btn btn-success hvr-bounce-in" onclick="recordTest(this.id);" />
+            </p>
+            <p>
+                <input type="button" value="@CommonRes.Button_Cancel" id="cancel" class="btn btn-success hvr-bounce-in" onclick="cancel(this.id);" />
+            </p>
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+
+
+
+
+</script>
+

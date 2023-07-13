@@ -1,0 +1,130 @@
+﻿@using QMS.Core.Resources
+@model QMS.Data.EXPORTER_TYPE
+
+@{
+    ViewBag.Title = GeneralRes.Create;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@GeneralRes.Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <form>
+
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-light-blue">
+
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@MenusRes.Exporters</h2>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary(true)
+
+                        <hr />
+
+                        <div class="form-group row">
+
+
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.TYPE_NAME)
+
+                                @Html.TextBoxFor(model => model.TYP_NAME, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TYP_NAME)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.IndividualCorp)
+                                @Html.DropDownListFor(m => m.INDIVIDUAL_CORPORATE, ViewBag.IndvCorporate as SelectList, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.INDIVIDUAL_CORPORATE)
+                            </div>
+                            <div class="col-lg-3">
+                                @Html.Label(QMSRes.Note)
+
+                                @Html.TextAreaFor(model => model.NOTES, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NOTES)
+                            </div>
+                           
+
+                        </div>
+                        <div>
+
+                            <center>
+                                <p>
+                                    <input type="button" value="@CommonRes.add" id="Add" class="btn btn-success hvr-bounce-in" onclick="add(this.id);" />
+                                </p>
+                            </center>
+
+
+
+                        </div>
+
+
+
+                        <div id="outputTable">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <center class="mgtp">
+
+                                <input type="submit" value="@CommonRes.Button_Save" class="btn btn-primary hvr-bounce-in" />
+                                &nbsp;
+                                @Html.ActionLink(CommonRes.BackToList, "Index", null, new { @class = "btn btn-warning hvr-bounce-in" })
+
+                            </center>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+<div>
+    @Html.ActionLink(CommonRes.BackToList, "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function add(_ddlDesc) {
+
+            var target = $('#outputTable');
+            var input = { TYP_NAME: $('#TYP_NAME').val(), INDIVIDUAL_CORPORATE: $('#INDIVIDUAL_CORPORATE').val(), NOTES: $('#NOTES').val() };
+            $.ajax({
+                url: '/Exporter_type/Add',
+                type: "POST",
+                data: JSON.stringify(input),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    target.html(data);
+
+                },
+                error: function () {
+                }
+            });
+
+            $('#TYP_NAME').val("");
+            $('#INDIVIDUAL_CORPORATE').val("");
+            $('#NOTES').val("");
+        }
+    </script>
+}

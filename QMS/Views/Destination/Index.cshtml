@@ -1,0 +1,39 @@
+﻿
+@using QMS.Core.Resources
+@using QMS.Data
+@using GridMvc.Html
+@model IEnumerable<QMS.Data.DESTINATION>
+
+@{
+    ViewBag.Title = GeneralRes.Index;
+}
+
+<h2>@GeneralRes.Index</h2>
+
+<div style="text-align: right;">
+    <form action="~/Destination/Create">
+        <button type="submit" class="btn btn-default alignPreview">
+            <span class="glyphicon glyphicon-new-window"></span>
+            @GeneralRes.Button_CreateNew
+        </button>
+    </form>
+</div>
+
+
+
+
+<br />
+@Html.Grid(Model).Named("ordersGrid").Columns(columns =>
+{
+
+    columns.Add(model => model.DESTINATION_NAME).Sortable(true).SetWidth(50).Titled(QMSRes.DestenationName);
+
+
+
+
+    columns.Add().Encoded(false).Sanitized(false).RenderValueAs(o => Html.ActionLink(GeneralRes.Link_Edit, "Edit", new { id = o.SYSTEMID })).SetWidth(50);
+    columns.Add().Encoded(false).Sanitized(false).RenderValueAs(o => Html.ActionLink(GeneralRes.Link_Delete, "Delete", new { id = o.SYSTEMID })).SetWidth(50);
+
+}).WithPaging(10).Filterable().SetLanguage(GeneralRes.Lang)
+
+

@@ -1,0 +1,75 @@
+﻿@model QMS.Data.CHEMICAL
+@using QMS.Core.Resources
+    
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@MenusRes.Chemicals</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CHEMICAL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHEMICAL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHEMICAL_TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHEMICAL_TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INVENTORY_REFERENCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INVENTORY_REFERENCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOTES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOTES)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PREQUARENTINE_PROCESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PREQUARENTINE_PROCESS)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

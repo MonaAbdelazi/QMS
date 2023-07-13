@@ -1,0 +1,58 @@
+﻿@model QMS.Data.FEED_RECORD
+@using QMS.Core.Resources
+    
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@MenusRes.Feeding</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BATCH_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BATCH_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FEED_TYPE1.FEED_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FEED_TYPE1.FEED_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AMOUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AMOUNT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CREATION_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREATION_DATE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
